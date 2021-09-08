@@ -1,7 +1,13 @@
-p {
-  font-family: 'Thrums Serif Regular', Times, serif;
+@font-face {
+  font-family: 'ThrumsSerif';
+  src: url('thrums.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
+body {
+  font-family: ThrumsSerif, sans-serif;
+}
 * {
   box-sizing: border-box;
 }
