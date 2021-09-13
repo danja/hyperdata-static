@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/334/playground/danja/xmlns/ssr/source
+END
+rev.html
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/334/playground/danja/xmlns/ssr/source/rev.html
+END
+rev2rdf.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/334/playground/danja/xmlns/ssr/source/rev2rdf.xsl
+END
+rev+rss2rdf.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/334/playground/danja/xmlns/ssr/source/rev+rss2rdf.xsl
+END
+review-rss2.xml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/334/playground/danja/xmlns/ssr/source/review-rss2.xml
+END
+rss2rdf.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/334/playground/danja/xmlns/ssr/source/rss2rdf.xsl
+END
+review.rdf
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/334/playground/danja/xmlns/ssr/source/review.rdf
+END
+review.rdfs
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/334/playground/danja/xmlns/ssr/source/review.rdfs
+END

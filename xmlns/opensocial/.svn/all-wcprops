@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/338/playground/danja/xmlns/opensocial
+END
+cards.html
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/338/playground/danja/xmlns/opensocial/cards.html
+END
+opensocial2foaf.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/321/playground/danja/xmlns/opensocial/opensocial2foaf.xsl
+END
+person.rdf
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/321/playground/danja/xmlns/opensocial/person.rdf
+END
+sparql.xml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/338/playground/danja/xmlns/opensocial/sparql.xml
+END
+get-people.rq
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/328/playground/danja/xmlns/opensocial/get-people.rq
+END
+person.xml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/321/playground/danja/xmlns/opensocial/person.xml
+END
+sparql2hcard.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/327/playground/danja/xmlns/opensocial/sparql2hcard.xsl
+END

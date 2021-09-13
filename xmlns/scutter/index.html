@@ -1,0 +1,46 @@
+<h1>Scutter Vocabulary</h1>
+
+<p><strong>Terms useful for a RDF-friendly Web Crawler/Data Augmenter</strong></p>
+
+<p><em>Work in progress 2021-05-23, changes probable due to trying it and aligning with other vocabs, esp. <a href="https://www.w3.org/TR/HTTP-in-RDF10/">HTTP Vocabulary in RDF 1.0</a> and <a href="https://schema.org/">schema.org</a></em></p>
+
+<p>Terms derived from <a href="https://web.archive.org/web/20051029014923/http://rdfweb.org/topic/ScutterVocab">ScutterVocab</a>, summarised, tweaked <em>(2005 archived copy of http://rdfweb.org/topic/ScutterVocab)</em> :</p>
+
+<ul>
+<li><p><strong>Context</strong> - the &ldquo;shadow resource&rdquo; of a source document</p>
+
+<ul>
+<li><strong>origin</strong> - with an <code>rdfs:seeAlso</code> to the source document - where the source document was initially discovered, usually the URI of another document but may be an event triggered by a user, e.g. by manual submission</li>
+<li><strong>source</strong> - the URI of the source document itself, a subproperty of <code>dcterms:references</code></li>
+<li><strong>fetch</strong> - points to a <strong>Fetch</strong></li>
+<li><strong>latestFetch</strong> - the most recent <strong>Fetch</strong></li>
+</ul>
+</li>
+<li><p><strong>Fetch</strong> - <em>(noun)</em> represents a HTTP <code>GET</code> (or equivalent) event of the source document of a context</p>
+
+<ul>
+<li><strong>status</strong> - the HTTP status code returned by the <code>GET</code></li>
+</ul>
+</li>
+<li><p><strong>Reason</strong> - annotation of a Fetch, typically explaining failure</p></li>
+</ul>
+
+
+<h2>Provisional changes/additions</h2>
+
+<ul>
+<li><strong>state</strong> - property of <strong>Context</strong> summarising system&rsquo;s current knowledge of that <strong>Context</strong>. One of <em>[&ldquo;queued&rdquo;, &ldquo;live&rdquo;, &ldquo;dead&rdquo;]</em></li>
+<li><strong>base64url</strong> - property of <strong>Context</strong> providing an encoding of the source document&rsquo;s URL according to <a href="https://datatracker.ietf.org/doc/html/rfc4648#section-5">RFC 4648</a></li>
+</ul>
+
+
+<p>Both of these are prompted by implementation considerations. Having the <strong>state</strong> of a <strong>Context</strong> in the store seems a simple way of tracking resources and allowing their display via SPARQL selection. (It is inelegant being mutable but seems reasonable pragmatically).</p>
+
+<p>The purpose of <strong>base64url</strong> is to make it easy to give a <strong>Context</strong> a dereferenceable URL. For example a <strong>Context</strong> of <code>http://example.org</code> would have a <strong>base64url</strong> of <code>"aHR0cDovL2V4YW1wbGUub3Jn"</code>. This would allow eg. <code>http://hyperdata.it/aHR0cDovL2V4YW1wbGUub3Jn</code> to be used to display the information about that context. Putting the value in the RDF will hopefully simplify the coding (TBD).</p>
+
+<h2>Notes</h2>
+
+<p><strong>Model</strong> - the original vocab uses a model in which &ldquo;<em>All resources created to describe the actions and contents of a scutter and its store, should be anonymous resources</em>&rdquo;. For reasons given, that rule won&rsquo;t be used here.</p>
+
+<p><strong>HTTP Vocab</strong> - the <a href="https://www.w3.org/TR/HTTP-in-RDF10/">HTTP Vocabulary in RDF 1.0</a>
+W3C Working Group Note 2017 has significant overlap with <strong>Fetch</strong>.</p>

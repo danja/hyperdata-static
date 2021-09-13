@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/302/playground/danja/xmlns/atom
+END
+memes.rdf
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/302/playground/danja/xmlns/atom/memes.rdf
+END
+atom.rnc
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/302/playground/danja/xmlns/atom/atom.rnc
+END
+atom2rdf.html
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/302/playground/danja/xmlns/atom/atom2rdf.html
+END
+memes.atom
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/302/playground/danja/xmlns/atom/memes.atom
+END
+xsltdoc.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/302/playground/danja/xmlns/atom/xsltdoc.xsl
+END
+atom2rdf_xslt-1.0.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/302/playground/danja/xmlns/atom/atom2rdf_xslt-1.0.xsl
+END
+atom2turtle_xslt-1.0.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/302/playground/danja/xmlns/atom/atom2turtle_xslt-1.0.xsl
+END
