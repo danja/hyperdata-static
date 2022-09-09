@@ -41,6 +41,8 @@ I'm 58 years old, aspire to a chilled life but am very much into Web development
 
 I'm reasonably healthy, physically and mentally (ok, at least nothing too pathological: slight belly - too much beer; prone to anxiety, rather disorderly attention).
 
+Got a small field I haven't really done anything with yet (fruit tree fail - deer ate sapling's bark, fool Danny). Veg plot is current inundated with 'Johnson Grass', an invasive thing. I need to spend a day or two pulling it out, bit funny given the UK PM situation.
+
 ## Coding
 
 I'm definitely not a _great_ coder, but have been doing it long enough that I'm _good enough_ for most things. Agnostic over choice of language, whatever's appropriate to the task. Probably spent most time with Java, though haven't done any in a long while. Familiar with most Web tech, 'full-stack'-ish. I've got a virtual server with [blog etc](https://hyperdata.it/), couple of little services. The [beep thing](https://hyperdata.it/webbeep/) is fun.
@@ -57,7 +59,7 @@ I tend to have lots of projects on the go at any given time, hop between them. E
 
 - [Kodaly hand signals](https://hyperdata.it/kodaly/capture/capture.html) : a little machine learning experiment, I've got as far as a browser Javascript app for capturing images (main motivation is to get familiar with the Deep Learning tools for a [more ambitious project](https://elfquake.wordpress.com/about/))
 
-- SparqlPress : a Linked Data plugin for Wordpress, PHP + RDF etc. I was prompted to start on it as a mini-contract to revive an old project, but now I want to continue in my own time. It doesn't really do anything useful yet, is currently on pause. I think the idea is great, but I don't like the way I was implementing it, clunky architecture. Need to rethink.
+- [SparqlPress](https://github.com/danja/sparqlpress2) : a Linked Data plugin for Wordpress, PHP + RDF etc. I was prompted to start on it as a mini-contract to revive an old project, but now I want to continue in my own time. It doesn't really do anything useful yet, is currently on pause. I think the idea is great, but I don't like the way I was implementing it, clunky architecture. Need to rethink.
 
 I have been involved with standards orgs - mostly W3C (on some RDF bits).
 
