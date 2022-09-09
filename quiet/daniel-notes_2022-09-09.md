@@ -16,7 +16,14 @@ I would prefer to be in something long-term, the hassle (mostly cognitive) of ho
 
 The Kendraio site is spot on. I really can't fault it at all.
 
-Monitoring yourself : a feedreader kind of things, tracking mentions etc.
+There's an astonishing amount of material in the codebase.
+
+The app ran fine. Though as a new user it was a bit intimidating, and I haven't got it doing anything useful for me yet. I think that should be easy to do. There's clearly more than _Minimum Viable Product_ in the codebase, just it isn't pushed forward.
+
+That I'd strongly recommend : getting it to do _something_ very visible out of the box. Maybe pre-load it with YouTube Adaptor, so all a person has to do is enter their credentials and they have access through the API. Not sure what's the next most likely service someone might have, but have that lined up, like through a Wizard maybe.
+
+Regarding non-core ideas, off the top of my head I would definitely consider looking into what's available as low-hanging fruit around RDF/Linked Data services etc. (I'm not the zealot I once was with this stuff, but it can be very useful, worth a look).
+Also 'monitoring yourself' might be a useful avenue : a feedreader kind of thing, tracking mentions on twitter etc. (I did make [a feedreader](https://danja.github.io/NewsMonitor/NewsMonitorSpecification_2014-04-18.html), years back, is familiar territory).
 
 ---
 
@@ -59,6 +66,25 @@ I was a fairly compulsive blogger, back in the day : mostly evangelising Semanti
 I've had a hand in a few academic papers : https://scholar.google.com/scholar?q=danny+ayers
 Spoken at quite a few conferences.
 
-I've recently started trying to figure out how to make _watchable_ YouTube videos. Always had a bit of interest (from music videos I guess) but with the growth of YouTube and the availability of the tools nowadays, seems like a natural progress from blogging.
+I worked for a couple of years for [Talis](https://talis.com/), 'community outreach manager' or somesuch. Birmingham company though I was working full-time from here, would visit every couple of months. My brief there was mostly just to make things using their (Semantic Web) cloud platform, blog about it. Was good stuff, easy to promote because I liked it. But alas the company reorganised, more money in flogging their (dull) educational software than doing a Blue Sky kind of research project.
+
+I've recently started trying to figure out how to make _watchable_ YouTube videos. Always had a bit of interest (from music videos I guess) but with the growth of YouTube and the availability of the tools nowadays, seems like a natural progress from blogging. Long way to go yet, but gradually getting the hang.
 
 But my main hobby is the music stuff. I'm a lousy guitar & keyboard player with a rough voice (recently started learning clarinet, so also bad at that). But **computer**!
+The material I'm most satisfied with is from a creative burst years ago, is over on Soundcloud, [eg](https://soundcloud.com/danny-ayers/bittersweet-danny).
+
+---
+
+#### Context :
+
+My office (with Claudio):
+
+![office](https://hyperdata.it/quiet/images/office-claudio.jpeg)
+
+Music room:
+
+![music room](https://hyperdata.it/quiet/images/music-room.jpeg)
+
+View from the balcony :
+
+![balcony view](https://hyperdata.it/quiet/images/from-balcony.jpeg)
