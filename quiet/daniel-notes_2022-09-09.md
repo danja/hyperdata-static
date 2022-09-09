@@ -6,6 +6,8 @@ It occurs to me that for you to be able to think of a possible role for me, I'd 
 
 Before anything else I must say that I'm absolutely behind your philosophy. I'm a big fan of open source, open data etc. I have worked quite happily in commercial orgs (and a college), but there is something nice about a non-profit.
 
+### Workiness
+
 Part-time working suits me best - my productivity tends to take a nosedive after the equiv. of say 25 hours a week.
 
 Regarding payment, I've no problem with it being relatively low against industry standards, I don't exactly have an extravagent lifestyle.
@@ -24,10 +26,10 @@ That I'd strongly recommend : getting it to do _something_ very visible out of t
 
 The out-of-the-box bit : I'm sure here must be a straightforward way to wrap the node bits into some kind of self-extracting .exe or whatever.
 
-A mobile-native version has to be a _must-have_. (I've only snly scratched the surface there, ages ago was able make a personal Wiki in Java for Android, RDF store backed!, to have a go with mobile coding, see how it might be done, but never took it past proof-of-concept. Android is idiosyncratic stuff, a lot of dedicated libraries and suchlike you need to know about, but it really wasn't rocket science).
+A mobile-native version has to be a _must-have_. (I've only scratched the surface there, ages ago was able make a personal Wiki in Java for Android, RDF store backed!, to have a go with mobile coding, see how it might be done, but never took it past proof-of-concept. Android is idiosyncratic stuff, a lot of dedicated libraries and suchlike you need to know about, but it really wasn't rocket science).
 
 Regarding possible future ideas, off the top of my head I would definitely consider looking into what's available as low-hanging fruit around RDF/Linked Data services etc. (I'm not the zealot I once was with this stuff, but it can be very useful, worth a look).
-Also 'monitoring yourself' might be a useful avenue : a feedreader kind of thing, tracking mentions on twitter etc. (I did make [a feedreader](https://danja.github.io/NewsMonitor/NewsMonitorSpecification_2014-04-18.html), years back, is familiar territory).
+Also 'monitoring yourself' might be a useful avenue : a feedreader kind of thing, tracking mentions on twitter etc. (I did make [a feedreader](https://danja.github.io/NewsMonitor/NewsMonitorSpecification_2014-04-18.html), years back, that is familiar territory).
 
 ---
 
@@ -77,7 +79,7 @@ I worked for a couple of years for [Talis](https://talis.com/), 'community outre
 I've recently started trying to figure out how to make _watchable_ YouTube videos. Always had a bit of interest (from music videos I guess) but with the growth of YouTube and the availability of the tools nowadays, seems like a natural progress from blogging. Long way to go yet, but gradually getting the hang.
 
 But my main hobby is the music stuff. I'm a lousy guitar & keyboard player with a rough voice (recently started learning clarinet, so also bad at that). But **computer**!
-The material I'm most satisfied with is from a creative burst years ago, is over on Soundcloud, [eg](https://soundcloud.com/danny-ayers/bittersweet-danny).
+The material I'm most satisfied with is from a creative burst years ago, is over on Soundcloud, [for example](https://soundcloud.com/danny-ayers/bittersweet-danny).
 
 ---
 
