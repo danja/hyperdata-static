@@ -24,7 +24,7 @@ That I'd strongly recommend : getting it to do _something_ very visible out of t
 
 The out-of-the-box bit : I'm sure here must be a straightforward way to wrap the node bits into some kind of self-extracting .exe or whatever.
 
-A mobile-native version has to be a _must-have_. (Ages ago I did make a personal Wiki in Java for Android, RDF store backed, to have a go with mobile coding, see how it might be done, but never took it past proof-of-concept).
+A mobile-native version has to be a _must-have_. (I've only snly scratched the surface there, ages ago was able make a personal Wiki in Java for Android, RDF store backed!, to have a go with mobile coding, see how it might be done, but never took it past proof-of-concept. Android is idiosyncratic stuff, a lot of dedicated libraries and suchlike you need to know about, but it really wasn't rocket science).
 
 Regarding possible future ideas, off the top of my head I would definitely consider looking into what's available as low-hanging fruit around RDF/Linked Data services etc. (I'm not the zealot I once was with this stuff, but it can be very useful, worth a look).
 Also 'monitoring yourself' might be a useful avenue : a feedreader kind of thing, tracking mentions on twitter etc. (I did make [a feedreader](https://danja.github.io/NewsMonitor/NewsMonitorSpecification_2014-04-18.html), years back, is familiar territory).
