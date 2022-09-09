@@ -22,7 +22,11 @@ The app ran fine. Though as a new user it was a bit intimidating, and I haven't 
 
 That I'd strongly recommend : getting it to do _something_ very visible out of the box. Maybe pre-load it with YouTube Adaptor, so all a person has to do is enter their credentials and they have access through the API. Not sure what's the next most likely service someone might have, but have that lined up, like through a Wizard maybe.
 
-Regarding non-core ideas, off the top of my head I would definitely consider looking into what's available as low-hanging fruit around RDF/Linked Data services etc. (I'm not the zealot I once was with this stuff, but it can be very useful, worth a look).
+The out-of-the-box bit : I'm sure here must be a straightforward way to wrap the node bits into some kind of self-extracting .exe or whatever.
+
+A mobile-native version has to be a _must-have_. (Ages ago I did make a personal Wiki in Java for Android, RDF store backed, to have a go with mobile coding, see how it might be done, but never took it past proof-of-concept).
+
+Regarding possible future ideas, off the top of my head I would definitely consider looking into what's available as low-hanging fruit around RDF/Linked Data services etc. (I'm not the zealot I once was with this stuff, but it can be very useful, worth a look).
 Also 'monitoring yourself' might be a useful avenue : a feedreader kind of thing, tracking mentions on twitter etc. (I did make [a feedreader](https://danja.github.io/NewsMonitor/NewsMonitorSpecification_2014-04-18.html), years back, is familiar territory).
 
 ---
