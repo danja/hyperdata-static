@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>Vinocaster : Lessons learnt</title>
+  <meta name="author" content="Danny Ayers" />
+  <link rel="stylesheet" href="/stuff/css/lightbox.css" type="text/css"
+  media="screen" />
+  <link rel="stylesheet" href="/stuff/css/font.css" type="text/css"
+  media="screen" />
+  <link rel="stylesheet" href="/stuff/css/stuff.css" type="text/css"
+  media="Screen" />
+  <link rel="stylesheet" href="/stuff/css/tabs.css" type="text/css"
+  media="Screen" />
+  <!-- link rel="stylesheet" href="/css/handheld.css" type="text/css" media="handheld" / -->
+  <script type="text/javascript" src="/stuff/js/prototype.js">
+ </script>
+  <script type="text/javascript"
+  src="/stuff/js/scriptaculous.js?load=effects,builder">
+ </script>
+  <script type="text/javascript" src="../../js/lightbox.js">
+ </script>
+  <link rel="shortcut icon" href="/stuff/favicon.ico" />
+  <link rel="apple-touch-icon" href="/stuff/apple-touch-icon.png" />
+</head>
+
+<body>
+<p><a href="index.html">Vinocaster Home</a> </p>
+
+<div id="header">
+<h1 id="page-title">The Vinocaster : Lessons Learnt</h1>
+
+<p id="description">building a custom electric guitar</p>
+</div>
+
+<div class="container">
+
+<div class="sidebar-left">
+<ul class="gallery">
+  <li><br />
+    Staves-Planer <br />
+    <a href="images/staves-planer.jpg" rel="lightbox"
+    title="Staves-Planer"><img alt="Staves-Planer"
+    src="thumbs/staves-planer.jpg" width="100" height="75" /> </a> </li>
+  <li><br />
+    Assembled-Rear <br />
+    <a href="images/assembled-rear.jpg" rel="lightbox"
+    title="Assembled-Rear"><img alt="Assembled-Rear"
+    src="thumbs/assembled-rear.jpg" width="100" height="134" /> </a> </li>
+  <li><br />
+    Neck-Trial <br />
+    <a href="images/neck-trial.jpg" rel="lightbox" title="Neck-Trial"><img
+    alt="Neck-Trial" src="thumbs/neck-trial.jpg" width="100" height="134" />
+    </a> </li>
+  <li><br />
+    Neck-Socket-Rough <br />
+    <a href="images/neck-socket-rough.jpg" rel="lightbox"
+    title="Neck-Socket-Rough"><img alt="Neck-Socket-Rough"
+    src="thumbs/neck-socket-rough.jpg" width="100" height="75" /> </a> </li>
+  <li><br />
+    Assembled <br />
+    <a href="images/assembled.jpg" rel="lightbox" title="Assembled"><img
+    alt="Assembled" src="thumbs/assembled.jpg" width="100" height="275" /> </a>
+  </li>
+  <li><br />
+    Bastard-Switch <br />
+    <a href="images/bastard-switch.jpg" rel="lightbox"
+    title="Bastard-Switch"><img alt="Bastard-Switch"
+    src="thumbs/bastard-switch.jpg" width="100" height="75" /> </a> </li>
+  <li><br />
+    Nut-Prework <br />
+    <a href="images/nut-prework.jpg" rel="lightbox" title="Nut-Prework"><img
+    alt="Nut-Prework" src="thumbs/nut-prework.jpg" width="100" height="75" />
+    </a> </li>
+  <li><br />
+    Pre-Finish <br />
+    <a href="images/pre-finish.jpg" rel="lightbox" title="Pre-Finish"><img
+    alt="Pre-Finish" src="thumbs/pre-finish.jpg" width="100" height="259" />
+    </a> </li>
+  <li><br />
+    Nut-Rough <br />
+    <a href="images/nut-rough.jpg" rel="lightbox" title="Nut-Rough"><img
+    alt="Nut-Rough" src="thumbs/nut-rough.jpg" width="100" height="75" /> </a>
+  </li>
+  <li><br />
+    Neck-Pocket-Fitted-Rear <br />
+    <a href="images/neck-pocket-fitted-rear.jpg" rel="lightbox"
+    title="Neck-Pocket-Fitted-Rear"><img alt="Neck-Pocket-Fitted-Rear"
+    src="thumbs/neck-pocket-fitted-rear.jpg" width="100" height="75" /> </a>
+  </li>
+  <li><br />
+    Vinocaster-Pre-Finish <br />
+    <a href="images/vinocaster-pre-finish.jpg" rel="lightbox"
+    title="Vinocaster-Pre-Finish"><img alt="Vinocaster-Pre-Finish"
+    src="thumbs/vinocaster-pre-finish.jpg" width="100" height="275" /> </a>
+  </li>
+  <li><br />
+    Fender-Lace-Wiring <br />
+    <a href="images/fender-lace-wiring.jpg" rel="lightbox"
+    title="Fender-Lace-Wiring"><img alt="Fender-Lace-Wiring"
+    src="thumbs/fender-lace-wiring.jpg" width="100" height="134" /> </a> </li>
+  <li><br />
+    Back-Sanded <br />
+    <a href="images/back-sanded.jpg" rel="lightbox" title="Back-Sanded"><img
+    alt="Back-Sanded" src="thumbs/back-sanded.jpg" width="100" height="112" />
+    </a> </li>
+  <li><br />
+    Assembled-Doneish <br />
+    <a href="images/assembled-doneish.jpg" rel="lightbox"
+    title="Assembled-Doneish"><img alt="Assembled-Doneish"
+    src="thumbs/assembled-doneish.jpg" width="100" height="242" /> </a> </li>
+  <li><br />
+    Assembled-Action <br />
+    <a href="images/assembled-action.jpg" rel="lightbox"
+    title="Assembled-Action"><img alt="Assembled-Action"
+    src="thumbs/assembled-action.jpg" width="100" height="134" /> </a> </li>
+  <li><br />
+    Front-Sanded <br />
+    <a href="images/front-sanded.jpg" rel="lightbox" title="Front-Sanded"><img
+    alt="Front-Sanded" src="thumbs/front-sanded.jpg" width="100" height="119"
+    /> </a> </li>
+  <li><br />
+    Cavity-Rework <br />
+    <a href="images/cavity-rework.jpg" rel="lightbox"
+    title="Cavity-Rework"><img alt="Cavity-Rework"
+    src="thumbs/cavity-rework.jpg" width="100" height="134" /> </a> </li>
+  <li><br />
+    Vinocaster-Current <br />
+    <a href="images/vinocaster-current.jpg" rel="lightbox"
+    title="Vinocaster-Current"><img alt="Vinocaster-Current"
+    src="thumbs/vinocaster-current.jpg" width="100" height="242" /> </a> </li>
+  <li><br />
+    Back-Rough <br />
+    <a href="images/back-rough.jpg" rel="lightbox" title="Back-Rough"><img
+    alt="Back-Rough" src="thumbs/back-rough.jpg" width="100" height="109" />
+    </a> </li>
+  <li><br />
+    Pickups <br />
+    <a href="images/pickups.jpg" rel="lightbox" title="Pickups"><img
+    alt="Pickups" src="thumbs/pickups.jpg" width="100" height="179" /> </a>
+  </li>
+  <li><br />
+    Tini <br />
+    <a href="images/tini.jpg" rel="lightbox" title="Tini"><img alt="Tini"
+    src="thumbs/tini.jpg" width="100" height="75" /> </a> </li>
+  <li><br />
+    Newbody-Raw <br />
+    <a href="images/newbody-raw.jpg" rel="lightbox" title="Newbody-Raw"><img
+    alt="Newbody-Raw" src="thumbs/newbody-raw.jpg" width="100" height="84" />
+    </a> </li>
+  <li><br />
+    Head <br />
+    <a href="images/head.jpg" rel="lightbox" title="Head"><img alt="Head"
+    src="thumbs/head.jpg" width="100" height="134" /> </a> </li>
+  <li><br />
+    Assembled-Pickups <br />
+    <a href="images/assembled-pickups.jpg" rel="lightbox"
+    title="Assembled-Pickups"><img alt="Assembled-Pickups"
+    src="thumbs/assembled-pickups.jpg" width="100" height="134" /> </a> </li>
+  <li><br />
+    Stave-Raw <br />
+    <a href="images/stave-raw.jpg" rel="lightbox" title="Stave-Raw"><img
+    alt="Stave-Raw" src="thumbs/stave-raw.jpg" width="100" height="75" /> </a>
+  </li>
+  <li><br />
+    Pickups-Prework <br />
+    <a href="images/pickups-prework.jpg" rel="lightbox"
+    title="Pickups-Prework"><img alt="Pickups-Prework"
+    src="thumbs/pickups-prework.jpg" width="100" height="75" /> </a> </li>
+  <li><br />
+    Controls-Pre <br />
+    <a href="images/controls-pre.jpg" rel="lightbox" title="Controls-Pre"><img
+    alt="Controls-Pre" src="thumbs/controls-pre.jpg" width="100" height="95" />
+    </a> </li>
+  <li><br />
+    Stave-Gouge <br />
+    <a href="images/stave-gouge.jpg" rel="lightbox" title="Stave-Gouge"><img
+    alt="Stave-Gouge" src="thumbs/stave-gouge.jpg" width="100" height="75" />
+    </a> </li>
+  <li><br />
+    Bandsawed <br />
+    <a href="images/bandsawed.jpg" rel="lightbox" title="Bandsawed"><img
+    alt="Bandsawed" src="thumbs/bandsawed.jpg" width="100" height="90" /> </a>
+  </li>
+  <li><br />
+    Layout <br />
+    <a href="images/layout.jpg" rel="lightbox" title="Layout"><img alt="Layout"
+    src="thumbs/layout.jpg" width="100" height="134" /> </a> </li>
+  <li><br />
+    Sparql-Saw-Box <br />
+    <a href="images/sparql-saw-box.jpg" rel="lightbox"
+    title="Sparql-Saw-Box"><img alt="Sparql-Saw-Box"
+    src="thumbs/sparql-saw-box.jpg" width="100" height="74" /> </a> </li>
+  <li><br />
+    Shaping <br />
+    <a href="images/shaping.jpg" rel="lightbox" title="Shaping"><img
+    alt="Shaping" src="thumbs/shaping.jpg" width="100" height="60" /> </a> </li>
+  <li><br />
+    Assembled-1-Compared <br />
+    <a href="images/assembled-1-compared.jpg" rel="lightbox"
+    title="Assembled-1-Compared"><img alt="Assembled-1-Compared"
+    src="thumbs/assembled-1-compared.jpg" width="100" height="134" /> </a> </li>
+  <li><br />
+    Squier <br />
+    <a href="images/squier.jpg" rel="lightbox" title="Squier"><img alt="Squier"
+    src="thumbs/squier.jpg" width="100" height="276" /> </a> </li>
+  <li><br />
+    Assembled-Angle <br />
+    <a href="images/assembled-angle.jpg" rel="lightbox"
+    title="Assembled-Angle"><img alt="Assembled-Angle"
+    src="thumbs/assembled-angle.jpg" width="100" height="134" /> </a> </li>
+  <li><br />
+    Pickup-Routing-Action <br />
+    <a href="images/pickup-routing-action.jpg" rel="lightbox"
+    title="Pickup-Routing-Action"><img alt="Pickup-Routing-Action"
+    src="thumbs/pickup-routing-action.jpg" width="100" height="75" /> </a> </li>
+  <li><br />
+    Glued <br />
+    <a href="images/glued.jpg" rel="lightbox" title="Glued"><img alt="Glued"
+    src="thumbs/glued.jpg" width="100" height="75" /> </a> </li>
+  <li><br />
+    Assembley-Test-1 <br />
+    <a href="images/assembley-test-1.jpg" rel="lightbox"
+    title="Assembley-Test-1"><img alt="Assembley-Test-1"
+    src="thumbs/assembley-test-1.jpg" width="100" height="175" /> </a> </li>
+  <li><br />
+    Cutting-Copper <br />
+    <a href="images/cutting-copper.jpg" rel="lightbox"
+    title="Cutting-Copper"><img alt="Cutting-Copper"
+    src="thumbs/cutting-copper.jpg" width="100" height="68" /> </a> </li>
+  <li><br />
+    Body-Template <br />
+    <a href="images/body-template.jpg" rel="lightbox"
+    title="Body-Template"><img alt="Body-Template"
+    src="thumbs/body-template.jpg" width="100" height="75" /> </a> </li>
+  <li><br />
+    Switch <br />
+    <a href="images/switch.jpg" rel="lightbox" title="Switch"><img alt="Switch"
+    src="thumbs/switch.jpg" width="100" height="99" /> </a> </li>
+  <li><br />
+    Assembled-Controls <br />
+    <a href="images/assembled-controls.jpg" rel="lightbox"
+    title="Assembled-Controls"><img alt="Assembled-Controls"
+    src="thumbs/assembled-controls.jpg" width="100" height="134" /> </a> </li>
+  <li><br />
+    Neck-Pocket-Templating <br />
+    <a href="images/neck-pocket-templating.jpg" rel="lightbox"
+    title="Neck-Pocket-Templating"><img alt="Neck-Pocket-Templating"
+    src="thumbs/neck-pocket-templating.jpg" width="100" height="75" /> </a>
+  </li>
+  <li><br />
+    Neck-Trial-Strings <br />
+    <a href="images/neck-trial-strings.jpg" rel="lightbox"
+    title="Neck-Trial-Strings"><img alt="Neck-Trial-Strings"
+    src="thumbs/neck-trial-strings.jpg" width="100" height="75" /> </a> </li>
+  <li><br />
+    Plates-Glued <br />
+    <a href="images/plates-glued.jpg" rel="lightbox" title="Plates-Glued"><img
+    alt="Plates-Glued" src="thumbs/plates-glued.jpg" width="100" height="79" />
+    </a> </li>
+  <li><br />
+    Bench-Mess <br />
+    <a href="images/bench-mess.jpg" rel="lightbox" title="Bench-Mess"><img
+    alt="Bench-Mess" src="thumbs/bench-mess.jpg" width="100" height="134" />
+    </a> </li>
+  <li><br />
+    Plates-Gluing <br />
+    <a href="images/plates-gluing.jpg" rel="lightbox"
+    title="Plates-Gluing"><img alt="Plates-Gluing"
+    src="thumbs/plates-gluing.jpg" width="100" height="75" /> </a> </li>
+  <li><br />
+    Assembled-1-Compared-Edge <br />
+    <a href="images/assembled-1-compared-edge.jpg" rel="lightbox"
+    title="Assembled-1-Compared-Edge"><img alt="Assembled-1-Compared-Edge"
+    src="thumbs/assembled-1-compared-edge.jpg" width="100" height="134" /> </a>
+  </li>
+  <li><br />
+    Thickness-Compared <br />
+    <a href="images/thickness-compared.jpg" rel="lightbox"
+    title="Thickness-Compared"><img alt="Thickness-Compared"
+    src="thumbs/thickness-compared.jpg" width="100" height="114" /> </a> </li>
+  <li><br />
+    Thickness <br />
+    <a href="images/thickness.jpg" rel="lightbox" title="Thickness"><img
+    alt="Thickness" src="thumbs/thickness.jpg" width="100" height="134" /> </a>
+  </li>
+  <li><br />
+    Pickup-Routing <br />
+    <a href="images/pickup-routing.jpg" rel="lightbox"
+    title="Pickup-Routing"><img alt="Pickup-Routing"
+    src="thumbs/pickup-routing.jpg" width="100" height="75" /> </a> </li>
+  <li><br />
+    Body-Raw <br />
+    <a href="images/body-raw.jpg" rel="lightbox" title="Body-Raw"><img
+    alt="Body-Raw" src="thumbs/body-raw.jpg" width="100" height="134" /> </a>
+  </li>
+  <li><br />
+    Template-Gluing <br />
+    <a href="images/template-gluing.jpg" rel="lightbox"
+    title="Template-Gluing"><img alt="Template-Gluing"
+    src="thumbs/template-gluing.jpg" width="100" height="75" /> </a> </li>
+  <li><br />
+    Control-Plate <br />
+    <a href="images/control-plate.jpg" rel="lightbox"
+    title="Control-Plate"><img alt="Control-Plate"
+    src="thumbs/control-plate.jpg" width="100" height="91" /> </a> </li>
+  <li><br />
+    Neck-Pocket-Trial <br />
+    <a href="images/neck-pocket-trial.jpg" rel="lightbox"
+    title="Neck-Pocket-Trial"><img alt="Neck-Pocket-Trial"
+    src="thumbs/neck-pocket-trial.jpg" width="100" height="75" /> </a> </li>
+  <li><br />
+    Wiring <br />
+    <a href="images/wiring.jpg" rel="lightbox" title="Wiring"><img alt="Wiring"
+    src="thumbs/wiring.jpg" width="100" height="134" /> </a> </li>
+  <li><br />
+    Grain <br />
+    <a href="images/grain.jpg" rel="lightbox" title="Grain"><img alt="Grain"
+    src="thumbs/grain.jpg" width="100" height="24" /> </a> </li>
+  <li><br />
+    Strings-Crossed <br />
+    <a href="images/strings-crossed.jpg" rel="lightbox"
+    title="Strings-Crossed"><img alt="Strings-Crossed"
+    src="thumbs/strings-crossed.jpg" width="100" height="191" /> </a> </li>
+  <li><br />
+    Pickups-Final <br />
+    <a href="images/pickups-final.jpg" rel="lightbox"
+    title="Pickups-Final"><img alt="Pickups-Final"
+    src="thumbs/pickups-final.jpg" width="100" height="133" /> </a> </li>
+  <li><br />
+    Gluing <br />
+    <a href="images/gluing.jpg" rel="lightbox" title="Gluing"><img alt="Gluing"
+    src="thumbs/gluing.jpg" width="100" height="75" /> </a> </li>
+  <li><br />
+    Gluing-Layers <br />
+    <a href="images/gluing-layers.jpg" rel="lightbox"
+    title="Gluing-Layers"><img alt="Gluing-Layers"
+    src="thumbs/gluing-layers.jpg" width="100" height="75" /> </a> </li>
+  <li><br />
+    Initial-Assembly <br />
+    <a href="images/initial-assembly.jpg" rel="lightbox"
+    title="Initial-Assembly"><img alt="Initial-Assembly"
+    src="thumbs/initial-assembly.jpg" width="100" height="268" /> </a> </li>
+  <li><br />
+    Cutting-Copper-2 <br />
+    <a href="images/cutting-copper-2.jpg" rel="lightbox"
+    title="Cutting-Copper-2"><img alt="Cutting-Copper-2"
+    src="thumbs/cutting-copper-2.jpg" width="100" height="75" /> </a> </li>
+  <li><br />
+    Assembled-Front <br />
+    <a href="images/assembled-front.jpg" rel="lightbox"
+    title="Assembled-Front"><img alt="Assembled-Front"
+    src="thumbs/assembled-front.jpg" width="100" height="134" /> </a> </li>
+  <li><br />
+    Long-Drill <br />
+    <a href="images/long-drill.jpg" rel="lightbox" title="Long-Drill"><img
+    alt="Long-Drill" src="thumbs/long-drill.jpg" width="100" height="75" />
+    </a> </li>
+  <li><br />
+    Body-Raw-2 <br />
+    <a href="images/body-raw-2.jpg" rel="lightbox" title="Body-Raw-2"><img
+    alt="Body-Raw-2" src="thumbs/body-raw-2.jpg" width="100" height="84" />
+    </a> </li>
+  <li><br />
+    Bastard-Switch-Whole <br />
+    <a href="images/bastard-switch-whole.jpg" rel="lightbox"
+    title="Bastard-Switch-Whole"><img alt="Bastard-Switch-Whole"
+    src="thumbs/bastard-switch-whole.jpg" width="100" height="75" /> </a> </li>
+  <li><br />
+    Vinocaster-Finished <br />
+    <a href="images/vinocaster-finished.jpg" rel="lightbox"
+    title="Vinocaster-Finished"><img alt="Vinocaster-Finished"
+    src="thumbs/vinocaster-finished.jpg" width="100" height="274" /> </a> </li>
+  <li><br />
+    Back-Oily <br />
+    <a href="images/back-oily.jpg" rel="lightbox" title="Back-Oily"><img
+    alt="Back-Oily" src="thumbs/back-oily.jpg" width="100" height="131" /> </a>
+  </li>
+  <li><br />
+    Vinocaster-Finished-Big <br />
+    <a href="images/vinocaster-finished-big.jpg" rel="lightbox"
+    title="Vinocaster-Finished-Big"><img alt="Vinocaster-Finished-Big"
+    src="thumbs/vinocaster-finished-big.jpg" width="100" height="275" /> </a>
+  </li>
+  <li><br />
+    Neck-Fitted-Raw <br />
+    <a href="images/neck-fitted-raw.jpg" rel="lightbox"
+    title="Neck-Fitted-Raw"><img alt="Neck-Fitted-Raw"
+    src="thumbs/neck-fitted-raw.jpg" width="100" height="134" /> </a> </li>
+  <li><br />
+    Assembled-Neck-Pocket <br />
+    <a href="images/assembled-neck-pocket.jpg" rel="lightbox"
+    title="Assembled-Neck-Pocket"><img alt="Assembled-Neck-Pocket"
+    src="thumbs/assembled-neck-pocket.jpg" width="100" height="134" /> </a>
+  </li>
+  <li><br />
+    Assembled-Edge <br />
+    <a href="images/assembled-edge.jpg" rel="lightbox"
+    title="Assembled-Edge"><img alt="Assembled-Edge"
+    src="thumbs/assembled-edge.jpg" width="100" height="134" /> </a> </li>
+  <li><br />
+    Neck-Pocket-Rear-Raw <br />
+    <a href="images/neck-pocket-rear-raw.jpg" rel="lightbox"
+    title="Neck-Pocket-Rear-Raw"><img alt="Neck-Pocket-Rear-Raw"
+    src="thumbs/neck-pocket-rear-raw.jpg" width="100" height="75" /> </a> </li>
+  <li><br />
+    Dissembled <br />
+    <a href="images/dissembled.jpg" rel="lightbox" title="Dissembled"><img
+    alt="Dissembled" src="thumbs/dissembled.jpg" width="100" height="140" />
+    </a> </li>
+  <li><br />
+    New-Hardware <br />
+    <a href="images/new-hardware.jpg" rel="lightbox" title="New-Hardware"><img
+    alt="New-Hardware" src="thumbs/new-hardware.jpg" width="100" height="96" />
+    </a> </li>
+  <li><br />
+    Curve-Pre <br />
+    <a href="images/curve-pre.jpg" rel="lightbox" title="Curve-Pre"><img
+    alt="Curve-Pre" src="thumbs/curve-pre.jpg" width="100" height="75" /> </a>
+  </li>
+  <li><br />
+    Vinocaster_2011-04-01 <br />
+    <a href="images/vinocaster_2011-04-01.jpg" rel="lightbox"
+    title="Vinocaster_2011-04-01"><img alt="Vinocaster_2011-04-01"
+    src="thumbs/vinocaster_2011-04-01.jpg" width="100" height="244" /> </a>
+  </li>
+  <li><br />
+    Neck-Pocket <br />
+    <a href="images/neck-pocket.jpg" rel="lightbox" title="Neck-Pocket"><img
+    alt="Neck-Pocket" src="thumbs/neck-pocket.jpg" width="100" height="75" />
+    </a> </li>
+  <li><br />
+    Switches <br />
+    <a href="images/switches.jpg" rel="lightbox" title="Switches"><img
+    alt="Switches" src="thumbs/switches.jpg" width="100" height="75" />
+    </a> </li>
+</ul>
+</div>
+
+<div class="container">
+
+<div class="sidebar-right">
+<h3>The Vinocaster</h3>
+<ul>
+  <li><a href="index.html">Vinocaster Home</a> </li>
+  <li><a href="building.html">Main Build</a> </li>
+  <li><a href="finishing.html">Finishing the Vinocaster</a></li>
+  <li><a href="lessons.html">Update/Lessons learnt</a> <em>(in
+  progress)</em></li>
+  <li><a href="../vinotone/index.html">The Vinotone</a>, a custom effects box
+    for the Vinocaster <em>(in progress)</em></li>
+  <li>Video : <a href="http://www.youtube.com/watch?v=6eGcsGPgUTw">the
+    Vinocaster in action</a></li>
+  <li><a href="parts.html">Links : parts , books &amp; suppliers</a> @@todo</li>
+  <li>Sample Audio @@todo <em>link to mp3s here</em></li>
+  <li>Related <a
+    href="http://www.flickr.com/search/?q=vinocaster&amp;w=51035815526%40N01">photos
+    on Flickr</a></li>
+</ul>
+
+<h3>Links - elsewhere</h3>
+<ul>
+  <li><a href="#">Link</a></li>
+  <li><a href="#">Link</a></li>
+  <li><a href="#">Link</a></li>
+  <li><a href="#">Link</a></li>
+</ul>
+</div>
+
+<div class="content">
+<p><em>I wrote some of this as I went along, some of it after I'd finished, so
+the tense hops around a bit</em></p>
+
+<p><strike>I still need to tidy up the electrics of the Vinocaster (the current switch
+setup is pretyy lousy), but aside from that to all intents and purposes I'm
+considering it finished.</strike> Finished.</p>
+
+<p>So what have I learnt? Well, for starters that it is possible for someone
+with only basic woodworking skills to have success with a project like this.
+However it took a lot of time and effort, and (mostly because I did a lot of
+fiddling with pickups) worked out costing a similar amount to a fairly good
+quality commercial guitar. Very satisfying though. Result: it's a lovely
+instrument and is now my main guitar.</p>
+
+<h3><a name="Design" id="Design">Design Flaws</a></h3>
+
+<p>On balance, I'll claim there were none. Basing the design on the Strat was a
+good idea (see <a href="#Weight">ergonomics</a> below), it simplified decisions
+considerably. I should perhaps have followed through with the Strat pattern and
+copied the pickguard/electrics setup, but I had assumed that I'd wind up using
+very custom controls, whereas in reality I'm probably going to revert to
+something fairly close to the Strat style.</p>
+
+<h3><a name="Pickups" id="Pickups">Pickups</a></h3>
+
+<p>Ok, first lesson learned here was that my expectation of what was tonally
+possible on a single guitar was a fantasy. What I was initially aiming for was
+a setup that could produce the sound of any solid-body guitar : Fender
+Strat/Tele, Gibson LP, Gretsch etc. This was wrong-minded. I was also a little
+misled by the claims of pickup manufacturers, for example that single-coil
+sized humbucker mounted in a Strat-style guitar could make it sound like a '59
+Gibson LP. <em>Nope.</em></p>
+
+<p>What was true was that choice of pickup did have a big influence on the
+sound, but it wasn't altogether clear-cut, there are many other factors
+(biggest of all probably the simple position of the pickup). Worth noting I
+reckon is that once you get beyond really cheap pickups (e.g. the stock ones in
+a Squier Strat), there doesn't seem much correlation between price and
+quality.</p>
+
+<p>A while after putting the Vinocaster together I bought a cheap LP model
+(middle of <a href="http://www.thomann.de/gb/">Thomann</a>'s Chinese/own-brand
+Harley Benton range). This had pretty awful pickups, which I swapped for some
+<a href="http://www.stewmac.com/shopby/product/5400">StewMac 'Golden Age'</a>
+ones. The result, while obviously not in the same league as a Gibson, does have
+all the tonal characterics usually ascribed to them: warmth etc. At this point
+I realised that trying to cover <em>every</em> sound on one guitar was a
+non-starter. But although it can't cover some of the sounds the LP produces, I
+did end up with a seriously versatile instrument - it does have more range than
+either my Strat or LP taken individually.</p>
+
+<p>The pickups I've settled on are as follows: </p>
+
+<p><img alt="pickups" src="images/pickups-final.jpg" width="300" height="400"
+/></p>
+<ul>
+  <li><strong>Neck</strong> : <a
+    href="http://www.bluestarmusic.com/Lace-21056-Alumitone-Single-Guitar-Pickup-Chrome-P470.aspx">Lace
+    21056 Alumitone Single Guitar Pickup, Chrome</a></li>
+  <li><strong>Middle</strong> : <a
+    href="http://www.guitarfetish.com/6K-Middle-Position-Pro-Tube-Lipstick-Chrome_p_1028.html">GFS
+    Pro-Tube Lipstick I50_I51_I52 1 Middle Position 6K</a></li>
+  <li><strong>Bridge</strong> : <a
+    href="http://tvjones.com/pickups/filtertron-style/magna-tron/">TV Jones
+    Magna'Tron, humbucker mount</a></li>
+</ul>
+
+<p>The TV Jones on its own gives a good a twang, Gretsch-like and getting into
+Telecaster territory (with a little treble boost, see the <a
+href="../vinotone/index.html">Vinotone</a>). The lipstick tube on its own is
+vaguely Strat-like, though perhaps a little less transparent. It's excellent
+for producing a wash of sound, nice psychedelics though a chorus. In constrast
+the Alumitone is extremely transparent - I read somewhere about them even
+producing acoustic-like tones. I wouldn't go that far, but on it's own it's
+really clean (I'm guessing the current-driven design means the inductance of
+the coil(s) has less influence on frequency response than usual). Given minimal
+external effects (overdrive/distortion and tone) it can go from being
+Strat-like through a mellow jazz sound to metal. The impedances of these three
+appear to be balanced enough that they also work well in combination - even
+Strat-like quack is available.</p>
+
+<p>But I only arrived at these choices after a <em>lot</em> of trial and error.
+My Squier Strat is now tricked out with the Seymour Duncans I tried at first
+(they cost a lot more than the original guitar). They are good, but all kinda
+compromises: the Duckbucker (a humbucker that's meant to quack like a single
+coil) isn't as clean as a single coil, the Lil '59 as noted above isn't as
+'fat' as a traditional humbucker. The rails-style Seymour Duncan (I forget
+which model) is pretty good for mellow or fuzzbox-oriented sounds, but the
+Alumitone is more versatile.</p>
+
+<p>If I was to build another guitar, and wasn't following a standard layout (I
+just followed roughly the Strat pattern here) I think it would be useful to
+spend some time playing with the pickup positions (I just followed roughly the
+Strat pattern here). I can't see how to avoid the trial and error element of
+pickup selection, but I reckon I'd start lower down the price range rather than
+assuming the expensive ones would necessarily be better.</p>
+
+<h3><a name="Weight" id="Weight">Weight &amp; Ergonomics</a></h3>
+
+<p></p>
+
+<p>The Vinocaster weighs in at a fraction over 10lbs/4.5kg compared to a
+typical Strat around 8lbs and a Les Paul around 11lbs. Personally I prefer a
+bit of weight, the (cheapo) Strat I've got feels kinda unbalanced, floppy in
+comparison. I reckon <strong>I stumbled on rather a good design</strong>, the
+Strat-style shaping make it more ergonomic than an LP, but it has similar heft.
+I can only guess at the influence on tone, but I think the added solidity at
+least compensates for the use of a wood not normally chosen for tone
+(chestnut), it's natural sustain is better than either my Strat or LP.</p>
+
+<h3><a name="Aesthetics" id="Aesthetics">Aesthetics, Finish etc.</a></h3>
+
+<p>I know from so many other projects that it makes sense to take time over
+things, and although overall the Vinocaster took ages, I did rush some bits. A
+particular annoyance is that I used grey epoxy to glue the body together, I
+should have waited until I'd got some clear, if you look closely there are
+visible lines. But aesthetics weren't high on my priorities and I hadn't
+expected the wood in the end result to be quite so attractive.</p>
+
+<p>I should also have taken a lot more time over the finish, especially
+sanding, sanding, sanding. It's really tedious but I now think it would have
+been worthwhile. On first pass I gave the surface a coat of <em>olio
+pagliarino</em> (straw oil?), which is fairly inert stuff. This wasn't
+necessarily a bad move, as it penetrated pretty well and would seal the wood
+against moisture. After that had soaked in I polished up with beeswax. At the
+time I hadn't been able to source linseed oil, but then I came across some. I
+decided it was worth another pass over the finish so used a cabinet scraper to
+remove the beeswax (and a bit more of the not-quite sanded-enough wood) and
+gave it a couple of coats of linseed oil, again polishing up with beeswax
+later. This did improve the surface considerably, though it's still not quite
+as good as it would have been had I sanded more... Hey ho.</p>
+
+<p>The pickup switches were a bit of a nightmare, not least because I changed the pickups so often I lost track of what I'd originally intended. Here's the control setup:</p>
+<p><img src="images/switches.jpg" /></p>
+<p>One single pot for volume. At the bottom a regular modern Strat-style 5-way switch, setup in the regular fashion. In between three toggle switches, which do the following :
+<ul><li>neck phase</li>
+<li>middle phase</li>
+<li>bridge to neck/open/4.7nF capacitor across bridge</li>
+</ul>
+it hasn't got any standard tone control pots, just volume, so the capacitor isn't quite as arbitrary as it looks (well, maybe it is, but I did have a spare switch position).
+<br/>
+Whatever, I'm now calling it <strong>finished</strong>
+</p>
+
+<p><em>Thanks to <a
+href="https://plus.google.com/105317362555281065841/posts">Dave Pawson</a>, <a
+href="https://plus.google.com/101465854435804471513/posts">Rob Michael</a> and
+<a href="https://plus.google.com/104294083885937159989/posts">Alex Lapidus</a>
+for prompting me to write this update.</em></p>
+</div>
+
+<div id="footer">
+<p style="text-align: right">All material unless otherwise stated © Danny
+Ayers 2007-2012 <a rel="license"
+href="http://creativecommons.org/licenses/by/3.0/"><img
+alt="Creative Commons License" style="border-width:0"
+src="http://i.creativecommons.org/l/by/3.0/88x31.png" /> </a> <br />
+This work is licensed under a <a rel="license"
+href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution
+3.0 License</a> </p>
+</div>
+</div>
+</div>
+</body>
+</html>

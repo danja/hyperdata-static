@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>Presentation Index</title>
+  <meta name="generator" content="Amaya, see http://www.w3.org/Amaya/" />
+  <script type="text/javascript" src="js/pp.js">
+  </script>
+</head>
+
+<body onload="doFocus()">
+<h1>Presentation Paths : Index</h1>
+
+<h3>Use Case:</h3>
+
+<p>Slide shows, where the next slide can be moved to with a single keypress </p>
+
+<p>(it seems like it's probably relevant for accessibility too)</p>
+
+<h3>Desired behaviour: </h3>
+
+<p>on opening a page the focus automatically moves to a particular link</p>
+
+<p></p>
+
+<h3>HTML5 Current Status</h3>
+
+<p><code>@tabindex</code> adjusts the tab sequence, but doesn't move the focus
+to the first index</p>
+
+<p>HTML5 includes <code>@autofocus</code> for form input, but not for
+<code>&lt;a&gt;</code> elements</p>
+
+<p></p>
+
+<h3>Demo</h3>
+
+<p>Pressing [Enter] on a typical browser will take you to the next slide.</p>
+
+<p>here with Javascript help, an element has <code>class="focus"</code> then
+:</p>
+
+<p><code>var focusElements = getElementsByClassName(document,
+"focus");</code></p>
+
+<p><code>focusElements[0].focus();</code></p>
+
+<p></p>
+
+<p></p>
+<ul>
+  <li><a href="http://dev.w3.org/html5/spec/Overview.html">random link</a></li>
+  <li><a href="slide1.html" rel="next" class="focus">Slide 1</a></li>
+  <li><a href="slide2.html">Slide 2</a></li>
+  <li>Slide 3...</li>
+</ul>
+</body>
+</html>
