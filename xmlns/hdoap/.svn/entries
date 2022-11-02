@@ -1,0 +1,106 @@
+9
+
+dir
+1458
+http://n2.talis.com/svn/playground/danja/xmlns/hdoap
+http://n2.talis.com/svn
+
+
+
+2008-08-09T07:38:57.447227Z
+714
+danja
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+d1085b19-cd17-4a5b-982f-209e43f8a28f
+
+doap2html.xsl
+file
+
+
+
+
+2008-11-25T13:52:02.000000Z
+94d3c0784c0d0905e742c0b50eb28ae7
+2007-11-09T09:31:46.743251Z
+332
+danja
+
+profile
+dir
+
+profilep
+file
+
+
+
+
+2008-11-25T13:52:02.000000Z
+f0039e4c928b821b92eec667ebec953d
+2007-11-09T09:31:46.743251Z
+332
+danja
+
+hdoap.css
+file
+
+
+
+
+2008-11-25T13:52:02.000000Z
+d9f0f8f012d543e0940d483630c0b08e
+2007-11-09T09:31:46.743251Z
+332
+danja
+
+index.xhtml
+file
+
+
+
+
+2008-11-25T13:52:02.000000Z
+ded8c07f8d1c1e9532f5b2fff8ef1b86
+2008-08-09T07:33:51.181136Z
+712
+danja
+
+samples
+dir
+
+hdoap2doap.xsl
+file
+
+
+
+
+2008-11-25T13:52:02.000000Z
+ec605d445d9d61be85f52b43edbea67f
+2007-11-09T09:31:46.743251Z
+332
+danja
+
+.htaccess
+file
+
+
+
+
+2008-11-25T13:52:02.000000Z
+77a83db9db839fe901281ae7c895b1dc
+2007-11-09T09:31:46.743251Z
+332
+danja
+

@@ -1,0 +1,53 @@
+9
+
+dir
+1458
+http://n2.talis.com/svn/playground/danja/xmlns/studio
+http://n2.talis.com/svn
+
+
+
+2008-03-19T11:35:42.812441Z
+523
+danja
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+d1085b19-cd17-4a5b-982f-209e43f8a28f
+
+tracks.rdf
+file
+
+
+
+
+2008-11-25T13:52:04.000000Z
+7af2ac94c46515961830c5a4a4e80ad8
+2008-03-19T11:35:42.812441Z
+523
+danja
+
+tracks.n3
+file
+
+
+
+
+2008-11-25T13:52:04.000000Z
+0412e1e1591127d5b61edcd425f734da
+2008-03-19T11:35:42.812441Z
+523
+danja
+has-props
+
