@@ -1,5 +1,8 @@
 Dubstep
 
+Bass -
+https://www.reddit.com/r/audioengineering/comments/zpeog0/how_low_is_too_low_for_bass_notes/?utm_source=share&utm_medium=android_app&utm_name=androidcss&utm_term=1&utm_content=share_button
+
 Best advice I can give from an absurd number of hours obsessing over everything related to gain staging/gain structure, etc.....it is actually very simple and I believe someone else has already even mentioned it....I make Bass Music primarily Wonkier Dubstep, Halftime-type shit, and occasionally veer into Trap-step-ish type beats but this particular approach to leveling/balancing should work with most electronic genres, I assume.
 
 &#x200B;
@@ -25,7 +28,7 @@ Edit\*: Also something to consider...I personally try and avoid processing my ma
 id: 085cafa49acc463bbca2c7bd08a85bb9
 parent_id: f801c5f8f9df468892d0206c2fadb462
 created_time: 2022-11-14T14:42:36.085Z
-updated_time: 2022-11-14T14:42:48.545Z
+updated_time: 2022-12-19T13:32:41.106Z
 is_conflict: 0
 latitude: 0.00000000
 longitude: 0.00000000
@@ -40,7 +43,7 @@ source_application: net.cozic.joplin-mobile
 application_data: 
 order: 1668436956082
 user_created_time: 2022-11-14T14:42:36.085Z
-user_updated_time: 2022-11-14T14:42:48.545Z
+user_updated_time: 2022-12-19T13:32:41.106Z
 encryption_cipher_text: 
 encryption_applied: 0
 markup_language: 1
