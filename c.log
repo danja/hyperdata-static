@@ -1,0 +1,14 @@
+Simulating renewal of an existing certificate for hyperdata.it
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Challenges loaded. Press continue to submit to CA. Pass "-v" for more info about
+challenges.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Certbot failed to authenticate some domains (authenticator: webroot). The Certificate Authority reported these problems:
+  Domain: hyperdata.it
+  Type:   unauthorized
+  Detail: Invalid response from http://hyperdata.it/.well-known/acme-challenge/35FeMAtAwYeykhieelph8x8wHlPI6XDKaoVGH4amh_0 [178.79.136.35]: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"\n  \"http://www.w3.org/TR/xhtml1/D"
+
+Hint: The Certificate Authority failed to download the temporary challenge files created by Certbot. Ensure that the listed domains serve their content from the provided --webroot-path/-w and that files created there can be downloaded from the internet.
+
