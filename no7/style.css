@@ -8,6 +8,10 @@ img {
 	height: auto;
 }
 
+#front {
+	transform: scale(0.5);
+}
+
 /* TWO COLUMN FLEXBOX */
 .two-column {
 	display: flex;
@@ -15,7 +19,8 @@ img {
 }
 
 .two-column div {
-	border: 1px solid blue;
+	/* border: 1px solid blue; */
+	margin: 3%;
 	flex: 1;
 	display: flex;
 	justify-content: center;
@@ -28,6 +33,7 @@ img {
 }
 
 @media only screen and (max-width: 600px) {
+
 	.two-column,
 	.two-column.reverse {
 		flex-direction: column;
@@ -51,6 +57,7 @@ img {
 }
 
 @media only screen and (max-width: 600px) {
+
 	.three-column,
 	.three-column div {
 		flex-direction: column;
