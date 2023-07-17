@@ -1,6 +1,23 @@
+@font-face {
+	font-family: 'italiana';
+	src: url('fonts/italiana.regular.ttf');
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: italiana;
+}
+
+
 /* ONE COLUMN */
 .one-column {
 	text-align: center;
+	vertical-align: baseline;
+
 }
 
 img {
@@ -48,6 +65,7 @@ img {
 }
 
 .three-column div {
+	margin: 3%;
 	flex: 1;
 	border: 1px solid;
 	display: flex;
