@@ -1,0 +1,33 @@
+/*
+@font-face {
+  font-family: 'ThrumsSerif';
+  src: url('thrums.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: ThrumsSerif, sans-serif;
+}
+*/
+
+
+.social-media-list * {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+  width: 36px;
+  height: 36px;
+}
+
+/*
+  border-radius: 5px;
+  background-color: lightblue;
+  */
+
+/*
+* {
+  box-sizing: border-box;
+}
+*/

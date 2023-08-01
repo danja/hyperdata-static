@@ -35,7 +35,6 @@ img {
 .two-column {
 	display: flex;
 	flex-direction: row;
-	text-align: left;
 }
 
 .two-column div {
@@ -72,9 +71,8 @@ img {
 	flex: 1;
 	/* border: 1px solid; */
 	display: flex;
-	flex-direction: column;
-	/* 	flex-direction: column-reverse; */
-	justify-content: flex-start;
+	flex-direction: column-reverse;
+	justify-content: flex-end;
 	/*	text-align: center; */
 }
 
