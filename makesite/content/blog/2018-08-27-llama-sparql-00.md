@@ -84,3 +84,9 @@ def test_one_false():
 ```
 
 ok, time to actually write code...
+
+### Ask the assistant first
+
+I hadn't really explored ChatGPT's Code Assistant. Had seen that you could upload source files, best as a zip.
+
+So I thought, see how far it gets with `llama_index/graph_stores/`
