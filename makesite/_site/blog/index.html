@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Blog - Lorem Ipsum</title>
     <meta charset="UTF-8">
@@ -8,31 +9,28 @@
 </head>
 
 <body id="{{ slug }}">
+    <script id="replace_with_navbar" src="/share/nav.js"></script>
 
-<nav>
-<section>
-    <span class="home">
-        <a href="/">Home</a>
-    </span>
-    <span class="links">
-        <a href="/blog/">Blog</a>
-        <a href="/news/">News</a>
-        <a href="/contact/">Contact</a>
-        <a href="/about/">About</a>
-    </span>
-</section>
-</nav>
-
-<main>
-<h1>Blog</h1>
+    <main>
+        <h1>Blog</h1>
 <article>
 <h2><a href="/blog/post-one/">Post One</a></h2>
 <p class="meta">Published on 2023-08-26 by <b>Admin</b></p>
 <p class="summary">
-This is a test Let's see it it works&nbsp;<a class="more" href="/blog/post-one/">...</a>
+This is a test Let's see it it works Check layoutof of original makesite&nbsp;<a class="more" href="/blog/post-one/">...</a>
 </p>
 <div>
 <a class="more" href="/blog/post-one/">Read More</a>
+</div>
+</article>
+<article>
+<h2><a href="/blog/llama-sparql-00/">llama_index-SPARQL notes 01</a></h2>
+<p class="meta">Published on 2018-08-27 by <b>Admin</b></p>
+<p class="summary">
+This is a continuation of notes from GraphRAG . I'm currently writing a SPARQL connector for llama_index, and jotting notes as I go along. My&nbsp;<a class="more" href="/blog/llama-sparql-00/">...</a>
+</p>
+<div>
+<a class="more" href="/blog/llama-sparql-00/">Read More</a>
 </div>
 </article>
 <article>
@@ -55,23 +53,30 @@ Proin quam urna, pulvinar id ipsum ac, mattis consectetur ante. Praesent non jus
 <a class="more" href="/blog/proin-quam/">Read More</a>
 </div>
 </article>
+<article>
+<h2><a href="/blog/template/">Post Two</a></h2>
+<p class="meta">Published on 2001-01-01 by <b>Admin</b></p>
+<p class="summary">
+This is a test 2 Let's see it it works Check layoutof of original makesite&nbsp;<a class="more" href="/blog/template/">...</a>
+</p>
+<div>
+<a class="more" href="/blog/template/">Read More</a>
+</div>
+</article>
 
 <section>
 <a class="rss" href="/blog/rss.xml">RSS</a>
 </section>
 
-</main>
+    </main>
 
-<footer>
-<section>
-<p>&copy; 2023 Lorem Ipsum</p>
-<p>
-    <a href="https://twitter.com/sunainapai">Twitter</a>
-    <a href="https://github.com/sunainapai">GitHub</a>
-    <a href="https://www.example.com/">Example</a>
-</p>
-</section>
-</footer>
+    <footer>
+        <section>
+            <p>&copy; 2023 Danny Ayers, CC Attribution/MIT License</p>
+            <p>Made with <a href="https://github.com/sunainapai">makesite</a></p>
+        </section>
+    </footer>
 
 </body>
+
 </html>

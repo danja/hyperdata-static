@@ -12,12 +12,25 @@
 <description>
 <![CDATA[
 <p>
-This is a test Let's see it it works&nbsp;<a href="http://localhost:8000/blog/post-one/">...</a>
+This is a test Let's see it it works Check layoutof of original makesite&nbsp;<a href="http://localhost:8000/blog/post-one/">...</a>
 </p>
 <p><a href="http://localhost:8000/blog/post-one/">Read More</a></p>
 ]]>
 </description>
 <pubDate>Sat, 26 Aug 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>llama_index-SPARQL notes 01</title>
+<link>http://localhost:8000/blog/llama-sparql-00/</link>
+<description>
+<![CDATA[
+<p>
+This is a continuation of notes from GraphRAG . I'm currently writing a SPARQL connector for llama_index, and jotting notes as I go along. My&nbsp;<a href="http://localhost:8000/blog/llama-sparql-00/">...</a>
+</p>
+<p><a href="http://localhost:8000/blog/llama-sparql-00/">Read More</a></p>
+]]>
+</description>
+<pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
 </item>
 <item>
 <title>Sed Finibus</title>
@@ -44,6 +57,19 @@ Proin quam urna, pulvinar id ipsum ac, mattis consectetur ante. Praesent non jus
 ]]>
 </description>
 <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Post Two</title>
+<link>http://localhost:8000/blog/template/</link>
+<description>
+<![CDATA[
+<p>
+This is a test 2 Let's see it it works Check layoutof of original makesite&nbsp;<a href="http://localhost:8000/blog/template/">...</a>
+</p>
+<p><a href="http://localhost:8000/blog/template/">Read More</a></p>
+]]>
+</description>
+<pubDate>Mon, 01 Jan 2001 00:00:00 +0000</pubDate>
 </item>
 
 
