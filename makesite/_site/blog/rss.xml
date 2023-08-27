@@ -12,7 +12,7 @@
 <description>
 <![CDATA[
 <p>
-This is a test Let's see it it works Check layoutof of original makesite&nbsp;<a href="http://localhost:8000/blog/post-one/">...</a>
+This is a test Let's see it it works Note to self : check layoutof of original makesite&nbsp;<a href="http://localhost:8000/blog/post-one/">...</a>
 </p>
 <p><a href="http://localhost:8000/blog/post-one/">Read More</a></p>
 ]]>
@@ -31,32 +31,6 @@ This is a continuation of notes from GraphRAG . I'm currently writing a SPARQL c
 ]]>
 </description>
 <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
-</item>
-<item>
-<title>Sed Finibus</title>
-<link>http://localhost:8000/blog/sed-finibus/</link>
-<description>
-<![CDATA[
-<p>
-Sed finibus fermentum convallis. Sed consequat, lacus a pellentesque suscipit, lorem libero egestas dui, sit amet volutpat mi dolor sit amet nisl. Maecenas faucibus iaculis&nbsp;<a href="http://localhost:8000/blog/sed-finibus/">...</a>
-</p>
-<p><a href="http://localhost:8000/blog/sed-finibus/">Read More</a></p>
-]]>
-</description>
-<pubDate>Wed, 03 Jan 2018 00:00:00 +0000</pubDate>
-</item>
-<item>
-<title>Proin Quam</title>
-<link>http://localhost:8000/blog/proin-quam/</link>
-<description>
-<![CDATA[
-<p>
-Proin quam urna, pulvinar id ipsum ac, mattis consectetur ante. Praesent non justo lectus. Duis egestas arcu libero, quis laoreet dolor volutpat ut. Donec facilisis&nbsp;<a href="http://localhost:8000/blog/proin-quam/">...</a>
-</p>
-<p><a href="http://localhost:8000/blog/proin-quam/">Read More</a></p>
-]]>
-</description>
-<pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
 </item>
 <item>
 <title>Post Two</title>
