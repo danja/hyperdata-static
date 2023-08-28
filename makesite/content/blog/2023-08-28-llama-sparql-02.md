@@ -1,9 +1,9 @@
-<!-- title: llama_index SPARQL Notes 00 -->
+<!-- title: llama_index SPARQL Notes 02 -->
 
 **FOR TEMP CHANGES, UNMODIFIED FILES ARE IN ../original**
 _(I should probably make a branch in git, but then I'm likely to forget...)_
 
-My attention's been skipping around, spent a lot of time trying to engage with ChatGPT. There are bits of prompts I tried in [llama_index SPARQL Notes 02](/blog/llama-sparql-02).
+My attention's been skipping around, spent a lot of time trying to engage with ChatGPT. There are bits of prompts I tried in [llama_index SPARQL Notes 01](/blog/llama-sparql-01).
 
 Time to get back to the code proper (continuing from [llama_index SPARQL Notes 00](/blog/llama-sparql-00)).
 
