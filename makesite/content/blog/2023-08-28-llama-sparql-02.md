@@ -36,3 +36,58 @@ er:value "three" .
 ```
 
 But before writing the SPARQL I want to go back to `nebulagraph.py`, add some logging calls to see what it's _actually_ passing around. Then go back to the tests, then forward...
+
+**$0.21 mode**
+
+Is there still data in my local NebulaGraph? I could populate a SPARQL store with that.
+
+- sudo /usr/local/nebula/scripts/nebula.service restart all
+
+- ./nebula-console -addr 127.0.0.1 -port 9669 -u root -p password
+
+wait, there's the GUI, NebulaGraph Studio -
+
+http://localhost:7001/login
+
+```
+USE guardians;
+
+-- Fetch 10 vertices with the 'entity' tag
+MATCH (v:entity)
+RETURN v
+LIMIT 10;
+```
+
+Yay!
+
+One results column labelled v
+
+```
+("$118.4 million" :entity{name: "$118.4 million"})
+...
+```
+
+```
+-- Fetch 10 edges with the 'relationship' type
+MATCH (src:entity)-[e:relationship]->(dst:entity)
+RETURN src, e, dst
+LIMIT 10;
+```
+
+Results table column labels are src, e, dst
+
+```
+("production on Vol.3" :entity{name: "production on Vol.3"})	[:relationship "production on Vol.3"->"February 2021" @-8998665471782897487 {relationship: "was put on hold until"}]	("February 2021" :entity{name: "February 2021"})
+```
+
+---
+
+Ok, enough for today.
+
+Tomorrow, use nebula-client to pull out data from there, RDFLib to build RDF, sparqlwrapper to push to store.
+
+Then -
+
+- have a look around _3 Create VectorStoreIndex for RAG_ in Notebook
+- put the INSERT & SELECT queries inside sparql.py
+- ...

@@ -49,6 +49,47 @@ er:value &quot;two&quot; .
 er:value &quot;three&quot; .
 </code></pre>
 <p>But before writing the SPARQL I want to go back to <code>nebulagraph.py</code>, add some logging calls to see what it's <em>actually</em> passing around. Then go back to the tests, then forward...</p>
+<p><strong>$0.21 mode</strong></p>
+<p>Is there still data in my local NebulaGraph? I could populate a SPARQL store with that.</p>
+<ul>
+<li>
+<p>sudo /usr/local/nebula/scripts/nebula.service restart all</p>
+</li>
+<li>
+<p>./nebula-console -addr 127.0.0.1 -port 9669 -u root -p password</p>
+</li>
+</ul>
+<p>wait, there's the GUI, NebulaGraph Studio -</p>
+<p>http://localhost:7001/login</p>
+<pre><code>USE guardians;
+
+-- Fetch 10 vertices with the 'entity' tag
+MATCH (v:entity)
+RETURN v
+LIMIT 10;
+</code></pre>
+<p>Yay!</p>
+<p>One results column labelled v</p>
+<pre><code>(&quot;$118.4 million&quot; :entity{name: &quot;$118.4 million&quot;})
+...
+</code></pre>
+<pre><code>-- Fetch 10 edges with the 'relationship' type
+MATCH (src:entity)-[e:relationship]-&gt;(dst:entity)
+RETURN src, e, dst
+LIMIT 10;
+</code></pre>
+<p>Results table column labels are src, e, dst</p>
+<pre><code>(&quot;production on Vol.3&quot; :entity{name: &quot;production on Vol.3&quot;})	[:relationship &quot;production on Vol.3&quot;-&gt;&quot;February 2021&quot; @-8998665471782897487 {relationship: &quot;was put on hold until&quot;}]	(&quot;February 2021&quot; :entity{name: &quot;February 2021&quot;})
+</code></pre>
+<hr />
+<p>Ok, enough for today.</p>
+<p>Tomorrow, use nebula-client to pull out data from there, RDFLib to build RDF, sparqlwrapper to push to store.</p>
+<p>Then -</p>
+<ul>
+<li>have a look around <em>3 Create VectorStoreIndex for RAG</em> in Notebook</li>
+<li>put the INSERT &amp; SELECT queries inside sparql.py</li>
+<li>...</li>
+</ul>
 
 </article>
 
