@@ -10,15 +10,245 @@
 
 <body id="{{ slug }}">
     <script id="replace_with_navbar" src="/share/nav.js"></script>
-
+    <br />
+    <br />
+    <br />
+    <em>Interim blog setup, rough notes being dumped here at the moment - I'll tidy once I get to a milestone. And sorry
+        about the layout, that'll probably take even longer to get around to... #TODO</em>
+    <br />
+    <br />
     <main>
         <h1>Blog</h1>
 <article>
+    <h2><a href="/blog/llama-sparql-02/">llama_index SPARQL Notes 00</a></h2>
+    <p class="meta">Published on 2023-08-28 by <b>Admin</b></p>
+
+    <p class="content">
+        <p><strong>FOR TEMP CHANGES, UNMODIFIED FILES ARE IN ../original</strong>
+<em>(I should probably make a branch in git, but then I'm likely to forget...)</em></p>
+<p>My attention's been skipping around, spent a lot of time trying to engage with ChatGPT. There are bits of prompts I tried in <a href="/blog/llama-sparql-02">llama_index SPARQL Notes 02</a>.</p>
+<p>Time to get back to the code proper (continuing from <a href="/blog/llama-sparql-00">llama_index SPARQL Notes 00</a>).</p>
+<p>I've roughed out the shape of RDF I <em>think</em> I need :</p>
+<pre><code># Simple Entity-Relation
+
+@base &lt;http://purl.org/stuff/data&gt; .
+@prefix er: &lt;http://purl.org/stuff/er&gt; .
+
+&lt;#T123&gt; a er:Triplet ;
+er:id &quot;#T123&quot; ;
+er:subject &lt;#E123&gt; ;
+er:property &lt;#R456&gt; ;
+er:object &lt;#E567&gt; .
+
+&lt;#E123&gt; a er:Entity ;
+er:value &quot;one&quot; .
+
+&lt;#R456&gt; a er:Relationship ;
+er:value &quot;two&quot; .
+
+&lt;#E567&gt; a er:Entity ;
+er:value &quot;three&quot; .
+</code></pre>
+<p>But before writing the SPARQL I want to go back to <code>nebulagraph.py</code>, add some logging calls to see what it's <em>actually</em> passing around. Then go back to the tests, then forward...</p>
+&nbsp;<a class="more" href="/blog/llama-sparql-02/">...</a>
+    </p>
+    <!--
+<p class="summary">
+FOR TEMP CHANGES, UNMODIFIED FILES ARE IN ../original (I should probably make a branch in git, but then I'm likely to forget...) My attention's been&nbsp;<a class="more" href="/blog/llama-sparql-02/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/llama-sparql-02/">Read More</a>
+</div>
+-->
+</article><article>
+    <h2><a href="/blog/llama-sparql-01/">llama_index SPARQL Notes 01</a></h2>
+    <p class="meta">Published on 2023-08-28 by <b>Admin</b></p>
+
+    <p class="content">
+        <p><strong>FOR TEMP CHANGES, UNMODIFIED FILES ARE IN ../original</strong></p>
+<p>Today's task : as yesterday.</p>
+<p>It's occurred to me that it would be helpful to look at the data that nebulagraph.py actually looks at - pop a few logging calls in there.</p>
+<p>(Maybe also probe - https://github.com/vesoft-inc/nebula-python )</p>
+<p>Before that, need to have python looking at my llama_index tree. PYTHON_PATH is empty so -</p>
+<ul>
+<li>python</li>
+</ul>
+<pre><code>&gt;&gt;&gt;import sys
+&gt;&gt;&gt; print(sys.path)
+&gt;&gt;&gt; ['', '/usr/lib/python311.zip', '/usr/lib/python3.11', '/usr/lib/python3.11/lib-dynload', '/home/danny/.local/lib/python3.11/site-packages', '/usr/local/lib/python3.11/dist-packages', '/usr/lib/python3/dist-packages', '/usr/lib/python3.11/dist-packages']
+</code></pre>
+<p>Ok, found it at :</p>
+<pre><code>~/.local/lib/python3.11/site-packages/llama_index
+</code></pre>
+<p>Hmm, which of Wey Gu's demos is the most minimal that uses NebulaGraph?</p>
+<p>Custom instructions</p>
+<pre><code>Act as a expert in Python and graph data structures, in particular the RDF model and SPARQL. Be prepared for questions relating to Large Language Models, Retrieval-Augmented Generation and the llama_index libraries. Follow best practices everywhere, eg. including short comments as necessary in code. Outside of code, keep all responses and descriptions very concise and matter-of-fact. Whenever you think it's possible I have further information or code files to upload that will help in the tasks, please ask.
+My name is Danny.
+</code></pre>
+<p>~~Act as a expert in Python and graph data structures as implemented in NebulaGraph and RDF and SPARQL. ~~</p>
+<pre><code>Existing code in llama_index includes communications to a NebulaGraph database via the nebula-python library. The goal for us today is to develop code in a file sparql.py having the same functionality as nebulagraph.py, but instead of NebulaGraph will connect to a SPARQL store via the sparqlwrapper library from RDFLib. There are several subtasks to do first, which I will describe after uploading some relevant code.
+
+Here a zip of llama_index/llama_index/graph_stores
+
+</code></pre>
+<blockquote>
+<p>Before writing Python, we will look at the data model. The following are the nGQL statements used to prepare the database for for nebulagraph.py. How would this an equilent schema be expressed in RDF, and what would an example of instance data look like?</p>
+</blockquote>
+<pre><code>CREATE SPACE guardians(vid_type=FIXED_STRING(256), partition_num=1, replica_factor=1);
+:sleep 10;
+USE guardians;
+CREATE TAG entity(name string);
+CREATE EDGE relationship(relationship string);
+:sleep 10;
+CREATE TAG INDEX entity_index ON entity(name(256));
+</code></pre>
+<p>ChatGPT returns :</p>
+<blockquote>
+<p>In Nebula Graph, you're defining a space guardians with vertex IDs as fixed-length strings. You also define a tag entity with a property name of type string, and an edge type relationship with a property relationship of type string. Finally, you create an index on the name property of the entity tag.</p>
+</blockquote>
+<pre><code>@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix ex: &lt;http://example.org/&gt; .
+
+# Define the Entity class
+
+ex:Entity rdf:type rdfs:Class ;
+rdfs:label &quot;Entity&quot; ;
+rdfs:comment &quot;An entity with a name&quot; .
+
+# Define the name property
+
+ex:name rdf:type rdf:Property ;
+rdfs:label &quot;name&quot; ;
+rdfs:comment &quot;The name of the entity&quot; ;
+rdfs:domain ex:Entity ;
+rdfs:range xsd:string .
+
+# Define the Relationship class
+
+ex:Relationship rdf:type rdfs:Class ;
+rdfs:label &quot;Relationship&quot; ;
+rdfs:comment &quot;A relationship between entities&quot; .
+
+# Define the relationship property
+
+ex:relationship rdf:type rdf:Property ;
+rdfs:label &quot;relationship&quot; ;
+rdfs:comment &quot;The type of relationship&quot; ;
+rdfs:domain ex:Relationship ;
+rdfs:range xsd:string .
+
+and
+
+@prefix ex: &lt;http://example.org/&gt; .
+
+# Entities
+
+ex:Alice rdf:type ex:Entity ;
+ex:name &quot;Alice&quot; .
+
+ex:Bob rdf:type ex:Entity ;
+ex:name &quot;Bob&quot; .
+
+# Relationship
+
+ex:Alice ex:relationship ex:Bob ;
+rdf:type ex:Relationship ;
+ex:relationship &quot;friend&quot; .
+
+</code></pre>
+<p>using existing files under llama_index/llama_index/graph_stores as a guide, in particular the interface defined</p>
+<pre><code>
+</code></pre>
+<p>ex:Relationship rdf:type rdfs:Class ;
+rdfs:label &quot;Relationship&quot; ;
+rdfs:comment &quot;A relationship between entities&quot; .</p>
+<hr />
+<p>Ok, do it by hand ...</p>
+<p><this> a er:Triplet ;
+er:id &quot;123&quot; ;
+er:subject &quot;one&quot; ;
+er:property &quot;two&quot; ;
+er:object &quot;three&quot; .</p>
+<p>But what/where are the IDs needed?
+ok, maybe better :</p>
+<pre><code># Simple Entity-Relation
+@base &lt;http://purl.org/stuff/data&gt; .
+@prefix er: &lt;http://purl.org/stuff/er&gt; .
+
+&lt;#T123&gt; a er:Triplet ;
+er:id &quot;#T123&quot; ;
+er:subject &lt;#E123&gt; ;
+er:property &lt;#R456&gt; ;
+er:object &lt;#E567&gt; .
+
+&lt;#E123&gt; a er:Entity ;
+er:value &quot;one&quot; .
+
+&lt;#R456&gt; a er:Relationship ;
+er:value &quot;two&quot; .
+
+&lt;#E567&gt; a er:Entity ;
+er:value &quot;three&quot; .
+</code></pre>
+<hr />
+<p>RDFS something like -</p>
+<pre><code>@prefix er: &lt;http://purl.org/stuff/er&gt; .
+
+er:Entity a rdfs:Class ;
+rdfs:label &quot;Entity&quot; ;
+rdfs:comment &quot;An entity...&quot; .
+
+er:Relationship a rdfs:Class ;
+rdfs:label &quot;Relationship&quot; ;
+rdfs:comment &quot;A relationship between entities&quot; .
+
+er:Triplet a rdfs:Class ;
+rdfs:label &quot;Triplet&quot; ;
+rdfs:comment &quot;A 3-tuple expressing a relationship between entities&quot; .
+
+er:subject a rdf:Property ;
+rdfs:label &quot;subject&quot; .
+er:subject rdfs:domain er:Entity .
+er:subject rdfs:range er:Entity .
+
+er:subject a rdf:Property ;
+rdfs:label &quot;subject&quot; .
+
+er:subject a rdf:Property ;
+rdfs:label &quot;subject&quot; .
+
+rdfs:comment &quot;An entity...&quot; .
+</code></pre>
+<p>Probably not needed.</p>
+<p>Time to move onto another doc</p>
+&nbsp;<a class="more" href="/blog/llama-sparql-01/">...</a>
+    </p>
+    <!--
+<p class="summary">
+FOR TEMP CHANGES, UNMODIFIED FILES ARE IN ../original Today's task : as yesterday. It's occurred to me that it would be helpful to look at&nbsp;<a class="more" href="/blog/llama-sparql-01/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/llama-sparql-01/">Read More</a>
+</div>
+-->
+</article><article>
     <h2><a href="/blog/Graph-of-Thoughs-initial-thoughts/">Graph of Thoughts, initial thoughts</a></h2>
     <p class="meta">Published on 2023-08-27 by <b>Admin</b></p>
 
     <p class="content">
-        <p><em>What sprang to mind, not thought through, likely much rubbish.</em></p>
+        <p><em>Work in progress, scrappy notes &amp; thoughts to pull together. What sprang to mind, not thought through, likely much rubbish.</em></p>
 <p>So I finally got around to reading the recent <a href="https://arxiv.org/abs/2308.09687">Graph of Thoughts : Solving Elaborate Problems with Large Language Models</a> paper. <em>&quot;Finally&quot; in the sense of it only appeared at Arxiv just over a week or so ago, I printed a couple of days ago. Things are moving sooo fast...</em></p>
 <p>I do need to re-read it a few more times, also check some of the refs, there are bound to be papers that address the bits mentioned below (several are graph-related).So, initial thoughts. First is <strong>meta</strong>, the most important, subsuming everything else: <strong>It's really well written!</strong>. Research only really becomes useful when it's communicated. The text is as plain English as you can get with such material. Loads of acronyms, but that's unavoidable. But where they are significant, they're expanded and explained. Only as much maths as necessary, lovely - so often in this field, complicated sums muddy the water. Lots of clear-enough diagrams. Content-wise : <strong>Strong Accept</strong>.</p>
 <p>Regarding content, in no particular order :</p>
@@ -39,15 +269,16 @@ things like applying tabl</p>
 @DrIBIS @doriantaylor</p>
 <p>https://web.archive.org/web/20030418021226/http://ideagraph.net/xmlns/ibis/</p>
 <p>https://vocab.methodandstructure.com/ibis</p>
-<p>I hadn't thought through how to do it (see this paper!), but the <em>Graph of Thoughts</em> notion was a very visible the next step after <em>Chain...</em> and <em>Tree...</em>. I discussed it with ChatGPT <a href="https://twitter.com/danja/status/1671680152500322304">a while ago</a>, with ChatGPT. This reinforced my feeling that it could be a productive avenue, so at the end of our conversation I asked ChatGPT for a slogan to promote it :</p>
+<p>I hadn't thought through how to do it (see this paper!), but the <em>Graph of Thoughts</em> notion was a very visible next step after <em>Chain...</em> and <em>Tree...</em>. I discussed it with ChatGPT <a href="https://twitter.com/danja/status/1671680152500322304">a little while ago</a>. This reinforced my feeling that it should be a productive avenue, so at the end of our conversation I asked ChatGPT for advertizing copy to promote it :</p>
 <blockquote>
 <p>&quot;Unleash the power of graph-of-thought in LLM dialogues! Represent ideas as nodes, relationships as edges, and explore a web of knowledge. Navigate non-linearly, uncover intricate connections, and foster context-aware discussions.&quot;</p>
 </blockquote>
+<p>https://www.siwei.io/en/posts/</p>
 &nbsp;<a class="more" href="/blog/Graph-of-Thoughs-initial-thoughts/">...</a>
     </p>
     <!--
 <p class="summary">
-What sprang to mind, not thought through, likely much rubbish. So I finally got around to reading the recent Graph of Thoughts : Solving Elaborate&nbsp;<a class="more" href="/blog/Graph-of-Thoughs-initial-thoughts/">...</a>
+Work in progress, scrappy notes &amp; thoughts to pull together. What sprang to mind, not thought through, likely much rubbish. So I finally got around&nbsp;<a class="more" href="/blog/Graph-of-Thoughs-initial-thoughts/">...</a>
 </p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
 -->
 
@@ -83,7 +314,7 @@ This is a test Let's see it it works Note to self : check layoutof of original m
 </div>
 -->
 </article><article>
-    <h2><a href="/blog/llama-sparql-00/">llama_index-SPARQL notes 01</a></h2>
+    <h2><a href="/blog/llama-sparql-00/">llama_index SPARQL Notes 00</a></h2>
     <p class="meta">Published on 2018-08-27 by <b>Admin</b></p>
 
     <p class="content">
@@ -161,6 +392,9 @@ This is a test Let's see it it works Note to self : check layoutof of original m
     assert 1 == 0
 </code></pre>
 <p>ok, time to actually write code...</p>
+<h3>Ask the assistant first</h3>
+<p>I hadn't really explored ChatGPT's Code Interpreter. Had seen that you could upload source files, best as a zip.</p>
+<p>So I thought, see how far it gets with <code>llama_index/graph_stores/</code></p>
 &nbsp;<a class="more" href="/blog/llama-sparql-00/">...</a>
     </p>
     <!--

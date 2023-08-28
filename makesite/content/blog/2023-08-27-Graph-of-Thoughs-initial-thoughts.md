@@ -1,6 +1,6 @@
 <!-- title: Graph of Thoughts, initial thoughts -->
 
-_What sprang to mind, not thought through, likely much rubbish._
+_Work in progress, scrappy notes & thoughts to pull together. What sprang to mind, not thought through, likely much rubbish._
 
 So I finally got around to reading the recent [Graph of Thoughts : Solving Elaborate Problems with Large Language Models](https://arxiv.org/abs/2308.09687) paper. _"Finally" in the sense of it only appeared at Arxiv just over a week or so ago, I printed a couple of days ago. Things are moving sooo fast..._
 
@@ -37,7 +37,7 @@ https://web.archive.org/web/20030418021226/http://ideagraph.net/xmlns/ibis/
 
 https://vocab.methodandstructure.com/ibis
 
-I hadn't thought through how to do it (see this paper!), but the _Graph of Thoughts_ notion was a very visible the next step after _Chain..._ and _Tree..._. I discussed it with ChatGPT [a while ago](https://twitter.com/danja/status/1671680152500322304), with ChatGPT. This reinforced my feeling that it could be a productive avenue, so at the end of our conversation I asked ChatGPT for a slogan to promote it :
+I hadn't thought through how to do it (see this paper!), but the _Graph of Thoughts_ notion was a very visible next step after _Chain..._ and _Tree..._. I discussed it with ChatGPT [a little while ago](https://twitter.com/danja/status/1671680152500322304). This reinforced my feeling that it should be a productive avenue, so at the end of our conversation I asked ChatGPT for advertizing copy to promote it :
 
 > "Unleash the power of graph-of-thought in LLM dialogues! Represent ideas as nodes, relationships as edges, and explore a web of knowledge. Navigate non-linearly, uncover intricate connections, and foster context-aware discussions."
 

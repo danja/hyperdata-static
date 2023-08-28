@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>llama_index SPARQL Notes 00 - Lorem Ipsum</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body id="llama-sparql-02">
+    <script id="replace_with_navbar" src="/share/nav.js"></script>
+    <br />
+    <br />
+    <br />
+    <em>Interim blog setup, rough notes being dumped here at the moment - I'll tidy once I get to a milestone. And sorry
+        about the layout, that'll probably take even longer to get around to... #TODO</em>
+    <br />
+    <br />
+    <main>
+        <article>
+<h1><a href="/blog/llama-sparql-02/">llama_index SPARQL Notes 00</a></h1>
+<p class="meta">Published on 2023-08-28 by <b>Admin</b></p>
+<p><strong>FOR TEMP CHANGES, UNMODIFIED FILES ARE IN ../original</strong>
+<em>(I should probably make a branch in git, but then I'm likely to forget...)</em></p>
+<p>My attention's been skipping around, spent a lot of time trying to engage with ChatGPT. There are bits of prompts I tried in <a href="/blog/llama-sparql-02">llama_index SPARQL Notes 02</a>.</p>
+<p>Time to get back to the code proper (continuing from <a href="/blog/llama-sparql-00">llama_index SPARQL Notes 00</a>).</p>
+<p>I've roughed out the shape of RDF I <em>think</em> I need :</p>
+<pre><code># Simple Entity-Relation
+
+@base &lt;http://purl.org/stuff/data&gt; .
+@prefix er: &lt;http://purl.org/stuff/er&gt; .
+
+&lt;#T123&gt; a er:Triplet ;
+er:id &quot;#T123&quot; ;
+er:subject &lt;#E123&gt; ;
+er:property &lt;#R456&gt; ;
+er:object &lt;#E567&gt; .
+
+&lt;#E123&gt; a er:Entity ;
+er:value &quot;one&quot; .
+
+&lt;#R456&gt; a er:Relationship ;
+er:value &quot;two&quot; .
+
+&lt;#E567&gt; a er:Entity ;
+er:value &quot;three&quot; .
+</code></pre>
+<p>But before writing the SPARQL I want to go back to <code>nebulagraph.py</code>, add some logging calls to see what it's <em>actually</em> passing around. Then go back to the tests, then forward...</p>
+
+</article>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2023 Danny Ayers, CC Attribution/MIT License</p>
+            <p>Made with <a href="https://github.com/sunainapai">makesite</a></p>
+        </section>
+    </footer>
+
+</body>
+
+</html>
