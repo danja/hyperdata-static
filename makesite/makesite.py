@@ -119,7 +119,8 @@ def read_content(filename):
 def render(template, **params):
     """Replace placeholders in template with values from params."""
     return re.sub(r'{{\s*([^}\s]+)\s*}}',
-                  lambda match: str(params.get(match.group(1), match.group(0))),
+                  lambda match: str(params.get(
+                      match.group(1), match.group(0))),
                   template)
 
 
@@ -175,9 +176,9 @@ def main():
     # Default parameters.
     params = {
         'base_path': '',
-        'subtitle': 'Lorem Ipsum',
-        'author': 'Admin',
-        'site_url': 'http://localhost:8000',
+        'subtitle': 'Another Interim Blog',
+        'author': '@danja',
+        'site_url': 'https://hyperdata.it',
         'current_year': datetime.datetime.now().year
     }
 

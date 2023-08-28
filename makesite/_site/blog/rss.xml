@@ -3,83 +3,83 @@
 
 <channel>
 <title>Blog</title>
-<link>http://localhost:8000/</link>
+<link>https://hyperdata.it/</link>
 <description>Grow with Technology</description>
 
 <item>
 <title>llama_index SPARQL Notes 02</title>
-<link>http://localhost:8000/blog/llama-sparql-02/</link>
+<link>https://hyperdata.it/blog/llama-sparql-02/</link>
 <description>
 <![CDATA[
 <p>
-FOR TEMP CHANGES, UNMODIFIED FILES ARE IN ../original (I should probably make a branch in git, but then I'm likely to forget...) My attention's been&nbsp;<a href="http://localhost:8000/blog/llama-sparql-02/">...</a>
+FOR TEMP CHANGES, UNMODIFIED FILES ARE IN ../original (I should probably make a branch in git, but then I'm likely to forget...) My attention's been&nbsp;<a href="https://hyperdata.it/blog/llama-sparql-02/">...</a>
 </p>
-<p><a href="http://localhost:8000/blog/llama-sparql-02/">Read More</a></p>
+<p><a href="https://hyperdata.it/blog/llama-sparql-02/">Read More</a></p>
 ]]>
 </description>
 <pubDate>Mon, 28 Aug 2023 00:00:00 +0000</pubDate>
 </item>
 <item>
 <title>llama_index SPARQL Notes 01</title>
-<link>http://localhost:8000/blog/llama-sparql-01/</link>
+<link>https://hyperdata.it/blog/llama-sparql-01/</link>
 <description>
 <![CDATA[
 <p>
-FOR TEMP CHANGES, UNMODIFIED FILES ARE IN ../original Today's task : as yesterday. It's occurred to me that it would be helpful to look at&nbsp;<a href="http://localhost:8000/blog/llama-sparql-01/">...</a>
+FOR TEMP CHANGES, UNMODIFIED FILES ARE IN ../original Today's task : as yesterday. It's occurred to me that it would be helpful to look at&nbsp;<a href="https://hyperdata.it/blog/llama-sparql-01/">...</a>
 </p>
-<p><a href="http://localhost:8000/blog/llama-sparql-01/">Read More</a></p>
+<p><a href="https://hyperdata.it/blog/llama-sparql-01/">Read More</a></p>
 ]]>
 </description>
 <pubDate>Mon, 28 Aug 2023 00:00:00 +0000</pubDate>
 </item>
 <item>
 <title>Graph of Thoughts, initial thoughts</title>
-<link>http://localhost:8000/blog/Graph-of-Thoughs-initial-thoughts/</link>
+<link>https://hyperdata.it/blog/Graph-of-Thoughs-initial-thoughts/</link>
 <description>
 <![CDATA[
 <p>
-Work in progress, scrappy notes &amp; thoughts to pull together. What sprang to mind, not thought through, likely much rubbish. So I finally got around&nbsp;<a href="http://localhost:8000/blog/Graph-of-Thoughs-initial-thoughts/">...</a>
+Work in progress, scrappy notes &amp; thoughts to pull together. What sprang to mind, not thought through, likely much rubbish. So I finally got around&nbsp;<a href="https://hyperdata.it/blog/Graph-of-Thoughs-initial-thoughts/">...</a>
 </p>
-<p><a href="http://localhost:8000/blog/Graph-of-Thoughs-initial-thoughts/">Read More</a></p>
+<p><a href="https://hyperdata.it/blog/Graph-of-Thoughs-initial-thoughts/">Read More</a></p>
 ]]>
 </description>
 <pubDate>Sun, 27 Aug 2023 00:00:00 +0000</pubDate>
 </item>
 <item>
 <title>Post One</title>
-<link>http://localhost:8000/blog/post-one/</link>
+<link>https://hyperdata.it/blog/post-one/</link>
 <description>
 <![CDATA[
 <p>
-This is a test Let's see it it works Note to self : check layoutof of original makesite hmm...&nbsp;<a href="http://localhost:8000/blog/post-one/">...</a>
+This is a test Let's see it it works Note to self : check layoutof of original makesite hmm...&nbsp;<a href="https://hyperdata.it/blog/post-one/">...</a>
 </p>
-<p><a href="http://localhost:8000/blog/post-one/">Read More</a></p>
+<p><a href="https://hyperdata.it/blog/post-one/">Read More</a></p>
 ]]>
 </description>
 <pubDate>Sat, 26 Aug 2023 00:00:00 +0000</pubDate>
 </item>
 <item>
 <title>llama_index SPARQL Notes 00</title>
-<link>http://localhost:8000/blog/llama-sparql-00/</link>
+<link>https://hyperdata.it/blog/llama-sparql-00/</link>
 <description>
 <![CDATA[
 <p>
-This is a continuation of notes from GraphRAG . I'm currently writing a SPARQL connector for llama_index, and jotting notes as I go along. My&nbsp;<a href="http://localhost:8000/blog/llama-sparql-00/">...</a>
+This is a continuation of notes from GraphRAG . I'm currently writing a SPARQL connector for llama_index, and jotting notes as I go along. My&nbsp;<a href="https://hyperdata.it/blog/llama-sparql-00/">...</a>
 </p>
-<p><a href="http://localhost:8000/blog/llama-sparql-00/">Read More</a></p>
+<p><a href="https://hyperdata.it/blog/llama-sparql-00/">Read More</a></p>
 ]]>
 </description>
 <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
 </item>
 <item>
 <title>Post Two</title>
-<link>http://localhost:8000/blog/template/</link>
+<link>https://hyperdata.it/blog/template/</link>
 <description>
 <![CDATA[
 <p>
-This is a test 2 Let's see it it works Check layoutof of original makesite&nbsp;<a href="http://localhost:8000/blog/template/">...</a>
+This is a test 2 Let's see it it works Check layoutof of original makesite&nbsp;<a href="https://hyperdata.it/blog/template/">...</a>
 </p>
-<p><a href="http://localhost:8000/blog/template/">Read More</a></p>
+<p><a href="https://hyperdata.it/blog/template/">Read More</a></p>
 ]]>
 </description>
 <pubDate>Mon, 01 Jan 2001 00:00:00 +0000</pubDate>
