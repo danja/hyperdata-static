@@ -1,5 +1,9 @@
 <!-- title: llama_index SPARQL Notes 02 -->
 
+**Aaargh! OpenAI API credit $0.21, and I won't have any money to top it up for another week or so**
+
+_What doesn't need the API?_
+
 **FOR TEMP CHANGES, UNMODIFIED FILES ARE IN ../original**
 _(I should probably make a branch in git, but then I'm likely to forget...)_
 
