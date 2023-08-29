@@ -12,4 +12,4 @@ Then -
 - put the INSERT & SELECT queries inside sparql.py
 - ...
 
--
+---
