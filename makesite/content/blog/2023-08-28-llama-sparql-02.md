@@ -84,10 +84,4 @@ Results table column labels are src, e, dst
 
 Ok, enough for today.
 
-Tomorrow, use nebula-client to pull out data from there, RDFLib to build RDF, sparqlwrapper to push to store.
-
-Then -
-
-- have a look around _3 Create VectorStoreIndex for RAG_ in Notebook
-- put the INSERT & SELECT queries inside sparql.py
-- ...
+[Tomorrow](/blog/llama-sparql-03))

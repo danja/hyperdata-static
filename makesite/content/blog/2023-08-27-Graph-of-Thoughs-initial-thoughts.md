@@ -42,3 +42,14 @@ I hadn't thought through how to do it (see this paper!), but the _Graph of Thoug
 > "Unleash the power of graph-of-thought in LLM dialogues! Represent ideas as nodes, relationships as edges, and explore a web of knowledge. Navigate non-linearly, uncover intricate connections, and foster context-aware discussions."
 
 https://www.siwei.io/en/posts/
+
+Conceptual Maps (Sowa) - his site? Concept Maps, Semantic Web/Linked Data
+
+Layer Cake (bis)!
+LLM stack
+https://medium.com/@brian_90925/llms-and-the-emerging-ml-tech-stack-6fa66ee4561a
+https://outerbounds.com/blog/llm-infrastructure-stack/
+
+WebLM? WebML? **Intelligent Web**
+
+Agents
