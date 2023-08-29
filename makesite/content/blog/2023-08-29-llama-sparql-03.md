@@ -11,3 +11,5 @@ Then -
 - have a look around _3 Create VectorStoreIndex for RAG_ in Notebook
 - put the INSERT & SELECT queries inside sparql.py
 - ...
+
+-
