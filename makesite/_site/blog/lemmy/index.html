@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lemmy - Another Interim Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body id="lemmy">
+    <script id="replace_with_navbar" src="/share/nav.js"></script>
+    <br />
+    <br />
+    <br />
+    <em>Interim blog setup, rough notes being dumped here at the moment - I'll tidy once I get to a milestone. And sorry
+        about the layout, that'll probably take even longer to get around to... #TODO</em>
+    <br />
+    <br />
+    <main>
+        <article>
+<h1><a href="/blog/lemmy/">Lemmy</a></h1>
+<p class="meta">Published on 2023-08-29 by <b>@danja</b></p>
+<p>https://github.com/LemmyNet</p>
+<p>recommends <a href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html">Ansible</a></p>
+<p>I opted for the full version -</p>
+<ul>
+<li>pipx install --include-deps ansible</li>
+</ul>
+<p><em>ew</em>, initial bits painful, found the docs confusing, maybe assume more prior knowledge than I have (only used Docker a bit, have never used Ansible). More worrying, I haven't a clue what it's stuck on my server.</p>
+<p><strong>2023-08-30</strong></p>
+<p>The Ansible thing did look like it'd mostly run ok, but things definitely fell apart around <code>nginx</code>. Very likely cause being host:port clash, as I already have an Apache server in front on hyperdata.it/127.0.0.1 :80 and :443</p>
+<p>https://www.geeksforgeeks.org/changing-nginx-port-in-linux/</p>
+<p>I changed the default config yesterday, but just looked again, there's actually :</p>
+<pre><code>/etc/nginx/sites-available/default
+/etc/nginx/sites-available/hyperdata.it.conf
+/etc/nginx/sites-enabled/default
+/etc/nginx/sites-enabled/hyperdata.it.conf
+</code></pre>
+<p>So I've deleted the <code>/etc/nginx/sites-enabled/default</code> symlink and changed <code>hyperdata.it.conf</code> to use <strong>port 8421</strong></p>
+<ul>
+<li>sudo systemctl restart nginx.service</li>
+<li><em>failed</em></li>
+<li>systemctl status nginx.service | less</li>
+<li>nginx: [emerg] bind() to 0.0.0.0:443 failed</li>
+</ul>
+<p>I'm pretty sure I don't need https/443 on nginx, I've got Apache doing that, is proxying to Fuseki etc on plain http on different ports. So I've deleted that section from <code>hyperdata.it.conf</code></p>
+<ul>
+<li>systemctl restart nginx.service</li>
+<li>systemctl status nginx.service</li>
+</ul>
+<blockquote>
+<p>Active: active (running) since Wed 2023-08-30 09:27:02 UTC; 12s ago</p>
+</blockquote>
+<p>Yay!</p>
+<p>Hmm. http://hyperdata.it:8421 just redirects to https://hyperdata.it/</p>
+<p>On server,</p>
+<ul>
+<li>apt install lynx</li>
+<li>lynx http://127.0.0.1:8421</li>
+</ul>
+<blockquote>
+<p>Currently reorganising the server. I'll put my FOAF/Solid here soon, for now my contact details should be at :
+https://hyperdata.it/
+note to self : this is /opt/lampp/htdocs/profile/index.html</p>
+</blockquote>
+<p>Aha! That's my placeholder for <code>https://danny.ayers.name/</code>, configured in Apache.</p>
+<p>Where are my notes on Apache setup..?</p>
+<p><code>~/HKMS/server-setup/</code> apparently - TODO make that easier to find</p>
+<p><strong>distraction</strong> danbri mentioned XMPP (for ChatGPT) yesterday, it appears I have ejabberd installed. Is it running? see <a href="ejabberd">ejabberd Notes</a></p>
+
+</article>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2023 Danny Ayers, CC Attribution/MIT License</p>
+            <p>Made with <a href="https://github.com/sunainapai">makesite</a></p>
+        </section>
+    </footer>
+
+</body>
+
+</html>

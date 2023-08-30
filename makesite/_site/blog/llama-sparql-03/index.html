@@ -23,7 +23,9 @@
 <p class="meta">Published on 2023-08-29 by <b>@danja</b></p>
 <h3>Today</h3>
 <p><em>I'm down to $0.23 OpenAI API credit, so until I next have $ need to look at things that don't need it. <code>sparql.py</code> doesn't in itself need the OpenAI API, but a SPARQLy version of Wey Gu's Notebook is my target functional E2E test.</em></p>
-<p>I still have NebulaGraph data generated from Wey's Notebook. I can use nebula-client to pull out data from there, RDFLib to build RDF, sparqlwrapper to push to store. The SPARQL needed will be essentially the same as for <code>sparql.py</code>. Also NebulaGraph &lt;=&gt; RDF utils would be nice to have (may already exist, but I'll pretend I didn't consider that).</p>
+<blockquote>
+<p>I still have NebulaGraph data generated from Wey's Notebook. I can use nebula-python to pull out data from there, RDFLib to build RDF, sparqlwrapper to push to store. The SPARQL needed will be essentially the same as for <code>sparql.py</code>. Also NebulaGraph &lt;=&gt; RDF utils would be nice to have (may already exist, but I'll pretend I didn't consider that, need to inform myself).</p>
+</blockquote>
 <p>Then -</p>
 <ul>
 <li>have a look around <em>3 Create VectorStoreIndex for RAG</em> in Notebook</li>
@@ -31,6 +33,12 @@
 <li>...</li>
 </ul>
 <hr />
+<p><strong>MOVE PATH FROM llama_index INSTALLED TO DEV TREE</strong></p>
+<p><code>sudo /usr/local/nebula/scripts/nebula.service start all</code></p>
+<p>Started with :</p>
+<p><code>resp = client.execute_json('MATCH (v:entity) RETURN v')</code></p>
+<p>After converting this to string there were character encoding errors. Should really be investigated properly, but for now I'll just go with some quick &amp; dirty sanitization (Valid RDF literals will probably need <em>something</em> anyhow).</p>
+<p><code>json_str = resp.decode('utf-8')</code> appears to have fixed the encoding issues.</p>
 
 </article>
 

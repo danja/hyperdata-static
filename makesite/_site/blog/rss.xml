@@ -7,6 +7,32 @@
 <description>Grow with Technology</description>
 
 <item>
+<title>Blog TODO</title>
+<link>https://hyperdata.it/blog/todo/</link>
+<description>
+<![CDATA[
+<p>
+far in the future I rather like this mode of blogging, type markdown into VSCode, makesite.py converts/formats it, use git (in a script) to transfer&nbsp;<a href="https://hyperdata.it/blog/todo/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/todo/">Read More</a></p>
+]]>
+</description>
+<pubDate>Sat, 01 Jan 2050 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>ejabberd Notes</title>
+<link>https://hyperdata.it/blog/ejabberd/</link>
+<description>
+<![CDATA[
+<p>
+danbri mentioned XMPP (for ChatGPT) yesterday, it appears I have ejabberd installed. Is it running? Browser-based client : https://conversejs.org/docs/html/quickstart.html Pro-tip, if you just want to&nbsp;<a href="https://hyperdata.it/blog/ejabberd/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/ejabberd/">Read More</a></p>
+]]>
+</description>
+<pubDate>Wed, 30 Aug 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
 <title>llama_index SPARQL Notes 03</title>
 <link>https://hyperdata.it/blog/llama-sparql-03/</link>
 <description>
@@ -15,6 +41,19 @@
 Today I'm down to $0.23 OpenAI API credit, so until I next have $ need to look at things that don't need it. sparql.py doesn't&nbsp;<a href="https://hyperdata.it/blog/llama-sparql-03/">...</a>
 </p>
 <p><a href="https://hyperdata.it/blog/llama-sparql-03/">Read More</a></p>
+]]>
+</description>
+<pubDate>Tue, 29 Aug 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Lemmy</title>
+<link>https://hyperdata.it/blog/lemmy/</link>
+<description>
+<![CDATA[
+<p>
+https://github.com/LemmyNet recommends Ansible I opted for the full version - pipx install --include-deps ansible ew , initial bits painful, found the docs confusing, maybe assume&nbsp;<a href="https://hyperdata.it/blog/lemmy/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/lemmy/">Read More</a></p>
 ]]>
 </description>
 <pubDate>Tue, 29 Aug 2023 00:00:00 +0000</pubDate>

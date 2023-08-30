@@ -20,13 +20,182 @@
     <main>
         <h1>Blog</h1>
 <article>
+    <h2><a href="/blog/todo/">Blog TODO</a></h2>
+    <p class="meta">Published on 2050-01-01 by <b>@danja</b></p>
+
+    <p class="content">
+        <p><em>far in the future</em></p>
+<p>I rather like this mode of blogging, type markdown into VSCode, <code>makesite.py</code> converts/formats it, use git (in a script) to transfer to server.</p>
+<p>Three things to do soonish :</p>
+<ul>
+<li>layout : make it prettier &amp; more navigable, maybe make it 2 or 3 column for index etc.</li>
+<li>add a forward-chrono view from a given post, makes more sense with the things like continuing notes (can always make it more sophisticated via SPARQL store)</li>
+<li>add a directory treewalker to send the content etc. up to my SPARQL store (I've a feeling I've done this before in Python, very straightforward - it's be quicker to do afresh, with the help of <code>sparqlwrapper</code> and ChatGPT)</li>
+</ul>
+<p>I reckon I'll split <code>makesite.py</code> up, modularise a bit. Even if I move to all SPARQL-backed for the blog, it's bound to be useful somewhere.</p>
+&nbsp;
+        <!-- a class="more" href="/blog/todo/">...</a -->
+    </p>
+    <!--
+<p class="summary">
+far in the future I rather like this mode of blogging, type markdown into VSCode, makesite.py converts/formats it, use git (in a script) to transfer&nbsp;<a class="more" href="/blog/todo/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/todo/">Read More</a>
+</div>
+-->
+</article><article>
+    <h2><a href="/blog/ejabberd/">ejabberd Notes</a></h2>
+    <p class="meta">Published on 2023-08-30 by <b>@danja</b></p>
+
+    <p class="content">
+        <p>danbri mentioned XMPP (for ChatGPT) yesterday, it appears I have ejabberd installed. Is it running?</p>
+<p>Browser-based client :</p>
+<p>https://conversejs.org/docs/html/quickstart.html</p>
+<blockquote>
+<p>Pro-tip, if you just want to quickly test things locally, you can run make serve inside a checkout of the Converse repo. Converse is then hosted at http://localhost:8000</p>
+</blockquote>
+<ul>
+<li>git clone https://github.com/conversejs/converse.js.git</li>
+<li>cd converse.js</li>
+<li>make serve <em>(it does an npm install of stuff)</em></li>
+</ul>
+<p>} from '../../../node_modules/lit/html.js';
+// } from './html.js'; danny</p>
+<p>cp node_modules/lit/html.js src/headless/utils/</p>
+<p>grr, hateful thing, given up.</p>
+<ul>
+<li>yes | rm -r converse.js</li>
+</ul>
+<p>Installed gajim (via synaptic) instead</p>
+<p>no immediate joy (where to cofig servers?)</p>
+<p>Installed pidgin</p>
+<p>isn't connecting - the Enabled box for the account unchecks itself</p>
+<ul>
+<li>systemctl restart ejabberd</li>
+<li>systemctl status ejabberd</li>
+</ul>
+<pre><code>Active: activating (start) since Wed 2023-08-30 11:13:37 UTC; 3min 22s ago
+...
+Aug 30 11:15:27 localhost sh[443214]: 2023-08-30 11:15:27.334892+00:00 [error] Cannot ping watchdog: {badmatch,{error,eacces}}
+</code></pre>
+<p>looks like the install is old, I think done from .deb
+So,</p>
+<ul>
+<li>wget https://github.com/processone/ejabberd/releases/download/23.04/ejabberd_23.04-1_amd64.deb</li>
+<li>dpkg -i ejabberd_23.04-1_amd64.deb</li>
+</ul>
+<pre><code>Unpacking ejabberd (23.04-1) over (21.12-1) ...
+...
+Could not execute systemctl:  at /usr/bin/deb-systemd-invoke line 142.
+</code></pre>
+<p>Oops!</p>
+<ul>
+<li>systemctl stop ejabberd</li>
+<li>systemctl start ejabberd</li>
+<li>systemctl status ejabberd</li>
+</ul>
+<p>Grrr, <code>Cannot ping watchdog</code> again.</p>
+<p>Google...</p>
+<p>https://askubuntu.com/questions/1411679/ubuntu-22-04-ejabberd-apparmour-profile-broken</p>
+<pre><code>Description=A distributed, fault-tolerant Jabber/XMPP server
+Documentation=https://www.process-one.net/en/ejabberd/docs/
+After=epmd.service network.target
+Requires=epmd.service
+
+[Service]
+Type=forking
+User=ejabberd
+Group=ejabberd
+LimitNOFILE=65536
+Restart=on-failure
+RestartSec=5
+ExecStart=/bin/sh -c '/usr/sbin/ejabberdctl start &amp;&amp; /usr/sbin/ejabberdctl started'
+ExecStop=/bin/sh -c '/usr/sbin/ejabberdctl stop &amp;&amp; /usr/sbin/ejabberdctl stopped'
+ExecReload=/bin/sh -c '/usr/sbin/ejabberdctl reload_config'
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=full
+TimeoutSec=300
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<ul>
+<li>mv ejabberd.service ejabberd_old_service</li>
+<li>nano, paste the above</li>
+<li>systemctl daemon-reload</li>
+<li>systemctl restart ejabberd</li>
+</ul>
+<p><code>Active: active (running) since Wed 2023-08-30 11:47:14 UTC; 33s ago</code></p>
+<p>Yay!</p>
+<p>From pidgin :</p>
+<pre><code>danja@hyperdata.it/ disconnected
+Host Unknown
+</code></pre>
+<p>Port problem? Whatever, enough of that for now.</p>
+<hr />
+<p>Hah! The second I returned to Lemmy setup, I saw mynotes from when I installed ejabberd last time :</p>
+<p><strong>2022-10-27</strong></p>
+<pre><code>installed ejabberd
+
+Creating config file /etc/default/ejabberd with new version
+
+Creating config file /etc/ejabberd/ejabberd.yml with new version
+Created symlink /etc/systemd/system/multi-user.target.wants/ejabberd.service → /
+lib/systemd/system/ejabberd.service.
+
+admin@hyperdata.it
+
+/etc/ejabberd/ejabberd.yml
+
+ejabberdctl reload_config
+
+ejabberdctl register admin hyperdata.it [password]
+
+https://hyperdata.it:5280/admin/
+
+ejabberdctl register danny hyperdata.it [password]
+ejabberdctl register device hyperdata.it [password]
+ejabberdctl register marinella hyperdata.it [password]
+
+locally
+mosquitto_sub -u danny@hyperdata.it -P  [password] -t &quot;test/1&quot; -d -v
+new terminal
+mosquitto_pub -u device@hyperdata.it -P  [password] -t &quot;test/1&quot; -d -m &quot;ABC&quot;
+</code></pre>
+<p>...Whatever, enough of that for now.</p>
+&nbsp;
+        <!-- a class="more" href="/blog/ejabberd/">...</a -->
+    </p>
+    <!--
+<p class="summary">
+danbri mentioned XMPP (for ChatGPT) yesterday, it appears I have ejabberd installed. Is it running? Browser-based client : https://conversejs.org/docs/html/quickstart.html Pro-tip, if you just want to&nbsp;<a class="more" href="/blog/ejabberd/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/ejabberd/">Read More</a>
+</div>
+-->
+</article><article>
     <h2><a href="/blog/llama-sparql-03/">llama_index SPARQL Notes 03</a></h2>
     <p class="meta">Published on 2023-08-29 by <b>@danja</b></p>
 
     <p class="content">
         <h3>Today</h3>
 <p><em>I'm down to $0.23 OpenAI API credit, so until I next have $ need to look at things that don't need it. <code>sparql.py</code> doesn't in itself need the OpenAI API, but a SPARQLy version of Wey Gu's Notebook is my target functional E2E test.</em></p>
-<p>I still have NebulaGraph data generated from Wey's Notebook. I can use nebula-client to pull out data from there, RDFLib to build RDF, sparqlwrapper to push to store. The SPARQL needed will be essentially the same as for <code>sparql.py</code>. Also NebulaGraph &lt;=&gt; RDF utils would be nice to have (may already exist, but I'll pretend I didn't consider that).</p>
+<blockquote>
+<p>I still have NebulaGraph data generated from Wey's Notebook. I can use nebula-python to pull out data from there, RDFLib to build RDF, sparqlwrapper to push to store. The SPARQL needed will be essentially the same as for <code>sparql.py</code>. Also NebulaGraph &lt;=&gt; RDF utils would be nice to have (may already exist, but I'll pretend I didn't consider that, need to inform myself).</p>
+</blockquote>
 <p>Then -</p>
 <ul>
 <li>have a look around <em>3 Create VectorStoreIndex for RAG</em> in Notebook</li>
@@ -34,6 +203,12 @@
 <li>...</li>
 </ul>
 <hr />
+<p><strong>MOVE PATH FROM llama_index INSTALLED TO DEV TREE</strong></p>
+<p><code>sudo /usr/local/nebula/scripts/nebula.service start all</code></p>
+<p>Started with :</p>
+<p><code>resp = client.execute_json('MATCH (v:entity) RETURN v')</code></p>
+<p>After converting this to string there were character encoding errors. Should really be investigated properly, but for now I'll just go with some quick &amp; dirty sanitization (Valid RDF literals will probably need <em>something</em> anyhow).</p>
+<p><code>json_str = resp.decode('utf-8')</code> appears to have fixed the encoding issues.</p>
 &nbsp;
         <!-- a class="more" href="/blog/llama-sparql-03/">...</a -->
     </p>
@@ -48,6 +223,74 @@ Today I'm down to $0.23 OpenAI API credit, so until I next have $ need to look a
     <!--
 <div>
 <a class="more" href="/blog/llama-sparql-03/">Read More</a>
+</div>
+-->
+</article><article>
+    <h2><a href="/blog/lemmy/">Lemmy</a></h2>
+    <p class="meta">Published on 2023-08-29 by <b>@danja</b></p>
+
+    <p class="content">
+        <p>https://github.com/LemmyNet</p>
+<p>recommends <a href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html">Ansible</a></p>
+<p>I opted for the full version -</p>
+<ul>
+<li>pipx install --include-deps ansible</li>
+</ul>
+<p><em>ew</em>, initial bits painful, found the docs confusing, maybe assume more prior knowledge than I have (only used Docker a bit, have never used Ansible). More worrying, I haven't a clue what it's stuck on my server.</p>
+<p><strong>2023-08-30</strong></p>
+<p>The Ansible thing did look like it'd mostly run ok, but things definitely fell apart around <code>nginx</code>. Very likely cause being host:port clash, as I already have an Apache server in front on hyperdata.it/127.0.0.1 :80 and :443</p>
+<p>https://www.geeksforgeeks.org/changing-nginx-port-in-linux/</p>
+<p>I changed the default config yesterday, but just looked again, there's actually :</p>
+<pre><code>/etc/nginx/sites-available/default
+/etc/nginx/sites-available/hyperdata.it.conf
+/etc/nginx/sites-enabled/default
+/etc/nginx/sites-enabled/hyperdata.it.conf
+</code></pre>
+<p>So I've deleted the <code>/etc/nginx/sites-enabled/default</code> symlink and changed <code>hyperdata.it.conf</code> to use <strong>port 8421</strong></p>
+<ul>
+<li>sudo systemctl restart nginx.service</li>
+<li><em>failed</em></li>
+<li>systemctl status nginx.service | less</li>
+<li>nginx: [emerg] bind() to 0.0.0.0:443 failed</li>
+</ul>
+<p>I'm pretty sure I don't need https/443 on nginx, I've got Apache doing that, is proxying to Fuseki etc on plain http on different ports. So I've deleted that section from <code>hyperdata.it.conf</code></p>
+<ul>
+<li>systemctl restart nginx.service</li>
+<li>systemctl status nginx.service</li>
+</ul>
+<blockquote>
+<p>Active: active (running) since Wed 2023-08-30 09:27:02 UTC; 12s ago</p>
+</blockquote>
+<p>Yay!</p>
+<p>Hmm. http://hyperdata.it:8421 just redirects to https://hyperdata.it/</p>
+<p>On server,</p>
+<ul>
+<li>apt install lynx</li>
+<li>lynx http://127.0.0.1:8421</li>
+</ul>
+<blockquote>
+<p>Currently reorganising the server. I'll put my FOAF/Solid here soon, for now my contact details should be at :
+https://hyperdata.it/
+note to self : this is /opt/lampp/htdocs/profile/index.html</p>
+</blockquote>
+<p>Aha! That's my placeholder for <code>https://danny.ayers.name/</code>, configured in Apache.</p>
+<p>Where are my notes on Apache setup..?</p>
+<p><code>~/HKMS/server-setup/</code> apparently - TODO make that easier to find</p>
+<p><strong>distraction</strong> danbri mentioned XMPP (for ChatGPT) yesterday, it appears I have ejabberd installed. Is it running? see <a href="ejabberd">ejabberd Notes</a></p>
+&nbsp;
+        <!-- a class="more" href="/blog/lemmy/">...</a -->
+    </p>
+    <!--
+<p class="summary">
+https://github.com/LemmyNet recommends Ansible I opted for the full version - pipx install --include-deps ansible ew , initial bits painful, found the docs confusing, maybe assume&nbsp;<a class="more" href="/blog/lemmy/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/lemmy/">Read More</a>
 </div>
 -->
 </article><article>

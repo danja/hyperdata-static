@@ -1,2 +1,0 @@
-- Allow for forward-chrono from current post
-- Add sparqlwrapper.py
