@@ -50,6 +50,81 @@ far in the future I rather like this mode of blogging, type markdown into VSCode
 </div>
 -->
 </article><article>
+    <h2><a href="/blog/llama-sparql-04/">llama_index SPARQL Notes 04</a></h2>
+    <p class="meta">Published on 2023-08-30 by <b>@danja</b></p>
+
+    <p class="content">
+        <p>Continuing from <a href="2023-08-29-llama-sparql-03">yesterday</a> on getting data from a NebulaGraph store and putting it into a SPARQL store.</p>
+<p>I was able to get a condensed JSON rendition of the Entity data from NebulaGraph, now to do the same with Relationships</p>
+<pre><code>USE guardians;
+MATCH (src:entity)-[e:relationship]-&gt;(dst:entity)
+RETURN src, e, dst
+LIMIT 10;
+</code></pre>
+<p>ChatGPT time -</p>
+<blockquote>
+<p>The task will be to create a function to extend an existing Python file. The purpose of this is to take data of a specific shape from a NebulaGraph DB via the nebula3 API and save it in a condensed form as JSON text. I will first give you the nGQL statements that were used to create the NebulaGraph space, then upload a the file, then describe the function I would like to add to it. Here are the nGQL statements :</p>
+</blockquote>
+<pre><code>CREATE SPACE guardians(vid_type=FIXED_STRING(256), partition_num=1, replica_factor=1);
+:sleep 10;
+USE guardians;
+CREATE TAG entity(name string);
+CREATE EDGE relationship(relationship string);
+:sleep 10;
+CREATE TAG INDEX entity_index ON entity(name(256));
+</code></pre>
+<blockquote>
+<p>In the file there is the API call :
+resp = client.execute_json('MATCH (v:entity) RETURN v')
+I will add :
+resp_rel = client.execute_json('MATCH (src:entity)-[e:relationship]-&gt;(dst:entity) RETURN src, e, dst')
+json_rel_str = resp_rel.decode('utf-8')
+Please write a function extract_relationships(json_rel_str) following the pattern of extract_entities(json_data)</p>
+</blockquote>
+<p>What it gave me looks close, but the output was :</p>
+<pre><code>    {'src': 'N/A', 'relationship': 'N/A', 'dst': 'N/A'
+    },
+    {'src': 'N/A', 'relationship': 'N/A', 'dst': 'N/A'
+    },
+...
+</code></pre>
+<p>I will upload a file containing a single result from the database. I would like the data extracted from this by the function extract_relationships to be:
+[{&quot;src&quot;: &quot;production on Vol.3&quot;, &quot;rel&quot;: &quot;relationship&quot;, &quot;dst&quot;: &quot;February 2021&quot;}]
+please modify the function accordingly</p>
+<blockquote>
+<p>ChatGPT
+Finished working
+Show work
+It appears that I forgot to request the file upload. Could you please upload the file containing a single result from the database? This will help me modify the extract_relationships function to meet your requirements.</p>
+</blockquote>
+<p>We went around in circles a lot. ChatGPT's mapping was repeatedly out, I hadn't looked closely neough at the NebulaGraph results.</p>
+<p>But finally I ran with :</p>
+<pre><code>resp_rel = client.execute_json(
+    'MATCH (src:entity)-[e:relationship]-&gt;(dst:entity) RETURN src, e, dst' LIMIT 1)
+</code></pre>
+<p>effectively <em>make it like</em> :</p>
+<pre><code>[{&quot;s&quot;: &quot;production on Vol.3&quot;, &quot;p&quot;: &quot;was put on hold until&quot;, &quot;o&quot;: &quot;February 2021&quot;}]
+</code></pre>
+<p>Yes! There are a lot of duplicates in the output but I'll just hack that for now. But I think I've done the unfmiliar bits now, the RDF/SPARQL side should be straightforward from here.</p>
+<p>Enough for today.</p>
+<p><strong>This would probably have been much easier with JSON-LD. But since I started down this path...</strong></p>
+&nbsp;
+        <!-- a class="more" href="/blog/llama-sparql-04/">...</a -->
+    </p>
+    <!--
+<p class="summary">
+Continuing from yesterday on getting data from a NebulaGraph store and putting it into a SPARQL store. I was able to get a condensed JSON&nbsp;<a class="more" href="/blog/llama-sparql-04/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/llama-sparql-04/">Read More</a>
+</div>
+-->
+</article><article>
     <h2><a href="/blog/ejabberd/">ejabberd Notes</a></h2>
     <p class="meta">Published on 2023-08-30 by <b>@danja</b></p>
 
@@ -204,7 +279,7 @@ danbri mentioned XMPP (for ChatGPT) yesterday, it appears I have ejabberd instal
 </ul>
 <hr />
 <p><strong>MOVE PATH FROM llama_index INSTALLED TO DEV TREE</strong></p>
-<p><code>sudo /usr/local/nebula/scripts/nebula.service start all</code></p>
+<p><strong>sudo /usr/local/nebula/scripts/nebula.service start all</strong></p>
 <p>Started with :</p>
 <p><code>resp = client.execute_json('MATCH (v:entity) RETURN v')</code></p>
 <p>After converting this to string there were character encoding errors. Should really be investigated properly, but for now I'll just go with some quick &amp; dirty sanitization (Valid RDF literals will probably need <em>something</em> anyhow).</p>

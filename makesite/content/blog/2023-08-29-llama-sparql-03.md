@@ -16,7 +16,7 @@ Then -
 
 **MOVE PATH FROM llama_index INSTALLED TO DEV TREE**
 
-`sudo /usr/local/nebula/scripts/nebula.service start all`
+**sudo /usr/local/nebula/scripts/nebula.service start all**
 
 Started with :
 

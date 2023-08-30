@@ -20,6 +20,19 @@ far in the future I rather like this mode of blogging, type markdown into VSCode
 <pubDate>Sat, 01 Jan 2050 00:00:00 +0000</pubDate>
 </item>
 <item>
+<title>llama_index SPARQL Notes 04</title>
+<link>https://hyperdata.it/blog/llama-sparql-04/</link>
+<description>
+<![CDATA[
+<p>
+Continuing from yesterday on getting data from a NebulaGraph store and putting it into a SPARQL store. I was able to get a condensed JSON&nbsp;<a href="https://hyperdata.it/blog/llama-sparql-04/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/llama-sparql-04/">Read More</a></p>
+]]>
+</description>
+<pubDate>Wed, 30 Aug 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
 <title>ejabberd Notes</title>
 <link>https://hyperdata.it/blog/ejabberd/</link>
 <description>
