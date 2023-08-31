@@ -43,6 +43,59 @@ the function should return :
 </code></pre>
 <p>It got it right first time!</p>
 <p>So, next to flip this JSON into RDF/SPARQL.</p>
+<p>Not 100% sure, but I don't think I actually need the <code>extract_entities</code> function, anything useful will also appear in <code>extract_entities</code> and the types/roles are implied by the triplets.</p>
+<p><strong>sanitize</strong></p>
+<p><code>def escape_for_rdf(input_str)</code> - thank you ChatGPT.</p>
+<p>Given the following JSON, how would I retrieve the values of s, p, o?
+[
+{'s': &quot;Industrial Light &amp; Magic's StageCraft&quot;, 'p': 'was developed for', 'o': 'Disney+ Star Wars series The Mandalorian'
+}
+]</p>
+<p>took a little backwards &amp; forwards, but we got there.</p>
+<p>I'm really not sure what level of granularity will eventually be needed, for big lumps of data something else from the <a href="https://www.w3.org/TR/sparql11-http-rdf-update/">SPARQL Protocol</a> would probably be better (like a full-on HTTP PUT). Per-triple DELETE/INSERT might be desirable elsewhere. But here it shouldn't get too big, the INSERT approach <em>should</em> work, and would also work per-triple.</p>
+<p>The NebulaGraph notion of a Space appears very similar to RDF/SPARQL Named Graphs, so I'll go with that (more information, and things can get messy doing everything in the default graph).</p>
+<p>This is what I came up with the other day :</p>
+<pre><code># Simple Entity-Relation
+
+@base &lt;http://purl.org/stuff/data&gt; .
+@prefix er: &lt;http://purl.org/stuff/er&gt; .
+
+&lt;#T123&gt; a er:Triplet ;
+er:id &quot;#T123&quot; ;
+er:subject &lt;#E123&gt; ;
+er:property &lt;#R456&gt; ;
+er:object &lt;#E567&gt; .
+
+&lt;#E123&gt; a er:Entity ;
+er:value &quot;one&quot; .
+
+&lt;#R456&gt; a er:Relationship ;
+er:value &quot;two&quot; .
+
+&lt;#E567&gt; a er:Entity ;
+er:value &quot;three&quot; .
+</code></pre>
+<p>I opted for URL-named resources rather than blank nodes or other IRI because soon it may help with sanity-checking, further down the line the potential for HTTP retrieval is nice to have. There are a lot of annotation/meta triples that could be added, but I reckon this is about the minimum necessary to fulfil the <em>Wey Gu's Notebook with SPARQL</em> use case.</p>
+<p>I guess I need a fragment ID generator. Suboptimal but so it's not too hard on the eyes for now, I'll got with alpha(capitals)-numeric. How many chars?</p>
+<p>Please write a function to generate a random 4-character string using only numeric characters and capital letters.</p>
+<p>Ok.</p>
+<p>Need to keep identity of entities/relationships. I'm not sure what should happen if the same string is pulled out more than once as entity and/or relationship from different contexts. Should they have different IDs (URLs)? I don't fancy a deep dive into llama_index structures right now, I'll wait for someone to tell me. Whatever, giving identical strings the same URL shouldn't make a huge difference either way.</p>
+<p>Strings appearing both in the role of Relationship &amp; Entity might also be thinking about. But again, for now, no big deal.</p>
+<pre><code>                        &lt;#THKOE&gt; a er:Triplet ;
+                                er:subject &lt;#EK8WH&gt; ;
+                                er:property &lt;#RJSJV&gt; ;
+                                er:object &lt;#ELD8T&gt; .
+
+                        &lt;#EK8WH&gt; a er:Entity ;
+                                er:value &quot;Vol.3&quot; .
+
+                        &lt;#RJSJV&gt; a er:Relationship ;
+                                er:value &quot;is the first MCU film to feature&quot; .
+
+                        &lt;#ELD8T&gt; a er:Entity ;
+                                er:value &quot;the word  fuck  uncensored&quot; .
+</code></pre>
+<p>Progress!</p>
 
 </article>
 
