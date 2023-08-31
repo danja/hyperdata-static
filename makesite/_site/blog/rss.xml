@@ -20,6 +20,19 @@ far in the future I rather like this mode of blogging, type markdown into VSCode
 <pubDate>Sat, 01 Jan 2050 00:00:00 +0000</pubDate>
 </item>
 <item>
+<title>llama_index SPARQL Notes 05</title>
+<link>https://hyperdata.it/blog/llama-sparql-05/</link>
+<description>
+<![CDATA[
+<p>
+Grr...next admin session I must set up systemd sudo /usr/local/nebula/scripts/nebula.service start all for ChatGPT : I'd like a function to remove duplicates from a Python&nbsp;<a href="https://hyperdata.it/blog/llama-sparql-05/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/llama-sparql-05/">Read More</a></p>
+]]>
+</description>
+<pubDate>Thu, 31 Aug 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
 <title>llama_index SPARQL Notes 04</title>
 <link>https://hyperdata.it/blog/llama-sparql-04/</link>
 <description>

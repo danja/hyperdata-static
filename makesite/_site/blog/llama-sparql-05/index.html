@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>llama_index SPARQL Notes 05 - Another Interim Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body id="llama-sparql-05">
+    <script id="replace_with_navbar" src="/share/nav.js"></script>
+    <br />
+    <br />
+    <br />
+    <em>Interim blog setup, rough notes being dumped here at the moment - I'll tidy once I get to a milestone. And sorry
+        about the layout, that'll probably take even longer to get around to... #TODO</em>
+    <br />
+    <br />
+    <main>
+        <article>
+<h1><a href="/blog/llama-sparql-05/">llama_index SPARQL Notes 05</a></h1>
+<p class="meta">Published on 2023-08-31 by <b>@danja</b></p>
+<p>Grr...next admin session I must set up systemd</p>
+<p><strong>sudo /usr/local/nebula/scripts/nebula.service start all</strong></p>
+<p>for ChatGPT :</p>
+<pre><code>I'd like a function to remove duplicates from a Python json structure. For example, give the following :
+[
+{'s': 'production on Vol.3', 'p': 'was put on hold until', 'o': 'February 2021'
+},
+{'s': 'production on Vol.3', 'p': 'put on hold until', 'o': 'February 2021'
+},
+{'s': 'production on Vol.3', 'p': 'was put on hold until', 'o': 'February 2021'
+}
+]
+the function should return :
+[
+{'s': 'production on Vol.3', 'p': 'was put on hold until', 'o': 'February 2021'
+},
+{'s': 'production on Vol.3', 'p': 'put on hold until', 'o': 'February 2021'
+}
+]
+</code></pre>
+<p>It got it right first time!</p>
+<p>So, next to flip this JSON into RDF/SPARQL.</p>
+
+</article>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2023 Danny Ayers, CC Attribution/MIT License</p>
+            <p>Made with <a href="https://github.com/sunainapai">makesite</a></p>
+        </section>
+    </footer>
+
+</body>
+
+</html>
