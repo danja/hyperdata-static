@@ -83,6 +83,8 @@ Need to keep identity of entities/relationships. I'm not sure what should happen
 
 Strings appearing both in the role of Relationship & Entity might also be thinking about. But again, for now, no big deal.
 
+Ran current version -
+
 ```
                         <#THKOE> a er:Triplet ;
                                 er:subject <#EK8WH> ;

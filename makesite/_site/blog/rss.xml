@@ -20,6 +20,19 @@ far in the future I rather like this mode of blogging, type markdown into VSCode
 <pubDate>Sat, 01 Jan 2050 00:00:00 +0000</pubDate>
 </item>
 <item>
+<title>llama_index SPARQL Notes 06</title>
+<link>https://hyperdata.it/blog/llama-sparql-06/</link>
+<description>
+<![CDATA[
+<p>
+grr, forgot again, sudo /usr/local/nebula/scripts/nebula.service start all So far nebula-rdf-dump.py is making quasi-Turtle triples from the NebulaGraph data. If I provide some namespace prefixes that'll&nbsp;<a href="https://hyperdata.it/blog/llama-sparql-06/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/llama-sparql-06/">Read More</a></p>
+]]>
+</description>
+<pubDate>Fri, 01 Sep 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
 <title>llama_index SPARQL Notes 05</title>
 <link>https://hyperdata.it/blog/llama-sparql-05/</link>
 <description>

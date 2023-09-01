@@ -27,9 +27,51 @@
 <ul>
 <li>layout : make it prettier &amp; more navigable, maybe make it 2 or 3 column for index etc.</li>
 <li>add a forward-chrono view from a given post, makes more sense with the things like continuing notes (can always make it more sophisticated via SPARQL store)</li>
+<li>add support for multiple topic-specific blogs</li>
 <li>add a directory treewalker to send the content etc. up to my SPARQL store (I've a feeling I've done this before in Python, very straightforward - it's be quicker to do afresh, with the help of <code>sparqlwrapper</code> and ChatGPT)</li>
 </ul>
 <p>I reckon I'll split <code>makesite.py</code> up, modularise a bit. Even if I move to all SPARQL-backed for the blog, it's bound to be useful somewhere.</p>
+<p>Things for later :</p>
+<h4>Turtle plugin for markdown</h4>
+<p>similar to https://github.com/ozekik/markdown-ld</p>
+<p>https://raw.githubusercontent.com/ozekik/markdown-ld/master/examples/foaf.md</p>
+<p>Requirements :</p>
+<ol>
+<li>independent of, but compatible with existing markdown tools</li>
+<li>extensible, reasonably modular</li>
+<li>block identifier &amp; delimiters</li>
+<li>useful defaults, easily overriden</li>
+</ol>
+<p>For most of 1 &amp; 2, make it easy to put in pipeline, something like :</p>
+<p>markdown, other = mx(markdown_with_extensions)</p>
+<p>for 3, maybe :</p>
+<p>mx:turtle
+'''</p>
+<pre><code>&lt;this&gt; a x:That.
+</code></pre>
+<p>For 4, for starters I'd probably be good to had some standard prefixes as default, added by the processor, which could be overriden :</p>
+<p>mx:turtle
+mx:prefixes
+'''</p>
+<pre><code>prefix ...
+
+&lt;this&gt; a x:That.
+</code></pre>
+<p>'''</p>
+<pre><code class="language-Reminder">&gt;&gt;&gt; pair = (1, 2)
+&gt;&gt;&gt; pair
+(1, 2)
+&gt;&gt;&gt; x, y = pair
+&gt;&gt;&gt; x
+1
+&gt;&gt;&gt; y
+2
+
+&gt;&gt;&gt; pair[0]
+1
+&gt;&gt;&gt; pair[
+</code></pre>
+<p>Markdown Extension Vocab, mx:</p>
 
 </article>
 

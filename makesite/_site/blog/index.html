@@ -30,9 +30,51 @@
 <ul>
 <li>layout : make it prettier &amp; more navigable, maybe make it 2 or 3 column for index etc.</li>
 <li>add a forward-chrono view from a given post, makes more sense with the things like continuing notes (can always make it more sophisticated via SPARQL store)</li>
+<li>add support for multiple topic-specific blogs</li>
 <li>add a directory treewalker to send the content etc. up to my SPARQL store (I've a feeling I've done this before in Python, very straightforward - it's be quicker to do afresh, with the help of <code>sparqlwrapper</code> and ChatGPT)</li>
 </ul>
 <p>I reckon I'll split <code>makesite.py</code> up, modularise a bit. Even if I move to all SPARQL-backed for the blog, it's bound to be useful somewhere.</p>
+<p>Things for later :</p>
+<h4>Turtle plugin for markdown</h4>
+<p>similar to https://github.com/ozekik/markdown-ld</p>
+<p>https://raw.githubusercontent.com/ozekik/markdown-ld/master/examples/foaf.md</p>
+<p>Requirements :</p>
+<ol>
+<li>independent of, but compatible with existing markdown tools</li>
+<li>extensible, reasonably modular</li>
+<li>block identifier &amp; delimiters</li>
+<li>useful defaults, easily overriden</li>
+</ol>
+<p>For most of 1 &amp; 2, make it easy to put in pipeline, something like :</p>
+<p>markdown, other = mx(markdown_with_extensions)</p>
+<p>for 3, maybe :</p>
+<p>mx:turtle
+'''</p>
+<pre><code>&lt;this&gt; a x:That.
+</code></pre>
+<p>For 4, for starters I'd probably be good to had some standard prefixes as default, added by the processor, which could be overriden :</p>
+<p>mx:turtle
+mx:prefixes
+'''</p>
+<pre><code>prefix ...
+
+&lt;this&gt; a x:That.
+</code></pre>
+<p>'''</p>
+<pre><code class="language-Reminder">&gt;&gt;&gt; pair = (1, 2)
+&gt;&gt;&gt; pair
+(1, 2)
+&gt;&gt;&gt; x, y = pair
+&gt;&gt;&gt; x
+1
+&gt;&gt;&gt; y
+2
+
+&gt;&gt;&gt; pair[0]
+1
+&gt;&gt;&gt; pair[
+</code></pre>
+<p>Markdown Extension Vocab, mx:</p>
 &nbsp;
         <!-- a class="more" href="/blog/todo/">...</a -->
     </p>
@@ -47,6 +89,91 @@ far in the future I rather like this mode of blogging, type markdown into VSCode
     <!--
 <div>
 <a class="more" href="/blog/todo/">Read More</a>
+</div>
+-->
+</article><article>
+    <h2><a href="/blog/llama-sparql-06/">llama_index SPARQL Notes 06</a></h2>
+    <p class="meta">Published on 2023-09-01 by <b>@danja</b></p>
+
+    <p class="content">
+        <p>grr, forgot again,</p>
+<p><strong>sudo /usr/local/nebula/scripts/nebula.service start all</strong></p>
+<p>So far <code>nebula-rdf-dump.py</code> is making quasi-Turtle triples from the NebulaGraph data. If I provide some namespace prefixes that'll make it proper.
+<code>er</code> for my minimal Entity-Relationship vocab, use the <code>base</code> to complete the instance data URIs.</p>
+<p>Easy one, prepend it with :</p>
+<pre><code>@prefix er: &lt;http://purl.org/stuff/er#&gt; .
+@base &lt;http://purl.org/stuff/data&gt; .
+</code></pre>
+<p>Using f formatting in the code, run...</p>
+<p>Check :</p>
+<ul>
+<li>rapper -c -i turtle guardians.ttl</li>
+</ul>
+<pre><code>rapper: Parsing URI file:///home/danny/AI/nlp/GraphRAG/nebula-sparql-utils/guardians.ttl with parser turtle
+rapper: Parsing returned 2380 triples
+</code></pre>
+<p>Good-o.</p>
+<p>Now to figure out the SPARQL to pust the stuff to the store.</p>
+<p>Different prefix syntax, https://www.w3.org/TR/sparql11-query/#syntaxTerms</p>
+<pre><code>BASE &lt;http://purl.org/stuff/data&gt;
+PREFIX er:  &lt;http://purl.org/stuff/er#&gt;
+</code></pre>
+<p>What queries are needed?</p>
+<p>https://www.w3.org/TR/sparql11-update</p>
+<pre><code>CREATE ( SILENT )? GRAPH IRIref
+
+DROP  ( SILENT )? (GRAPH IRIref | DEFAULT | NAMED | ALL )
+
+INSERT DATA  QuadData
+</code></pre>
+<blockquote>
+<p>where QuadData are formed by TriplesTemplates, i.e., sets of triple patterns, optionally wrapped into a GRAPH block.</p>
+</blockquote>
+<p>Ok, so here I guess an update call for :</p>
+<pre><code>CREATE GRAPH &lt;http://purl.org/stuff/guardians&gt;
+</code></pre>
+<pre><code>{prefixes}
+INSERT DATA {
+    GRAPH &lt;http://purl.org/stuff/guardians&gt;
+       { {triples} } }
+</code></pre>
+<p>ew, need to escape {} ... nah, less thought needed to concatenate with +</p>
+<p>Good-oh, sparqlwrapper has an update example https://sparqlwrapper.readthedocs.io/en/latest/main.html#sparql-update-example (with auth)</p>
+<pre><code>danny@danny-desktop:~/AI/nlp/GraphRAG/nebula-sparql-utils$ python nebula-rdf-dump.py
+Update succeeded
+
+Update succeeded
+</code></pre>
+<p>Looking good so far...check data at</p>
+<p>https://fuseki.hyperdata.it/#/dataset/llama_index-test/query</p>
+<pre><code>SELECT ?s ?p ?o WHERE {
+    GRAPH &lt;http://purl.org/stuff/guardians&gt; {
+            ?s ?p ?o
+        }
+}
+LIMIT 50
+</code></pre>
+<p>Nothing!!!</p>
+<p>Tried the SPARQL as dumped to file, then SELECT as above - looks fine.</p>
+<pre><code>DROP GRAPH &lt;http://purl.org/stuff/guardians&gt;
+</code></pre>
+<p>check code around sparqlwrapper...</p>
+<p>Hmm, can you reuse clients (create graph &amp; insert)? Apparenty not. Added code to make a new one - it worked!</p>
+<p><strong>yardstone reached!</strong></p>
+&nbsp;
+        <!-- a class="more" href="/blog/llama-sparql-06/">...</a -->
+    </p>
+    <!--
+<p class="summary">
+grr, forgot again, sudo /usr/local/nebula/scripts/nebula.service start all So far nebula-rdf-dump.py is making quasi-Turtle triples from the NebulaGraph data. If I provide some namespace prefixes that'll&nbsp;<a class="more" href="/blog/llama-sparql-06/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/llama-sparql-06/">Read More</a>
 </div>
 -->
 </article><article>
@@ -114,6 +241,7 @@ er:value &quot;three&quot; .
 <p>Ok.</p>
 <p>Need to keep identity of entities/relationships. I'm not sure what should happen if the same string is pulled out more than once as entity and/or relationship from different contexts. Should they have different IDs (URLs)? I don't fancy a deep dive into llama_index structures right now, I'll wait for someone to tell me. Whatever, giving identical strings the same URL shouldn't make a huge difference either way.</p>
 <p>Strings appearing both in the role of Relationship &amp; Entity might also be thinking about. But again, for now, no big deal.</p>
+<p>Ran current version -</p>
 <pre><code>                        &lt;#THKOE&gt; a er:Triplet ;
                                 er:subject &lt;#EK8WH&gt; ;
                                 er:property &lt;#RJSJV&gt; ;
@@ -448,6 +576,96 @@ note to self : this is /opt/lampp/htdocs/profile/index.html</p>
 <p>Where are my notes on Apache setup..?</p>
 <p><code>~/HKMS/server-setup/</code> apparently - TODO make that easier to find</p>
 <p><strong>distraction</strong> danbri mentioned XMPP (for ChatGPT) yesterday, it appears I have ejabberd installed. Is it running? see <a href="ejabberd">ejabberd Notes</a></p>
+<p>https://lemmy.hyperdata.it</p>
+<p>http://lemmy.hyperdata.it
+http://lemmy.hyperdata.it:8421
+https://lemmy.hyperdata.it:8421
+http://hyperdata.it:8421
+https://hyperdata.it:8421</p>
+<p>lynx http://127.0.0.1:8421</p>
+<pre><code>root@localhost:~/temp# wget http://127.0.0.1:8421
+--2023-09-01 11:19:35--  http://127.0.0.1:8421/
+Connecting to 127.0.0.1:8421... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: https://127.0.0.1/ [following]
+--2023-09-01 11:19:35--  https://127.0.0.1/
+Connecting to 127.0.0.1:443... connected.
+    ERROR: certificate common name ‘danny.ayers.name’ doesn't match requested host name ‘127.0.0.1’.
+To connect to 127.0.0.1 insecurely, use `--no-check-certificate'.
+</code></pre>
+<p>The only 301 that looked relevant was in :</p>
+<p>nano /etc/nginx/sites-available/hyperdata.it.conf</p>
+<p>so I removed that block</p>
+<p>systemctl restart nginx.service</p>
+<p>https://lemmy.hyperdata.it/ seems to redirect to http://lemmy.hyperdata.it/, nginx starter page.</p>
+<p>That redirect was needed!</p>
+<p>put it back, random longshot, removed (shouldn't be needed after Apache..?):</p>
+<pre><code>    location /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+    }
+</code></pre>
+<p>in /var/log/nginx/access.log</p>
+<pre><code>127.0.0.1 - - [01/Sep/2023:11:31:41 +0000] &quot;GET / HTTP/1.1&quot; 301 162 &quot;-&quot; &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36&quot;
+</code></pre>
+<p>It looks like it's getting that far, but the lemmy bit isn't doing anything</p>
+<p>https://join-lemmy.org/docs/administration/troubleshooting.html</p>
+<p>root@localhost:/home/hmks-apps/lemmy/hyperdata.it# docker-compose logs -f lemmy</p>
+<pre><code>...
+lemmy_1     | 	Is the server running on host &quot;postgres&quot; (172.18.0.3) and accepting
+lemmy_1     | 	TCP/IP connections on port 5432?
+...
+</code></pre>
+<p>I was in the middle of typing a message to ask for help on r/lemmy, when something occurred to me. Maybe Ansible doesn't do the external services. It's plausible that I'd already installed nginx, Ansible just added a config. But postgres, pictrs (?), the smpt service..?</p>
+<p>sudo apt install postgresql</p>
+<blockquote>
+<p>The postgresql service is an &quot;umbrella&quot; service whose purpose is to start or stop the services named postgresql@version-instance which are the actual services that you are interested in. To get the statuses of these, run sudo systemctl status 'postgresql*'</p>
+</blockquote>
+<p>a PostgreSQL Cluster is running...</p>
+<p>https://www3.ntu.edu.sg/home/ehchua/programming/sql/PostgreSQL_GetStarted.html</p>
+<p>initial client access :</p>
+<ul>
+<li>sudo -u postgres psql</li>
+<li>\l (list DBs)</li>
+</ul>
+<p>there is a DB postgres, owner postgres</p>
+<p>wait, https://github.com/LemmyNet/lemmy/issues/1847</p>
+<ul>
+<li>root@localhost:/home/hmks-apps/lemmy/hyperdata.it# docker ps</li>
+</ul>
+<p>postgres was already running under docker :</p>
+<ul>
+<li>docker-compose exec postgres psql -U lemmy</li>
+</ul>
+<p>making sure it's using the same password as in lemmy.hjson</p>
+<ul>
+<li>lemmy=# \password</li>
+</ul>
+<p>VkNyXOFMCgb0sGjraJUz</p>
+<pre><code>root@localhost:/home/hmks-apps/lemmy/hyperdata.it# docker ps -a
+CONTAINER ID   IMAGE                        COMMAND                  CREATED      STATUS      PORTS                                                 NAMES
+e519719e228e   nginx:1-alpine               &quot;/docker-entrypoint.…&quot;   2 days ago   Up 2 days   80/tcp, 0.0.0.0:20140-&gt;8536/tcp, :::20140-&gt;8536/tcp   hyperdatait_proxy_1
+58f4af628105   dessalines/lemmy-ui:0.18.4   &quot;docker-entrypoint.s…&quot;   2 days ago   Up 2 days   1234/tcp                                              hyperdatait_lemmy-ui_1
+9da7a413d90b   dessalines/lemmy:0.18.4      &quot;/app/lemmy&quot;             2 days ago   Up 2 days                                                         hyperdatait_lemmy_1
+3394683cf319   postgres:15-alpine           &quot;docker-entrypoint.s…&quot;   2 days ago   Up 2 days   5432/tcp                                              hyperdatait_postgres_1
+3792edf55801   asonix/pictrs:0.4.0          &quot;/sbin/tini -- /usr/…&quot;   2 days ago   Up 2 days   6669/tcp, 8080/tcp                                    hyperdatait_pictrs_1
+157491f6495f   mwader/postfix-relay         &quot;/root/run&quot;              2 days ago   Up 2 days   25/tcp
+</code></pre>
+<p>ew, nginx &amp; posgres</p>
+<p>docker stop e519719e228e (nginx)
+docker restart 3394683cf319
+docker restart 3792edf55801
+docker restart 157491f6495f
+docker restart 9da7a413d90b
+docker restart 58f4af628105</p>
+<p>no change</p>
+<p>systemctl stop nginx
+docker start e519719e228e</p>
+<p>slight change</p>
+<p>https://lemmy.hyperdata.it/
+-&gt;
+http://lemmy.hyperdata.it/</p>
+<p>503 Service Unavailable</p>
+<p>that's a change. Next need to check the logs. But enough for today.</p>
 &nbsp;
         <!-- a class="more" href="/blog/lemmy/">...</a -->
     </p>
