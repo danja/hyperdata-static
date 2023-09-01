@@ -160,6 +160,46 @@ LIMIT 50
 <p>check code around sparqlwrapper...</p>
 <p>Hmm, can you reuse clients (create graph &amp; insert)? Apparenty not. Added code to make a new one - it worked!</p>
 <p><strong>yardstone reached!</strong></p>
+<p>Tired, but looking at next steps -</p>
+<pre><code>from llama_index.storage.storage_context import StorageContext
+from llama_index.graph_stores import NebulaGraphStore
+
+...
+
+%pip install nebula3-python ipython-ngql
+
+os.environ['NEBULA_USER'] = &quot;root&quot;
+os.environ['NEBULA_PASSWORD'] = &quot;nebula&quot; # default password
+os.environ['NEBULA_ADDRESS'] = &quot;127.0.0.1:9669&quot; # assumed we have NebulaGraph installed locally
+
+space_name = &quot;guardians&quot;
+edge_types, rel_prop_names = [&quot;relationship&quot;], [&quot;relationship&quot;] # default, could be omit if create from an empty kg
+tags = [&quot;entity&quot;] # default, could be omit if create from an empty kg
+
+graph_store = NebulaGraphStore(
+    space_name=space_name,
+    edge_types=edge_types,
+    rel_prop_names=rel_prop_names,
+    tags=tags,
+)
+storage_context = StorageContext.from_defaults(graph_store=graph_store)
+</code></pre>
+<p>Looks like most of what StorageContext does is done through the graph store implementations, eg. SimpleGraphStore</p>
+<p>Ok, I reckon next, back to putting tracer logging in NebulaGraphStore</p>
+<ol>
+<li>pull out a bit of code from Notebook that uses <code>nebulagraphstore.py</code> but not the OpenAI API</li>
+<li>make sure it works!</li>
+<li>point python at my dev llama_index</li>
+<li>add logging points to dev llama_index <code>nebulagraphstore.py</code></li>
+</ol>
+<p>currently at :</p>
+<p>~/.local/lib/python3.11/site-packages/llama_index</p>
+<p>noo...that has a single subdir <code>readers</code></p>
+<ul>
+<li>locate document_summary.py
+/home/danny/.local/pipx/venvs/llama-index/lib/python3.11/site-packages/llama_index/data_structs/document_summary.py</li>
+</ul>
+<p>Ok, this may or may not work - a symlink</p>
 &nbsp;
         <!-- a class="more" href="/blog/llama-sparql-06/">...</a -->
     </p>

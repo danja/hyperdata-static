@@ -100,3 +100,50 @@ check code around sparqlwrapper...
 Hmm, can you reuse clients (create graph & insert)? Apparenty not. Added code to make a new one - it worked!
 
 **yardstone reached!**
+
+Tired, but looking at next steps -
+
+```
+from llama_index.storage.storage_context import StorageContext
+from llama_index.graph_stores import NebulaGraphStore
+
+...
+
+%pip install nebula3-python ipython-ngql
+
+os.environ['NEBULA_USER'] = "root"
+os.environ['NEBULA_PASSWORD'] = "nebula" # default password
+os.environ['NEBULA_ADDRESS'] = "127.0.0.1:9669" # assumed we have NebulaGraph installed locally
+
+space_name = "guardians"
+edge_types, rel_prop_names = ["relationship"], ["relationship"] # default, could be omit if create from an empty kg
+tags = ["entity"] # default, could be omit if create from an empty kg
+
+graph_store = NebulaGraphStore(
+    space_name=space_name,
+    edge_types=edge_types,
+    rel_prop_names=rel_prop_names,
+    tags=tags,
+)
+storage_context = StorageContext.from_defaults(graph_store=graph_store)
+```
+
+Looks like most of what StorageContext does is done through the graph store implementations, eg. SimpleGraphStore
+
+Ok, I reckon next, back to putting tracer logging in NebulaGraphStore
+
+1. pull out a bit of code from Notebook that uses `nebulagraphstore.py` but not the OpenAI API
+2. make sure it works!
+3. point python at my dev llama_index
+4. add logging points to dev llama_index `nebulagraphstore.py`
+
+currently at :
+
+~/.local/lib/python3.11/site-packages/llama_index
+
+noo...that has a single subdir `readers`
+
+- locate document_summary.py
+  /home/danny/.local/pipx/venvs/llama-index/lib/python3.11/site-packages/llama_index/data_structs/document_summary.py
+
+Ok, this may or may not work - a symlink
