@@ -130,7 +130,9 @@ storage_context = StorageContext.from_defaults(graph_store=graph_store)
 
 Looks like most of what StorageContext does is done through the graph store implementations, eg. SimpleGraphStore
 
-Ok, I reckon next, back to putting tracer logging in NebulaGraphStore
+---
+
+Ok, I reckon next, going back to putting tracer logging in NebulaGraphStore
 
 1. pull out a bit of code from Notebook that uses `nebulagraphstore.py` but not the OpenAI API
 2. make sure it works!

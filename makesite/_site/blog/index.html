@@ -96,6 +96,28 @@ far in the future I rather like this mode of blogging, type markdown into VSCode
 </div>
 -->
 </article><article>
+    <h2><a href="/blog/llama-sparql-07/">llama_index SPARQL Notes 07</a></h2>
+    <p class="meta">Published on 2023-09-02 by <b>@danja</b></p>
+
+    <p class="content">
+        <p>Ok, time to attack the bits listed at the end of yesterday's <a href="https://hyperdata.it/blog/llama-sparql-06/">post</a></p>
+&nbsp;
+        <!-- a class="more" href="/blog/llama-sparql-07/">...</a -->
+    </p>
+    <!--
+<p class="summary">
+Ok, time to attack the bits listed at the end of yesterday's post&nbsp;<a class="more" href="/blog/llama-sparql-07/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/llama-sparql-07/">Read More</a>
+</div>
+-->
+</article><article>
     <h2><a href="/blog/llama-sparql-06/">llama_index SPARQL Notes 06</a></h2>
     <p class="meta">Published on 2023-09-01 by <b>@danja</b></p>
 
@@ -189,7 +211,8 @@ graph_store = NebulaGraphStore(
 storage_context = StorageContext.from_defaults(graph_store=graph_store)
 </code></pre>
 <p>Looks like most of what StorageContext does is done through the graph store implementations, eg. SimpleGraphStore</p>
-<p>Ok, I reckon next, back to putting tracer logging in NebulaGraphStore</p>
+<hr />
+<p>Ok, I reckon next, going back to putting tracer logging in NebulaGraphStore</p>
 <ol>
 <li>pull out a bit of code from Notebook that uses <code>nebulagraphstore.py</code> but not the OpenAI API</li>
 <li>make sure it works!</li>
