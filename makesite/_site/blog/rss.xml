@@ -21,6 +21,19 @@ far in the future I rather like this mode of blogging, type markdown into VSCode
 </item>
 <item>
 <title>llama_index SPARQL Notes 07</title>
+<link>https://hyperdata.it/blog/llama-sparql-08/</link>
+<description>
+<![CDATA[
+<p>
+Continuing from yesterday, log-probing modulagraph.py sudo /usr/local/nebula/scripts/nebula.service start all cd ~/AI/nlp/GraphRAG/src While added logger probes, having another look at functions in modulagraph.py , I should&nbsp;<a href="https://hyperdata.it/blog/llama-sparql-08/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/llama-sparql-08/">Read More</a></p>
+]]>
+</description>
+<pubDate>Sun, 03 Sep 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>llama_index SPARQL Notes 07</title>
 <link>https://hyperdata.it/blog/llama-sparql-07/</link>
 <description>
 <![CDATA[

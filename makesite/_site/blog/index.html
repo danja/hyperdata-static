@@ -96,6 +96,167 @@ far in the future I rather like this mode of blogging, type markdown into VSCode
 </div>
 -->
 </article><article>
+    <h2><a href="/blog/llama-sparql-08/">llama_index SPARQL Notes 07</a></h2>
+    <p class="meta">Published on 2023-09-03 by <b>@danja</b></p>
+
+    <p class="content">
+        <p>Continuing from yesterday, log-probing <code>modulagraph.py</code></p>
+<ul>
+<li>sudo /usr/local/nebula/scripts/nebula.service start all</li>
+<li>cd ~/AI/nlp/GraphRAG/src</li>
+</ul>
+<p>While added logger probes, having another look at functions in <code>modulagraph.py</code>, I should implement in <code>sparql.py</code>. They don't look complicated in what they do, but the shape of the data structures returned is confusing.</p>
+<pre><code>    def client(self) -&gt; Any:
+        self._session_pool
+</code></pre>
+<p>Not really sure there, the sparqlwrapper clients aren't reusable, maybe return a generator functions? need to look at the other <code>graph_store</code> implementations.</p>
+<pre><code>    def get(self, subj: str) -&gt; List[List[str]]:
+</code></pre>
+<p>I suspect that'll be like <code>SELECT DISTINCT ?p ?o WHERE { &lt;subj&gt; ?p ?o }</code></p>
+<pre><code>https://adamj.eu/tech/2021/07/06/python-type-hints-how-to-use-typing-cast/
+</code></pre>
+<pre><code>    def get_rel_map(
+        self, subjs: Optional[List[str]] = None, depth: int = 2
+    ) -&gt; Dict[str, List[List[str]]]:
+        &quot;&quot;&quot;Get rel map.&quot;&quot;&quot;
+        # We put rels in a long list for depth&gt;= 1, this is different from
+        # SimpleGraphStore.get_rel_map() though.
+        # But this makes more sense for multi-hop relation path.
+</code></pre>
+<p>Confusing. But this calls <code>get_flat_rel_map</code> which has a handy comment :</p>
+<pre><code>        # The flat means for multi-hop relation path, we could get
+        # knowledge like: subj -rel-&gt; obj -rel-&gt; obj &lt;-rel- obj.
+        # This type of knowledge is useful for some tasks.
+        # +-------------+------------------------------------+
+        # | subj        | flattened_rels                     |
+        # +-------------+------------------------------------+
+        # | &quot;player101&quot; | [95, &quot;player125&quot;, 2002, &quot;team204&quot;] |
+        # | &quot;player100&quot; | [1997, &quot;team204&quot;]                  |
+        # ...
+        # +-------------+------------------------------------+
+</code></pre>
+<pre><code>    def upsert_triplet(self, subj: str, rel: str, obj: str) -&gt; None:
+</code></pre>
+<p>I <em>think</em> the implementation for NebulaGraph makes this look trickier than it is. A templated SPARQL <code>INSERT</code> block is probably whaqt's needed.</p>
+<pre><code>    def delete(self, subj: str, rel: str, obj: str) -&gt; None:
+</code></pre>
+<p>Same approach as <code>upsert_triplet</code>?</p>
+<pre><code>    def query(self, query: str, param_map: Optional[Dict[str, Any]] = {}) -&gt; Any:
+</code></pre>
+<p>Hmm, the param_map looks painful.
+This function calls :</p>
+<pre><code>    def execute(self, query: str, param_map: Optional[Dict[str, Any]] = {}) -&gt; Any:
+</code></pre>
+<p>No really sure how that operates...</p>
+<p>I'm not sure how useful the log statements I've added will be with the data structures, I've only got <code>str(structure)</code>, some may well need more unrolling.</p>
+<p>Ok, try that (without any calls to OpenAI API) :</p>
+<ul>
+<li>sudo /usr/local/nebula/scripts/nebula.service start all</li>
+<li>cd ~/AI/nlp/GraphRAG/src</li>
+<li>export PYTHONPATH=$PYTHONPATH:/home/danny/AI/LIBS-under-dev/llama_index</li>
+<li>python graph-rag-nebulagraph-minimal.py</li>
+</ul>
+<p>Runs ok, nice :</p>
+<pre><code>INFO:llama_index.graph_stores.nebulagraph:get_schema() schema:
+Node properties: [{'tag': 'entity', 'properties': [('name', 'string')]}]
+Edge properties: [{'edge': 'relationship', 'properties': [('relationship', 'string')]}]
+Relationships: ['(:entity)-[:relationship]-&gt;(:entity)']
+</code></pre>
+<p>Hmm. How best to express the schema in RDF?
+RDFS is the obvious choice. This current version absolutely won't be a general solution so the schema should be associated with the (<code>guardians</code>) graph. OWL has ontology descriptions..? TODO re-read specs.</p>
+<p>Uncommented some of the calls in <code>graph-rag-nebulagraph-minimal.py</code> that depend on OpenAI API, added a few log statements. Added API key. I've probably not included all the blocks of code needed for this to work end-to-end, but give it a go.</p>
+<blockquote>
+<p>OpenAI API credit balance $0.21</p>
+</blockquote>
+<p>Running...</p>
+<pre><code> raise openai.error.AuthenticationError(
+openai.error.AuthenticationError: No API key provided. You can set your API key in code using 'openai.api_key = &lt;API-KEY&gt;', or you can set the environment variable OPENAI_API_KEY=&lt;API-KEY&gt;). If your API key is stored in a file, you can point the openai module at it with 'openai.api_key_path = &lt;PATH&gt;'. You can generate API keys in the OpenAI web interface. See https://platform.openai.com/account/api-keys for details.
+</code></pre>
+<p>Strange, I had <code>os.environ[&quot;OPENAI_API_KEY&quot;] = &quot;...&quot;</code>. Added <code>openai.api_key = &quot;...&quot;</code></p>
+<p>Oops, <code>NameError: name 'openai' is not defined. Did you mean: 'OpenAI'?</code></p>
+<p><code>import openai</code></p>
+<p>Also uncommented text-to-NebulaGraphCypher bits.</p>
+<p>Ok, failed on :</p>
+<pre><code>  File &quot;/home/danny/AI/LIBS-under-dev/llama_index/llama_index/graph_stores/nebulagraph.py&quot;, line 632, in query
+    logger.info('param_map = '+param_map)
+                ~~~~~~~~~~~~~~^~~~~~~~~~
+TypeError: can only concatenate str (not &quot;dict&quot;) to str
+</code></pre>
+<p>log got as far as :</p>
+<pre><code>#### nebulagraph query called
+INFO:llama_index.graph_stores.nebulagraph:query =
+MATCH (p:`entity`)-[:relationship]-&gt;(m:`entity`) WHERE p.`entity`.`name` == 'Peter Quill'
+RETURN p.`entity`.`name`;
+</code></pre>
+<p>tweaked -</p>
+<pre><code>        # logger.info('param_map = '+param_map)
+        logger.info('param_map = ')
+        for key, value in param_map.items():
+            logger.info(key + ' = '+value)
+
+</code></pre>
+<p>Good-good, at command line got :</p>
+<pre><code>python graph-rag-nebulagraph-minimal.py
+Graph Store Query:
+
+MATCH (p:`entity`)-[:relationship]-&gt;(m:`entity`) WHERE p.`entity`.`name` == 'Peter Quill'
+RETURN p.`entity`.`name`;
+Graph Store Response:
+{'p.entity.name': ['Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill', 'Peter Quill']}
+Final Response:
+
+Peter Quill is a character in the Marvel Universe. He is the son of Meredith Quill and Ego, and the half-brother of Gamora. He was raised by his mother on Earth until he was abducted by aliens at the age of ten. He was raised by the Ravagers, a group of space pirates, and eventually became their leader. He is also known as Star-Lord.
+</code></pre>
+<p>Only a little more in log :</p>
+<pre><code>#### nebulagraph get_schema called
+INFO:llama_index.graph_stores.nebulagraph:get_schema() schema:
+Node properties: [{'tag': 'entity', 'properties': [('name', 'string')]}]
+Edge properties: [{'edge': 'relationship', 'properties': [('relationship', 'string')]}]
+Relationships: ['(:entity)-[:relationship]-&gt;(:entity)']
+
+INFO:__main__:#### 5.2
+INFO:__main__:#### 5.3
+INFO:__main__:#### 6.1
+INFO:llama_index.graph_stores.nebulagraph:
+#### nebulagraph query called
+INFO:llama_index.graph_stores.nebulagraph:query =
+MATCH (p:`entity`)-[:relationship]-&gt;(m:`entity`) WHERE p.`entity`.`name` == 'Peter Quill'
+RETURN p.`entity`.`name`;
+INFO:llama_index.graph_stores.nebulagraph:param_map =
+INFO:__main__:#### 6.2
+</code></pre>
+<p>Looks like it's first querying for all the subjects, then using those to get all property, objects.</p>
+<blockquote>
+<p>Credit balance $0.20</p>
+</blockquote>
+<p>Boo! VSCode hung when I was trying to rename a file. For a clean slate I rebooted. Browser opened with :</p>
+<blockquote>
+<p>Credit balance $0.15</p>
+</blockquote>
+<p>Commented out the text-to-NebulaGraphCypher bits again.</p>
+<p>So next, attacking <code>sparql.py</code> again (last time was with ChatGPT helping, only served to confuse me) :</p>
+<ul>
+<li>figure out how to represent the schema</li>
+<li>code for upload/getting it</li>
+</ul>
+<p>The bits that use sparqlwrapper I'll put in helper functions so connection can be tested independently.</p>
+&nbsp;
+        <!-- a class="more" href="/blog/llama-sparql-08/">...</a -->
+    </p>
+    <!--
+<p class="summary">
+Continuing from yesterday, log-probing modulagraph.py sudo /usr/local/nebula/scripts/nebula.service start all cd ~/AI/nlp/GraphRAG/src While added logger probes, having another look at functions in modulagraph.py , I should&nbsp;<a class="more" href="/blog/llama-sparql-08/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/llama-sparql-08/">Read More</a>
+</div>
+-->
+</article><article>
     <h2><a href="/blog/llama-sparql-07/">llama_index SPARQL Notes 07</a></h2>
     <p class="meta">Published on 2023-09-02 by <b>@danja</b></p>
 
