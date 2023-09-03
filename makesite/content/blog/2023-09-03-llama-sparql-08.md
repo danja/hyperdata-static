@@ -192,3 +192,42 @@ So next, attacking `sparql.py` again (last time was with ChatGPT helping, only s
 - code for upload/getting it
 
 The bits that use sparqlwrapper I'll put in helper functions so connection can be tested independently.
+
+Had a long break, back to desk, noticed the schema in `nebulagraphstore.py` appears to be NebulaGraph-specific. Not implemented in `simple.py`, nothing to suggest it's essential elsewhere (as long as the DB don't care).
+
+Should probably do anyhow, just for self-domumenting purposes.
+Couple of relevant terms :
+
+http://www.w3.org/2002/07/owl#Ontology
+http://www.w3.org/2004/02/skos/core#inScheme
+
+(playing a little fast & loose with domain & range, but I think is valid)
+
+Started filling out `sparql.py`. I thought I'd got to the point where it would INSERT DATA to store, instead:
+
+```
+python graph-rag-sparql-minimal.py
+[nltk_data] Downloading package punkt to /tmp/llama_index...
+[nltk_data]   Unzipping tokenizers/punkt.zip.
+<IPython.core.display.Markdown object>
+```
+
+Yay!!!
+
+It appears to be passing triples to SPARQL store ok.
+
+There was a char issue, but I've added escaping. But when I ran it :
+
+> openai.error.RateLimitError: You exceeded your current quota, please check your plan and billing details.
+
+I was ready to call it a day anyway. Some money is due in my bank tomorrow, _fingers crossed_.
+
+The next bit, the query part, should be straightforward, starting with :
+
+```
+SELECT ?s ?p ?o WHERE {
+    GRAPH <http://purl.org/stuff/guardians> {
+            ?s ?p ?o
+        }
+}
+```

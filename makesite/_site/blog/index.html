@@ -240,6 +240,32 @@ INFO:__main__:#### 6.2
 <li>code for upload/getting it</li>
 </ul>
 <p>The bits that use sparqlwrapper I'll put in helper functions so connection can be tested independently.</p>
+<p>Had a long break, back to desk, noticed the schema in <code>nebulagraphstore.py</code> appears to be NebulaGraph-specific. Not implemented in <code>simple.py</code>, nothing to suggest it's essential elsewhere (as long as the DB don't care).</p>
+<p>Should probably do anyhow, just for self-domumenting purposes.
+Couple of relevant terms :</p>
+<p>http://www.w3.org/2002/07/owl#Ontology
+http://www.w3.org/2004/02/skos/core#inScheme</p>
+<p>(playing a little fast &amp; loose with domain &amp; range, but I think is valid)</p>
+<p>Started filling out <code>sparql.py</code>. I thought I'd got to the point where it would INSERT DATA to store, instead:</p>
+<pre><code>python graph-rag-sparql-minimal.py
+[nltk_data] Downloading package punkt to /tmp/llama_index...
+[nltk_data]   Unzipping tokenizers/punkt.zip.
+&lt;IPython.core.display.Markdown object&gt;
+</code></pre>
+<p>Yay!!!</p>
+<p>It appears to be passing triples to SPARQL store ok.</p>
+<p>There was a char issue, but I've added escaping. But when I ran it :</p>
+<blockquote>
+<p>openai.error.RateLimitError: You exceeded your current quota, please check your plan and billing details.</p>
+</blockquote>
+<p>I was ready to call it a day anyway. Some money is due in my bank tomorrow, <em>fingers crossed</em>.</p>
+<p>The next bit, the query part, should be straightforward, starting with :</p>
+<pre><code>SELECT ?s ?p ?o WHERE {
+    GRAPH &lt;http://purl.org/stuff/guardians&gt; {
+            ?s ?p ?o
+        }
+}
+</code></pre>
 &nbsp;
         <!-- a class="more" href="/blog/llama-sparql-08/">...</a -->
     </p>
