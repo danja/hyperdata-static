@@ -20,71 +20,64 @@
     <main>
         <h1>Blog</h1>
 <article>
-    <h2><a href="/blog/todo/">Blog TODO</a></h2>
-    <p class="meta">Published on 2050-01-01 by <b>@danja</b></p>
+    <h2><a href="/blog/llama-sparql-09/">llama_index SPARQL Notes 09</a></h2>
+    <p class="meta">Published on 2023-09-04 by <b>@danja</b></p>
 
     <p class="content">
-        <p><em>far in the future</em></p>
-<p>I rather like this mode of blogging, type markdown into VSCode, <code>makesite.py</code> converts/formats it, use git (in a script) to transfer to server.</p>
-<p>First, add a bit to p (publish) to ssh into server, then :</p>
-<pre><code>cd /home/hkms-apps/hyperdata-static
-git pull
+        <p><em>I lost internet connectivity last night, woke up this morning with no electricity. The electric came on pretty soon - I had been warned ENEL were messing with the village wiring. The net took a trip into town to sort out (billing error, and then they took ages to switch me back on). The money I was expecting hasn't yet arrived t the bank, so still no OpenAI credit. So I spent most of the day staring at the wall/Twitter.</em></p>
+<p>Ok, it seems like I was looking at the wrong place to put the query. Not <code>query()</code> but :</p>
+<pre><code>    def get(self, subj: str) -&gt; List[List[str]]:
+        &quot;&quot;&quot;Get triplets.&quot;&quot;&quot;
+        ...
 </code></pre>
-<p>Soonish :</p>
-<ul>
-<li>layout : make it prettier &amp; more navigable, maybe make it 2 or 3 column for index etc.</li>
-<li>add a forward-chrono view from a given post, makes more sense with the things like continuing notes (can always make it more sophisticated via SPARQL store)</li>
-<li>add support for multiple topic-specific blogs</li>
-<li>add a directory treewalker to send the content etc. up to my SPARQL store (I've a feeling I've done this before in Python, very straightforward - it's be quicker to do afresh, with the help of <code>sparqlwrapper</code> and ChatGPT)</li>
-</ul>
-<p>I reckon I'll split <code>makesite.py</code> up, modularise a bit. Even if I move to all SPARQL-backed for the blog, it's bound to be useful somewhere.</p>
-<p>Things for later :</p>
-<h4>Turtle plugin for markdown</h4>
-<p>similar to https://github.com/ozekik/markdown-ld</p>
-<p>https://raw.githubusercontent.com/ozekik/markdown-ld/master/examples/foaf.md</p>
-<p>Requirements :</p>
-<ol>
-<li>independent of, but compatible with existing markdown tools</li>
-<li>extensible, reasonably modular</li>
-<li>block identifier &amp; delimiters</li>
-<li>useful defaults, easily overriden</li>
-</ol>
-<p>For most of 1 &amp; 2, make it easy to put in pipeline, something like :</p>
-<p>markdown, other = mx(markdown_with_extensions)</p>
-<p>for 3, maybe :</p>
-<p>mx:turtle
-'''</p>
-<pre><code>&lt;this&gt; a x:That.
+<p>The implementation in <code>nebulagraph.py</code> is <em>scary</em>!</p>
+<p>Fool Danny, I forgot to put a logger bit in to check what gets returned there.</p>
+<p>In <code>simple.py</code> :</p>
+<pre><code>    def get(self, subj: str) -&gt; List[List[str]]:
+        &quot;&quot;&quot;Get triplets.&quot;&quot;&quot;
+        return self._data.graph_dict.get(subj, [])
 </code></pre>
-<p>For 4, for starters I'd probably be good to had some standard prefixes as default, added by the processor, which could be overriden :</p>
-<p>mx:turtle
-mx:prefixes
-'''</p>
-<pre><code>prefix ...
+<p>Wey mentions 'flattened' around <code>get_rel_map()</code>, where the subject is given with a list of associated rel, obj. But this looks less flat.</p>
+<p>I'll assume for now, if data =</p>
+<pre><code>&quot;one&quot;, &quot;two&quot;, &quot;three&quot;
+&quot;one&quot;, &quot;two&quot;, &quot;four&quot;
+&quot;two&quot;, &quot;two&quot;, &quot;four&quot;
+</code></pre>
+<p><code>get('one')</code> will return :</p>
+<pre><code>[[`one', 'two', 'three'], ['one','two','four']]
+</code></pre>
+<p>Now I'm confused. I did put a logger into <code>get()</code>, list of lists, <strong>lol</strong>. Nothing came out.</p>
+<p>Ok, I'll make a helper method that acts as above, see where it go when I can see the behaviour again.</p>
+<p>@prefix er: <a href="http://purl.org/stuff/er#">http://purl.org/stuff/er#</a> .
+@base <a href="http://purl.org/stuff/data">http://purl.org/stuff/data</a> .</p>
+<p>Query like :</p>
+<pre><code>PREFIX er:  &lt;http://purl.org/stuff/er#&gt;
+BASE &lt;http://purl.org/stuff/data&gt;
 
-&lt;this&gt; a x:That.
-</code></pre>
-<p>'''</p>
-<pre><code class="language-Reminder">&gt;&gt;&gt; pair = (1, 2)
-&gt;&gt;&gt; pair
-(1, 2)
-&gt;&gt;&gt; x, y = pair
-&gt;&gt;&gt; x
-1
-&gt;&gt;&gt; y
-2
+SELECT DISTINCT ?rel ?obj WHERE {
+    GRAPH &lt;http://purl.org/stuff/guardians&gt; {
+        ?triplet a er:Triplet ;
+            er:subject ?subject ;
+            er:property ?property ;
+            er:object ?object .
 
-&gt;&gt;&gt; pair[0]
-1
-&gt;&gt;&gt; pair[
+        ?subject er:value ?subj_string .
+        ?property er:value ?rel .
+        ?object er:value ?obj .
+    }
+}
 </code></pre>
-<p>Markdown Extension Vocab, mx:</p>
+<p>Ok, that worked via Fuseki's UI. For code, replace <code>?subj_string</code> with <code>{subj}</code>. Put it in <code>def sparql_query(self, query_string):</code></p>
+<p>sparqlwrapper will not doubt need help producing what I want, need to RTFM there, <code>results.response</code> somewhere - if it's available as a list of lists that'd be nice.</p>
+<p>I'm using GET method, I don't like POST unless really necessary (it's floppy in the spec).</p>
+<p>I must <strong>make an endpoint-focused test for this</strong></p>
+<p>Wired in to <code>get()</code>, that'll do for today.</p>
 &nbsp;
-        <!-- a class="more" href="/blog/todo/">...</a -->
+        <!-- a class="more" href="/blog/llama-sparql-09/">...</a -->
     </p>
     <!--
 <p class="summary">
-far in the future I rather like this mode of blogging, type markdown into VSCode, makesite.py converts/formats it, use git (in a script) to transfer&nbsp;<a class="more" href="/blog/todo/">...</a>
+I lost internet connectivity last night, woke up this morning with no electricity. The electric came on pretty soon - I had been warned ENEL&nbsp;<a class="more" href="/blog/llama-sparql-09/">...</a>
 </p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
 -->
 
@@ -92,11 +85,11 @@ far in the future I rather like this mode of blogging, type markdown into VSCode
 
     <!--
 <div>
-<a class="more" href="/blog/todo/">Read More</a>
+<a class="more" href="/blog/llama-sparql-09/">Read More</a>
 </div>
 -->
 </article><article>
-    <h2><a href="/blog/llama-sparql-08/">llama_index SPARQL Notes 07</a></h2>
+    <h2><a href="/blog/llama-sparql-08/">llama_index SPARQL Notes 08</a></h2>
     <p class="meta">Published on 2023-09-03 by <b>@danja</b></p>
 
     <p class="content">
@@ -1420,6 +1413,84 @@ This is a test 2 Let's see it it works Check layoutof of original makesite&nbsp;
     <!--
 <div>
 <a class="more" href="/blog/template/">Read More</a>
+</div>
+-->
+</article><article>
+    <h2><a href="/blog/todo/">Blog TODO</a></h2>
+    <p class="meta">Published on 2000-01-01 by <b>@danja</b></p>
+
+    <p class="content">
+        <p><em>far in the future</em></p>
+<p>I feel very stupid.</p>
+<p>I've written several blog engines in various languages. Never once started from scratch on design. What I mean is that I've always taken as my requirements the bits I liked about other blog engines, prioritised a bit, followed that to-do list. Never started with an absolutely minimal reverse-chrono</p>
+<p>I rather like this mode of blogging, type markdown into VSCode, <code>makesite.py</code> converts/formats it, use git (in a script) to transfer to server.</p>
+<p>First, add a bit to p (publish) to ssh into server, then :</p>
+<pre><code>cd /home/hkms-apps/hyperdata-static
+git pull
+</code></pre>
+<p>Soonish :</p>
+<ul>
+<li>layout : make it prettier &amp; more navigable, maybe make it 2 or 3 column for index etc.</li>
+<li>add a forward-chrono view from a given post, makes more sense with the things like continuing notes (can always make it more sophisticated via SPARQL store)</li>
+<li>add support for multiple topic-specific blogs</li>
+<li>add a directory treewalker to send the content etc. up to my SPARQL store (I've a feeling I've done this before in Python, very straightforward - it's be quicker to do afresh, with the help of <code>sparqlwrapper</code> and ChatGPT)</li>
+</ul>
+<p>I reckon I'll split <code>makesite.py</code> up, modularise a bit. Even if I move to all SPARQL-backed for the blog, it's bound to be useful somewhere.</p>
+<p>Things for later :</p>
+<h4>Turtle plugin for markdown</h4>
+<p>similar to https://github.com/ozekik/markdown-ld</p>
+<p>https://raw.githubusercontent.com/ozekik/markdown-ld/master/examples/foaf.md</p>
+<p>Requirements :</p>
+<ol>
+<li>independent of, but compatible with existing markdown tools</li>
+<li>extensible, reasonably modular</li>
+<li>block identifier &amp; delimiters</li>
+<li>useful defaults, easily overriden</li>
+</ol>
+<p>For most of 1 &amp; 2, make it easy to put in pipeline, something like :</p>
+<p>markdown, other = mx(markdown_with_extensions)</p>
+<p>for 3, maybe :</p>
+<p>mx:turtle
+'''</p>
+<pre><code>&lt;this&gt; a x:That.
+</code></pre>
+<p>For 4, for starters I'd probably be good to had some standard prefixes as default, added by the processor, which could be overriden :</p>
+<p>mx:turtle
+mx:prefixes
+'''</p>
+<pre><code>prefix ...
+
+&lt;this&gt; a x:That.
+</code></pre>
+<p>'''</p>
+<pre><code class="language-Reminder">&gt;&gt;&gt; pair = (1, 2)
+&gt;&gt;&gt; pair
+(1, 2)
+&gt;&gt;&gt; x, y = pair
+&gt;&gt;&gt; x
+1
+&gt;&gt;&gt; y
+2
+
+&gt;&gt;&gt; pair[0]
+1
+&gt;&gt;&gt; pair[
+</code></pre>
+<p>Markdown Extension Vocab, mx:</p>
+&nbsp;
+        <!-- a class="more" href="/blog/todo/">...</a -->
+    </p>
+    <!--
+<p class="summary">
+far in the future I feel very stupid. I've written several blog engines in various languages. Never once started from scratch on design. What I&nbsp;<a class="more" href="/blog/todo/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/todo/">Read More</a>
 </div>
 -->
 </article>

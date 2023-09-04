@@ -7,20 +7,20 @@
 <description>Grow with Technology</description>
 
 <item>
-<title>Blog TODO</title>
-<link>https://hyperdata.it/blog/todo/</link>
+<title>llama_index SPARQL Notes 09</title>
+<link>https://hyperdata.it/blog/llama-sparql-09/</link>
 <description>
 <![CDATA[
 <p>
-far in the future I rather like this mode of blogging, type markdown into VSCode, makesite.py converts/formats it, use git (in a script) to transfer&nbsp;<a href="https://hyperdata.it/blog/todo/">...</a>
+I lost internet connectivity last night, woke up this morning with no electricity. The electric came on pretty soon - I had been warned ENEL&nbsp;<a href="https://hyperdata.it/blog/llama-sparql-09/">...</a>
 </p>
-<p><a href="https://hyperdata.it/blog/todo/">Read More</a></p>
+<p><a href="https://hyperdata.it/blog/llama-sparql-09/">Read More</a></p>
 ]]>
 </description>
-<pubDate>Sat, 01 Jan 2050 00:00:00 +0000</pubDate>
+<pubDate>Mon, 04 Sep 2023 00:00:00 +0000</pubDate>
 </item>
 <item>
-<title>llama_index SPARQL Notes 07</title>
+<title>llama_index SPARQL Notes 08</title>
 <link>https://hyperdata.it/blog/llama-sparql-08/</link>
 <description>
 <![CDATA[
@@ -200,6 +200,19 @@ This is a test 2 Let's see it it works Check layoutof of original makesite&nbsp;
 ]]>
 </description>
 <pubDate>Mon, 01 Jan 2001 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Blog TODO</title>
+<link>https://hyperdata.it/blog/todo/</link>
+<description>
+<![CDATA[
+<p>
+far in the future I feel very stupid. I've written several blog engines in various languages. Never once started from scratch on design. What I&nbsp;<a href="https://hyperdata.it/blog/todo/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/todo/">Read More</a></p>
+]]>
+</description>
+<pubDate>Sat, 01 Jan 2000 00:00:00 +0000</pubDate>
 </item>
 
 

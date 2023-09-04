@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>llama_index SPARQL Notes 09 - Another Interim Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body id="llama-sparql-09">
+    <script id="replace_with_navbar" src="/share/nav.js"></script>
+    <br />
+    <br />
+    <br />
+    <em>Interim blog setup, rough notes being dumped here at the moment - I'll tidy once I get to a milestone. And sorry
+        about the layout, that'll probably take even longer to get around to... #TODO</em>
+    <br />
+    <br />
+    <main>
+        <article>
+<h1><a href="/blog/llama-sparql-09/">llama_index SPARQL Notes 09</a></h1>
+<p class="meta">Published on 2023-09-04 by <b>@danja</b></p>
+<p><em>I lost internet connectivity last night, woke up this morning with no electricity. The electric came on pretty soon - I had been warned ENEL were messing with the village wiring. The net took a trip into town to sort out (billing error, and then they took ages to switch me back on). The money I was expecting hasn't yet arrived t the bank, so still no OpenAI credit. So I spent most of the day staring at the wall/Twitter.</em></p>
+<p>Ok, it seems like I was looking at the wrong place to put the query. Not <code>query()</code> but :</p>
+<pre><code>    def get(self, subj: str) -&gt; List[List[str]]:
+        &quot;&quot;&quot;Get triplets.&quot;&quot;&quot;
+        ...
+</code></pre>
+<p>The implementation in <code>nebulagraph.py</code> is <em>scary</em>!</p>
+<p>Fool Danny, I forgot to put a logger bit in to check what gets returned there.</p>
+<p>In <code>simple.py</code> :</p>
+<pre><code>    def get(self, subj: str) -&gt; List[List[str]]:
+        &quot;&quot;&quot;Get triplets.&quot;&quot;&quot;
+        return self._data.graph_dict.get(subj, [])
+</code></pre>
+<p>Wey mentions 'flattened' around <code>get_rel_map()</code>, where the subject is given with a list of associated rel, obj. But this looks less flat.</p>
+<p>I'll assume for now, if data =</p>
+<pre><code>&quot;one&quot;, &quot;two&quot;, &quot;three&quot;
+&quot;one&quot;, &quot;two&quot;, &quot;four&quot;
+&quot;two&quot;, &quot;two&quot;, &quot;four&quot;
+</code></pre>
+<p><code>get('one')</code> will return :</p>
+<pre><code>[[`one', 'two', 'three'], ['one','two','four']]
+</code></pre>
+<p>Now I'm confused. I did put a logger into <code>get()</code>, list of lists, <strong>lol</strong>. Nothing came out.</p>
+<p>Ok, I'll make a helper method that acts as above, see where it go when I can see the behaviour again.</p>
+<p>@prefix er: <a href="http://purl.org/stuff/er#">http://purl.org/stuff/er#</a> .
+@base <a href="http://purl.org/stuff/data">http://purl.org/stuff/data</a> .</p>
+<p>Query like :</p>
+<pre><code>PREFIX er:  &lt;http://purl.org/stuff/er#&gt;
+BASE &lt;http://purl.org/stuff/data&gt;
+
+SELECT DISTINCT ?rel ?obj WHERE {
+    GRAPH &lt;http://purl.org/stuff/guardians&gt; {
+        ?triplet a er:Triplet ;
+            er:subject ?subject ;
+            er:property ?property ;
+            er:object ?object .
+
+        ?subject er:value ?subj_string .
+        ?property er:value ?rel .
+        ?object er:value ?obj .
+    }
+}
+</code></pre>
+<p>Ok, that worked via Fuseki's UI. For code, replace <code>?subj_string</code> with <code>{subj}</code>. Put it in <code>def sparql_query(self, query_string):</code></p>
+<p>sparqlwrapper will not doubt need help producing what I want, need to RTFM there, <code>results.response</code> somewhere - if it's available as a list of lists that'd be nice.</p>
+<p>I'm using GET method, I don't like POST unless really necessary (it's floppy in the spec).</p>
+<p>I must <strong>make an endpoint-focused test for this</strong></p>
+<p>Wired in to <code>get()</code>, that'll do for today.</p>
+
+</article>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2023 Danny Ayers, CC Attribution/MIT License</p>
+            <p>Made with <a href="https://github.com/sunainapai">makesite</a></p>
+        </section>
+    </footer>
+
+</body>
+
+</html>
