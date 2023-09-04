@@ -1,4 +1,4 @@
-<!-- title: llama_index SPARQL Notes 07 -->
+<!-- title: llama_index SPARQL Notes 08 -->
 
 Continuing from yesterday, log-probing `modulagraph.py`
 
