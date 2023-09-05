@@ -46,6 +46,8 @@ TODO longer example
 
 #### Useful Terms
 
+- mx:x - extract, as above
+- mx:a - rdf:type
 - mx:cat - category
 - mx:tag
 - mx:tags
