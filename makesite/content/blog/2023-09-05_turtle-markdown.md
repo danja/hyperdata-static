@@ -75,6 +75,8 @@ for eg. mx:tags - provide a simple list syntax
 
 Terms MAY be interpreted as those in the mx namespace and/or well-known equivalents
 
+How to say what should be passed to standard markdown processor, what should be cut?
+
 ## Implementation Notes
 
 - Processing should occur before standard markdown processing.
