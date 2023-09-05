@@ -24,7 +24,107 @@
     <p class="meta">Published on 2023-09-05 by <b>@danja</b></p>
 
     <p class="content">
-        <p><em>Day spent so far on admin and bits &amp; pieces that were niggling me. And now, 16:47, it's dogwalk time. But I need a bit of fresh air, clear head for <code>sparql.py</code>.</em></p>
+        <p><em>Got some funds so I paid some API credit. But have spent the day so far on admin and bits &amp; pieces that were niggling me. And now, 16:47, it's dogwalk time. But I need a bit of fresh air, clear head for <code>sparql.py</code>.</em>
+<strong>Back from dogwalk</strong></p>
+<p>Credit balance $29.87</p>
+<pre><code>sudo /usr/local/nebula/scripts/nebula.service start all
+cd ~/AI/nlp/GraphRAG/src
+export PYTHONPATH=$PYTHONPATH:/home/danny/AI/LIBS-under-dev/llama_index
+python graph-rag-nebulagraph-minimal.py
+</code></pre>
+<p>5 or 6 runs with little tweaks in between. OpenAI credit still says $29.87.</p>
+<p>No idea why, this returned a <MarkdownObject> rather than text. So pulled that out.</p>
+<p>It also ends on an exception from calling -</p>
+<pre><code>    def __del__(self) -&gt; None:
+        &quot;&quot;&quot;Close NebulaGraph session pool.&quot;&quot;&quot;
+        self._session_pool.close()
+</code></pre>
+<p><em>But</em>, before that it says :</p>
+<blockquote>
+<p>Peter Quill is the half-human, half-Celestial leader of the Guardians of the Galaxy...</p>
+</blockquote>
+<p>The log isn't any more useful -</p>
+<pre><code>INFO:llama_index.graph_stores.nebulagraph:nebulagraph HERE
+INFO:llama_index.graph_stores.simple:simple HERE
+INFO:llama_index.graph_stores.sparql:sparql HERE
+INFO:__main__:graph-rag-nebulagraph-minimal HERE
+INFO:__main__:#### 1.2
+INFO:__main__:#### skip 2
+INFO:__main__:#### 4
+INFO:llama_index.indices.loading:Loading all indices.
+INFO:__main__:#### 6.2
+INFO:__main__:
+
+Peter Quill is the half-human, half-Celestial leader of the Guardians of the Galaxy...
+</code></pre>
+<p>Hmm, log level..?</p>
+<p>Tweaked a bit, noticed it's loading index from <code>./storage_graph/docstore.json</code></p>
+<p>Oops, I pulled out the code for generating the kg when I was looking at the upload bits without OpenAI</p>
+<p>TypeError: can only concatenate str (not &quot;list&quot;) to str</p>
+<p>ok,</p>
+<pre><code>for s in subjs:
+    logger.warning('s =' + str(s))
+</code></pre>
+<p>a couple more tweaks later it ran through. <em>Much</em> more interesting logs!</p>
+<p>First thing of note :</p>
+<pre><code>DEBUG:openai:message='Request to OpenAI API' method=post path=https://api.openai.com/v1/completions
+DEBUG:openai:api_version=None data='{&quot;prompt&quot;: &quot;Some text is provided below. Given the text, extract up to 10 knowledge triplets in the form of (subject, predicate, object). Avoid stopwords.\\n---------------------\\nExample:Text: Alice is Bob\'s mother.Triplets:\\n(Alice, is mother of, Bob)\\nText: Philz is a coffee shop founded in Berkeley in 1982.\\nTriplets:\\n(Philz, is, coffee shop)\\n(Philz, founded in, Berkeley)\\n(Philz, founded in, 1982)\\n---------------------\\nText: The Guardians travel to Orgocorp\'s headquarters to find the switch\'s override code and save Rocket\'s life.As Rocket lies unconscious, he recalls his past.As a baby raccoon, he was experimented on by the High Evolutionary, who sought to enhance and anthropomorphize animal lifeforms to create an ideal society called Counter-Earth.Rocket befriended his fellow Batch 89 test subjects: the otter Lylla, the walrus Teefs, and the rabbit Floor.The High Evolutionary was impressed by Rocket\'s rapidly growing intelligence but became furious once it exceeded his own.The High Evolutionary used Rocket to perfect his Humanimal creations, then planned to harvest Rocket\'s brain for further research and exterminate the obsolete Batch 89.Rocket freed his friends, but the High Evolutionary killed Lylla.Enraged, Rocket mauled the High Evolutionary, but his henchmen killed Teefs and Floor during a firefight with Rocket, before the latter fled Counter-Earth in a spaceship.In the present, the Ravagers, including an alternate version of Gamora, help the Guardians infiltrate Orgocorp.They retrieve Rocket\'s file but discover that the code was removed, with the likely culprit being Theel, one of the High Evolutionary\'s advisors.The Guardians, along with Gamora, depart for Counter-Earth to find him.They are followed by Ayesha and Adam after the High Evolutionary, their race\'s creator, threatened to wipe out the Sovereign if they fail to retrieve Rocket.The Guardians reach Counter-Earth and are guided to the Ar\\u00eate Laboratories complex.Drax and Mantis remain with Gamora and Rocket as Peter Quill, Groot, and Nebula travel to Ar\\u00eate.Nebula is forced to wait outside by guards as Quill and Groot enter Ar\\u00eate, while Drax tricks Mantis into pursuing Quill\'s group.Gamora saves Rocket from being captured by Adam and the High Evolutionary\'s guard War Pig.Questioned by Quill, the High Evolutionary admits disillusionment with the Animen\'s imperfect society.He destroys Counter-Earth, killing the Humanimals and Ayesha.Ar\\u00eate departs as a spaceship, with Nebula, Drax and Mantis boarding to rescue Quill and Groot, who instead escape Ar\\u00eate with Theel, retrieving the code from his corpse before being rescued by Gamora in their ship.\\nTriplets:\\n&quot;, &quot;stream&quot;: false, &quot;model&quot;: &quot;text-davinci-002&quot;, &quot;temperature&quot;: 0.0, &quot;max_tokens&quot;: 3480}' message='Post details'
+DEBUG:urllib3.connectionpool:https://api.openai.com:443 &quot;POST /v1/completions HTTP/1.1&quot; 200 None
+
+</code></pre>
+<p>Lots and lots of upserts, up to around line 1000 in nebby.log</p>
+<p>line 1020 #### nebulagraph get_rel_map called</p>
+<pre><code>WARNING:llama_index.graph_stores.nebulagraph:
+#### nebulagraph get_rel_map called
+WARNING:llama_index.graph_stores.nebulagraph:s =Peter Quill
+WARNING:llama_index.graph_stores.nebulagraph:#### nebulagraph get_flat_rel_map
+WARNING:llama_index.graph_stores.nebulagraph:subs = ['Peter Quill']
+WARNING:llama_index.graph_stores.nebulagraph:get_flat_rel_map() subjs_param: ['Peter Quill'], query: WITH map{`true`: '-[', `false`: '&lt;-['} AS arrow_l,     map{`true`: ']-&gt;', `false`: ']-'} AS arrow_r MATCH (s)-[e:`relationship`*..2]-()   WHERE id(s) IN $subjs WITH id(s) AS subj,[rel IN e |   [  arrow_l[tostring(typeid(rel) &gt; 0)] +      rel.`relationship`+  arrow_r[tostring(typeid(rel) &gt; 0)],  CASE typeid(rel) &gt; 0    WHEN true THEN dst(rel)    WHEN false THEN src(rel)  END  ]] AS rels WITH   subj,  REDUCE(acc = collect(NULL), l in rels | acc + l)    AS flattened_rels RETURN  subj,  REDUCE(acc = subj, l in flattened_rels | acc + ', ' + l )    AS flattened_rels
+WARNING:llama_index.graph_stores.nebulagraph:rel_map =
+WARNING:llama_index.graph_stores.nebulagraph:s =Peter Quill
+WARNING:llama_index.graph_stores.nebulagraph:rel_map =
+</code></pre>
+<p>right, this looks where the triplets for a subj are got &amp; returned</p>
+<pre><code>{'Peter Quill': ['Peter Quill, -[would return to the MCU]-&gt;, May 2021, &lt;-[would return to the MCU]-, Peter Quill', 'Peter Quill, -[would return to the MCU]-&gt;, May 2021', 'Peter Quill, -[was raised by]-&gt;, a group of alien thieves and smugglers', 'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy', 'Peter Quill, -[would return to the MCU]-&gt;, May 2021, &lt;-[Gunn reaffirmed]-, Guardians of the Galaxy Vol. 3', 'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy, &lt;-[was fired from]-, James Gunn', 'Peter Quill, -[was raised by]-&gt;, a group of alien thieves and smugglers, &lt;-[was raised by]-, Peter Quill', 'Peter Quill, -[is half-human]-&gt;, half-Celestial', 'Peter Quill, -[was abducted from Earth]-&gt;, as a child', 'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy, &lt;-[is leader of]-, Peter Quill', 'Peter Quill, -[is half-human]-&gt;, half-Celestial, &lt;-[is half-human]-, Peter Quill', 'Peter Quill, -[was abducted from Earth]-&gt;, as a child, &lt;-[was abducted from Earth]-, Peter Quill', 'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy, &lt;-[is sequel to]-, Guardians of the Galaxy Vol. 3', 'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy, -[cannot heal]-&gt;, Rocket', 'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy, -[are attacked by]-&gt;, Adam']}
+DEBUG:llama_index.indices.knowledge_graph.retrievers:rel_map: {'Peter Quill': ['Peter Quill, -[would return to the MCU]-&gt;, May 2021, &lt;-[would return to the MCU]-, Peter Quill', 'Peter Quill, -[would return to the MCU]-&gt;, May 2021', 'Peter Quill, -[was raised by]-&gt;, a group of alien thieves and smugglers', 'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy', 'Peter Quill, -[would return to the MCU]-&gt;, May 2021, &lt;-[Gunn reaffirmed]-, Guardians of the Galaxy Vol. 3', 'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy, &lt;-[was fired from]-, James Gunn', 'Peter Quill, -[was raised by]-&gt;, a group of alien thieves and smugglers, &lt;-[was raised by]-, Peter Quill', 'Peter Quill, -[is half-human]-&gt;, half-Celestial', 'Peter Quill, -[was abducted from Earth]-&gt;, as a child', 'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy, &lt;-[is leader of]-, Peter Quill', 'Peter Quill, -[is half-human]-&gt;, half-Celestial, &lt;-[is half-human]-, Peter Quill', 'Peter Quill, -[was abducted from Earth]-&gt;, as a child, &lt;-[was abducted from Earth]-, Peter Quill', 'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy, &lt;-[is sequel to]-, Guardians of the Galaxy Vol. 3', 'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy, -[cannot heal]-&gt;, Rocket', 'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy, -[are attacked by]-&gt;, Adam']}
+</code></pre>
+<p>I saved that chunks as rel_map.json and let VSCode try to format it - much clearer. Kinda...</p>
+<pre><code>{'Peter Quill': ['Peter Quill, -[would return to the MCU
+        ]-&gt;, May 2021, &lt;-[would return to the MCU
+        ]-, Peter Quill', 'Peter Quill, -[would return to the MCU
+        ]-&gt;, May 2021', 'Peter Quill, -[was raised by
+        ]-&gt;, a group of alien thieves and smugglers', 'Peter Quill, -[is leader of
+        ]-&gt;, Guardians of the Galaxy', 'Peter Quill, -[would return to the MCU
+        ]-&gt;, May 2021, &lt;-[Gunn reaffirmed
+        ]-, Guardians of the Galaxy Vol. 3', 'Peter Quill, -[is leader of
+        ]-&gt;, Guardians of the Galaxy, &lt;-[was fired from
+        ]-, James Gunn', 'Peter Quill, -[was raised by
+        ]-&gt;, a group of alien thieves and smugglers, &lt;-[was raised by
+        ]-, Peter Quill', 'Peter Quill, -[is half-human
+        ]-&gt;, half-Celestial', 'Peter Quill, -[was abducted from Earth
+        ]-&gt;, as a child', 'Peter Quill, -[is leader of
+        ]-&gt;, Guardians of the Galaxy, &lt;-[is leader of
+        ]-, Peter Quill', 'Peter Quill, -[is half-human
+        ]-&gt;, half-Celestial, &lt;-[is half-human
+        ]-, Peter Quill', 'Peter Quill, -[was abducted from Earth
+        ]-&gt;, as a child, &lt;-[was abducted from Earth
+        ]-, Peter Quill', 'Peter Quill, -[is leader of
+        ]-&gt;, Guardians of the Galaxy, &lt;-[is sequel to
+        ]-, Guardians of the Galaxy Vol. 3', 'Peter Quill, -[is leader of
+        ]-&gt;, Guardians of the Galaxy, -[cannot heal
+        ]-&gt;, Rocket', 'Peter Quill, -[is leader of
+        ]-&gt;, Guardians of the Galaxy, -[are attacked by
+        ]-&gt;, Adam'
+    ]
+}
+</code></pre>
+<p>Ok, a format in a format. I don't know why there are backwards arrows and apparently repetition, but the basic stuff will be straightforward from SPARQL results. I reckon I'll start with simple forward-arrow triples, see if that communicates enough.</p>
+<p>oh wait, line 1124 :</p>
+<pre><code>'Request to OpenAI API' method=post path=https://api.openai.com/v1/completions
+DEBUG:openai:api_version=None data='{&quot;prompt&quot;: &quot;Context information from multiple sources is below.\\n---------------------\\nThe following are knowledge sequence in max depth 2 in the form of directed graph like:\\n`subject -[predicate]-&gt;, object, &lt;-[predicate_next_hop]-, object_next_hop ...
+...
+</code></pre>
+<p>Break time. Food &amp; flop.</p>
 <p><code>:cat AI</code>
 <code>:tag SPARQL</code>
 <code>:tag LlamaIndex</code></p>
@@ -33,7 +133,7 @@
     </p>
     <!--
 <p class="summary">
-Day spent so far on admin and bits &amp; pieces that were niggling me. And now, 16:47, it's dogwalk time. But I need a bit&nbsp;<a class="more" href="/blog/llama-sparql-10/">...</a>
+Got some funds so I paid some API credit. But have spent the day so far on admin and bits &amp; pieces that were niggling&nbsp;<a class="more" href="/blog/llama-sparql-10/">...</a>
 </p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
 -->
 
