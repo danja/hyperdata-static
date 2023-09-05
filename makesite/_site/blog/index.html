@@ -1651,12 +1651,6 @@ turtle = contents['turtle']
 html = to_html(markdown)
 store.add(turtle)
 </code></pre>
-<p>Assume I have a Python function mx() that will act on a markdown format document as a preprocessor, pulling out part of the text that is delimited with a custom extension. A call on the function looks like this :
-markdown, extra = mx(markdown_with_extensions)
-html = to_html(markdown)
-turtle = extra['turtle']
-dolphin = extra['dolphin']</p>
-<p>How could this be adjusted so that the value returned by mx() would be a simple but valid JSON representation?</p>
 &nbsp;
         <!-- a class="more" href="/blog/2023-09-05_turtle-markdown/">...</a -->
     </p>
