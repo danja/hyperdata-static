@@ -20,6 +20,91 @@
     <main>
         <h1>Blog</h1>
 <article>
+    <h2><a href="/blog/revisit/">Things to Revisit</a></h2>
+    <p class="meta">Published on 2023-09-05 by <b>@danja</b></p>
+
+    <p class="content">
+        <p><em>reminders</em></p>
+<hr />
+<p>Kingsley</p>
+<p>thread -</p>
+<p>https://twitter.com/kidehen/status/1677095027246243840</p>
+<p>Woot!!!</p>
+<p>#SPARQL plugin for #ChatGPT working, and it was so darn easy to make and deploy too, courtesy of our #VirtuosoRDBMS (designed to bring #Web magic to #DataConnectivity &amp; #DBMS realms).</p>
+<p>Session Transcript:
+https://chat.openai.com/share/ff7ec94e-0b0b-4505-b379-d6be7a91d7bf</p>
+<p>#SemanticWeb #AI #LinkedData #AGI</p>
+<hr />
+<p>https://twitter.com/mark_l_watson</p>
+<p>Wowza! I asked ChatGPT with Diagrams Plugin to generate a UML sequence diagram for a SPARQL query to DBPedia: A+ grade</p>
+<p>LLMs are far, far, far! from AGI but very useful. ChatGPT and CoPilot are fixtures of my Emacs setup, and web versions including Bard, Midjourney, and Bing+GPT are solidly in my workflow.</p>
+<ul>
+<li>has (freeish) books - https://leanpub.com/u/markwatson</li>
+</ul>
+&nbsp;
+        <!-- a class="more" href="/blog/revisit/">...</a -->
+    </p>
+    <!--
+<p class="summary">
+reminders Kingsley thread - https://twitter.com/kidehen/status/1677095027246243840 Woot!!! #SPARQL plugin for #ChatGPT working, and it was so darn easy to make and deploy too, courtesy of our&nbsp;<a class="more" href="/blog/revisit/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/revisit/">Read More</a>
+</div>
+-->
+</article><article>
+    <h2><a href="/blog/nuts/">Neural Net Nuts and Bolts Speculation</a></h2>
+    <p class="meta">Published on 2023-09-05 by <b>@danja</b></p>
+
+    <p class="content">
+        <p><em>braindump for future me</em></p>
+<h4>Chain of Thought</h4>
+<p>I've had dataflows on my mind this week, tracing through some code and seeing some <em>coincidentally</em> related material, eg. <a href="https://twitter.com/mark_l_watson/status/1698448314965032962">Tweet from Mark Watson</a> :</p>
+<blockquote>
+<p>Wowza! I asked ChatGPT with Diagrams Plugin to generate a UML sequence diagram for a SPARQL query to DBPedia: A+ grade</p>
+</blockquote>
+<p>The other day I had a skim through some AI books I got in the 1990s, mostly curious what ideas were around then that have been forgotten, could maybe be revitalized. One notable takeaway was how <a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)">ReLU</a> (rectified linear unit, <em>a diode</em>) has since unseated tanh/sigmoid as the activation function of choice.</p>
+<h4>Seed of an Idea</h4>
+<p>Looking at a vanilla neural network, single numeric values flow through, getting modified along the way (and are backpropagated, changing weights). For tracking flows and highlighting things, medical diagnosis can use <a href="https://en.wikipedia.org/wiki/Radioactive_tracer">radioactive tracers</a>.</p>
+<blockquote>
+<p>Could something comparable be used with NNs?</p>
+</blockquote>
+<p>At the input layer a value x is given to a node, subsequently each node receives a bunch of values from connected nodes in the previous layer. What if instead a pair of values were passed (x, C), where C is a marker constant, what should come out of a node, what about side effects?</p>
+<p>First pass, how about this : the treatment of the x values stays exactly the same as in the vanilla case - but a C is hitching a ride. A selection function at the node picks the C from the input pairs with the highest value from its inputs. This is the value passed along from this node to nodes in the next layer.</p>
+<p>The side effect I have in mind is similar to the way weights are adjusted in backprop, that the node takes on a value of C. This could also occur on the backprop phase, so each node holds (Cf, Cb).</p>
+<p>Are there any implementation issues I haven't seen? Might this be <strong>any use for anything?</strong></p>
+<p>To investigate, I guess trying it in toy network code would be the next step.</p>
+<p>There's a kind of <strong>bigger picture</strong>/generalization aspect to this. What if the values passed around, rather than usual single values or strange pairs as above, are arbitrary data structures? The transfer funtions are arbitrary?
+I'm pretty sure there'll be net designs which pass matrices of real numbers around, I've a feeling there might be calculation performance optimization potential somewhere around there. But I haven't a clue what activation functions would be appropriate...</p>
+<p>On the function question, usually differentiability is canon. But in a view from 1km, this is a special case where optimization is done through convex optimization, hill-climbing over the number spaces. Other optimization techniques exist, eg. combinatorial, integer programming.</p>
+<p>I've not read much about optimization techniques, apart from bits in papers along the lines of &quot;We found 5 layers gave accuracy within 2%, 6 or more only gave fractional improvement.&quot;. The relative benefits of different activation functions was looked at a lot in the early days of Deep Learning. But nowadays experiments (I've seen) tend to be looking more at large-scale topologies, with the subunits chosen from known good black boxes (from a box of black boxes?).</p>
+<p>I don't know, but perhaps the space of possible network functionality could be explored with a bit of meta-programming, trying different setups as above. It feels like it should be automatable.</p>
+<p>To borrow from the Outer Limits :</p>
+<blockquote>
+<p>There is nothing wrong with your neural network. We will control the datatypes. We will control the activation functions.</p>
+</blockquote>
+&nbsp;
+        <!-- a class="more" href="/blog/nuts/">...</a -->
+    </p>
+    <!--
+<p class="summary">
+braindump for future me Chain of Thought I've had dataflows on my mind this week, tracing through some code and seeing some coincidentally related material,&nbsp;<a class="more" href="/blog/nuts/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/nuts/">Read More</a>
+</div>
+-->
+</article><article>
     <h2><a href="/blog/llama-sparql-09/">llama_index SPARQL Notes 09</a></h2>
     <p class="meta">Published on 2023-09-04 by <b>@danja</b></p>
 
@@ -1491,6 +1576,101 @@ far in the future I feel very stupid. I've written several blog engines in vario
     <!--
 <div>
 <a class="more" href="/blog/todo/">Read More</a>
+</div>
+-->
+</article><article>
+    <h2><a href="/blog/2023-09-05_turtle-markdown/">Turtle Markdown Extensions</a></h2>
+    <p class="meta">Published on 1970-01-01 by <b>@danja</b></p>
+
+    <p class="content">
+        <p>A bit of forward-planning for blog engine stuff. This went on my todo list the other day, since then I've had a think, thought I'd better get it down before I forget.</p>
+<p>The implementation for <code>makesite.py</code> should be straightforward, but I've other things to do. But I can start using these extensions in posts today, no matter that they won't do anything yet. When I've got a demo implementation and tried it out a bit I'll give it a repo on GitHub.</p>
+<p><strong>How to express RDF statements in Markdown?</strong></p>
+<h4>Uses Cases</h4>
+<ol>
+<li>make statements about the md doc</li>
+<li>extract a block of arbitrary Turtle from md doc</li>
+</ol>
+<h4>General Requirements</h4>
+<ol start="0">
+<li>simple to use, simple to implement</li>
+<li>independent of, but compatible with existing markdown tools</li>
+<li>extensible, reasonably modular</li>
+<li>block identifier &amp; delimiters</li>
+<li>useful defaults, easily overriden</li>
+</ol>
+<p><em>Note re. (2) : the markup syntax used will be interpreted as a processing instruction, so while Turtle creation/extraction is the immediate goal, it makes sense for extensibility to consider other possible uses.</em></p>
+<h3>0. General Syntax</h3>
+<p>` :term fur`</p>
+<p>``` :term fur```</p>
+<p>TODO express in <a href="https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form">BNF</a>
+TODO provide regexes</p>
+<h3>1. Statements about Current Markdown Document</h3>
+<p>` :tag fur`</p>
+<ul>
+<li>the URL of the current document (or a derived version in a format like HTML) will be the subject of the triple</li>
+<li>the string <code>:tag</code> will be interpreted as the term <code>tag</code> from the namespace <code>http://purl.org/stuff/mx/</code> and used as the property of the triple</li>
+<li>the string <code>fur</code> will be used as the literal object of the triple</li>
+</ul>
+<p>TODO result</p>
+<p>In this example <code>fur</code> is one word, a simple string delimited by spaces. Alternatives will include quoting of literals <code>&quot;as in Turtle&quot;</code> for the object as well as the use of URIs using standard Turtle syntax.</p>
+<p>TODO longer example</p>
+<h4>Useful Terms</h4>
+<ul>
+<li>mx:cat - category</li>
+<li>mx:tag</li>
+<li>mx:tags</li>
+</ul>
+<p>TODO fill out as needed, find standard vocab equivalents</p>
+<h3>2. Arbitrary Turtle in Markdown Document</h3>
+<p>Where a block of Turtle should be extracted, the term <code>mx:x</code> should be used, e.g.</p>
+<p><strong>```:x</strong>
+@base <a href="http://example.org/">http://example.org/</a> .
+@prefix foaf: <a href="http://xmlns.com/foaf/0.1/">http://xmlns.com/foaf/0.1/</a> .
+@prefix rel: <a href="http://www.perceive.net/schemas/relationship/">http://www.perceive.net/schemas/relationship/</a> .</p>
+<p>&lt;#green-goblin&gt;
+rel:enemyOf &lt;#spiderman&gt; ;
+a foaf:Person ; # in the context of the Marvel universe
+foaf:name &quot;Green Goblin&quot; .
+<strong>```</strong></p>
+<h3>3. Interpretation Rules</h3>
+<p>TODO</p>
+<p>for eg. mx:tags - provide a simple list syntax</p>
+<p>Terms MAY be interpreted as those in the mx namespace and/or well-known equivalents</p>
+<h2>Implementation Notes</h2>
+<ul>
+<li>Processing should occur before standard markdown processing.</li>
+<li>Processing will return a dictionary (or equiv).</li>
+</ul>
+<p>eg. :</p>
+<pre><code>contents = mx(markdown_with_extensions)
+
+markdown = contents['markdown']
+turtle = contents['turtle']
+
+html = to_html(markdown)
+store.add(turtle)
+</code></pre>
+<p>Assume I have a Python function mx() that will act on a markdown format document as a preprocessor, pulling out part of the text that is delimited with a custom extension. A call on the function looks like this :
+markdown, extra = mx(markdown_with_extensions)
+html = to_html(markdown)
+turtle = extra['turtle']
+dolphin = extra['dolphin']</p>
+<p>How could this be adjusted so that the value returned by mx() would be a simple but valid JSON representation?</p>
+&nbsp;
+        <!-- a class="more" href="/blog/2023-09-05_turtle-markdown/">...</a -->
+    </p>
+    <!--
+<p class="summary">
+A bit of forward-planning for blog engine stuff. This went on my todo list the other day, since then I've had a think, thought I'd&nbsp;<a class="more" href="/blog/2023-09-05_turtle-markdown/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/2023-09-05_turtle-markdown/">Read More</a>
 </div>
 -->
 </article>

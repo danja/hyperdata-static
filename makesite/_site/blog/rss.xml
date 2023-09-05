@@ -7,6 +7,32 @@
 <description>Grow with Technology</description>
 
 <item>
+<title>Things to Revisit</title>
+<link>https://hyperdata.it/blog/revisit/</link>
+<description>
+<![CDATA[
+<p>
+reminders Kingsley thread - https://twitter.com/kidehen/status/1677095027246243840 Woot!!! #SPARQL plugin for #ChatGPT working, and it was so darn easy to make and deploy too, courtesy of our&nbsp;<a href="https://hyperdata.it/blog/revisit/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/revisit/">Read More</a></p>
+]]>
+</description>
+<pubDate>Tue, 05 Sep 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Neural Net Nuts and Bolts Speculation</title>
+<link>https://hyperdata.it/blog/nuts/</link>
+<description>
+<![CDATA[
+<p>
+braindump for future me Chain of Thought I've had dataflows on my mind this week, tracing through some code and seeing some coincidentally related material,&nbsp;<a href="https://hyperdata.it/blog/nuts/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/nuts/">Read More</a></p>
+]]>
+</description>
+<pubDate>Tue, 05 Sep 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
 <title>llama_index SPARQL Notes 09</title>
 <link>https://hyperdata.it/blog/llama-sparql-09/</link>
 <description>
@@ -213,6 +239,19 @@ far in the future I feel very stupid. I've written several blog engines in vario
 ]]>
 </description>
 <pubDate>Sat, 01 Jan 2000 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Turtle Markdown Extensions</title>
+<link>https://hyperdata.it/blog/2023-09-05_turtle-markdown/</link>
+<description>
+<![CDATA[
+<p>
+A bit of forward-planning for blog engine stuff. This went on my todo list the other day, since then I've had a think, thought I'd&nbsp;<a href="https://hyperdata.it/blog/2023-09-05_turtle-markdown/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/2023-09-05_turtle-markdown/">Read More</a></p>
+]]>
+</description>
+<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
 </item>
 
 

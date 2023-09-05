@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Turtle Markdown Extensions - Another Interim Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body id="2023-09-05_turtle-markdown">
+    <script id="replace_with_navbar" src="/share/nav.js"></script>
+    <br />
+    <br />
+    <br />
+    <em>Interim blog setup, rough notes being dumped here at the moment - I'll tidy once I get to a milestone. And sorry
+        about the layout, that'll probably take even longer to get around to... #TODO</em>
+    <br />
+    <br />
+    <main>
+        <article>
+<h1><a href="/blog/2023-09-05_turtle-markdown/">Turtle Markdown Extensions</a></h1>
+<p class="meta">Published on 1970-01-01 by <b>@danja</b></p>
+<p>A bit of forward-planning for blog engine stuff. This went on my todo list the other day, since then I've had a think, thought I'd better get it down before I forget.</p>
+<p>The implementation for <code>makesite.py</code> should be straightforward, but I've other things to do. But I can start using these extensions in posts today, no matter that they won't do anything yet. When I've got a demo implementation and tried it out a bit I'll give it a repo on GitHub.</p>
+<p><strong>How to express RDF statements in Markdown?</strong></p>
+<h4>Uses Cases</h4>
+<ol>
+<li>make statements about the md doc</li>
+<li>extract a block of arbitrary Turtle from md doc</li>
+</ol>
+<h4>General Requirements</h4>
+<ol start="0">
+<li>simple to use, simple to implement</li>
+<li>independent of, but compatible with existing markdown tools</li>
+<li>extensible, reasonably modular</li>
+<li>block identifier &amp; delimiters</li>
+<li>useful defaults, easily overriden</li>
+</ol>
+<p><em>Note re. (2) : the markup syntax used will be interpreted as a processing instruction, so while Turtle creation/extraction is the immediate goal, it makes sense for extensibility to consider other possible uses.</em></p>
+<h3>0. General Syntax</h3>
+<p>` :term fur`</p>
+<p>``` :term fur```</p>
+<p>TODO express in <a href="https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form">BNF</a>
+TODO provide regexes</p>
+<h3>1. Statements about Current Markdown Document</h3>
+<p>` :tag fur`</p>
+<ul>
+<li>the URL of the current document (or a derived version in a format like HTML) will be the subject of the triple</li>
+<li>the string <code>:tag</code> will be interpreted as the term <code>tag</code> from the namespace <code>http://purl.org/stuff/mx/</code> and used as the property of the triple</li>
+<li>the string <code>fur</code> will be used as the literal object of the triple</li>
+</ul>
+<p>TODO result</p>
+<p>In this example <code>fur</code> is one word, a simple string delimited by spaces. Alternatives will include quoting of literals <code>&quot;as in Turtle&quot;</code> for the object as well as the use of URIs using standard Turtle syntax.</p>
+<p>TODO longer example</p>
+<h4>Useful Terms</h4>
+<ul>
+<li>mx:cat - category</li>
+<li>mx:tag</li>
+<li>mx:tags</li>
+</ul>
+<p>TODO fill out as needed, find standard vocab equivalents</p>
+<h3>2. Arbitrary Turtle in Markdown Document</h3>
+<p>Where a block of Turtle should be extracted, the term <code>mx:x</code> should be used, e.g.</p>
+<p><strong>```:x</strong>
+@base <a href="http://example.org/">http://example.org/</a> .
+@prefix foaf: <a href="http://xmlns.com/foaf/0.1/">http://xmlns.com/foaf/0.1/</a> .
+@prefix rel: <a href="http://www.perceive.net/schemas/relationship/">http://www.perceive.net/schemas/relationship/</a> .</p>
+<p>&lt;#green-goblin&gt;
+rel:enemyOf &lt;#spiderman&gt; ;
+a foaf:Person ; # in the context of the Marvel universe
+foaf:name &quot;Green Goblin&quot; .
+<strong>```</strong></p>
+<h3>3. Interpretation Rules</h3>
+<p>TODO</p>
+<p>for eg. mx:tags - provide a simple list syntax</p>
+<p>Terms MAY be interpreted as those in the mx namespace and/or well-known equivalents</p>
+<h2>Implementation Notes</h2>
+<ul>
+<li>Processing should occur before standard markdown processing.</li>
+<li>Processing will return a dictionary (or equiv).</li>
+</ul>
+<p>eg. :</p>
+<pre><code>contents = mx(markdown_with_extensions)
+
+markdown = contents['markdown']
+turtle = contents['turtle']
+
+html = to_html(markdown)
+store.add(turtle)
+</code></pre>
+<p>Assume I have a Python function mx() that will act on a markdown format document as a preprocessor, pulling out part of the text that is delimited with a custom extension. A call on the function looks like this :
+markdown, extra = mx(markdown_with_extensions)
+html = to_html(markdown)
+turtle = extra['turtle']
+dolphin = extra['dolphin']</p>
+<p>How could this be adjusted so that the value returned by mx() would be a simple but valid JSON representation?</p>
+
+</article>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2023 Danny Ayers, CC Attribution/MIT License</p>
+            <p>Made with <a href="https://github.com/sunainapai">makesite</a></p>
+        </section>
+    </footer>
+
+</body>
+
+</html>
