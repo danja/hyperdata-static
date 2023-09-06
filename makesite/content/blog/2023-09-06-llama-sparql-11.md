@@ -1,0 +1,81 @@
+<!-- title: llama_index SPARQL Notes 11 -->
+
+WARNING:llama_index.graph_stores.nebulagraph:s =Peter Quill
+WARNING:llama_index.graph_stores.nebulagraph:rel_map =
+
+Ok, I want `rel_map` to take the subject, `Peter Quill`, call the SPARQL store and return something in this format :
+
+{'Peter Quill': [
+'Peter Quill, -[would return to the MCU]->, May 2021, <-[would return to the MCU]-, Peter Quill',
+'Peter Quill, -[would return to the MCU]->, May 2021',
+'Peter Quill, -[was raised by]->, a group of alien thieves and smugglers',
+'Peter Quill, -[is leader of]->, Guardians of the Galaxy',
+'Peter Quill, -[would return to the MCU]->, May 2021, <-[Gunn reaffirmed]-, Guardians of the Galaxy Vol. 3',
+...
+
+```
+
+Hmm, it takes a list :
+
+```
+
+    def get_rel_map(
+        self, subjs: Optional[List[str]] = None, depth: int = 2
+    ) -> Dict[str, List[List[str]]]:
+
+```
+
+Looping through the list to build the query should work, but there might be a more elegant way. Whatever, start with a single subject.
+
+If I build this up in :
+```
+
+llama_index/tests/storage/graph_stores/test_sparql.py
+
+```
+It make a good start to the test.
+
+Probably unnecessary but I've added an `unescape_from_rdf` helper to `sparql.py` to revert the quote escaping that Turtle needed.
+
+```
+
+cd ~/AI/nlp/GraphRAG/src
+export PYTHONPATH=$PYTHONPATH:/home/danny/AI/LIBS-under-dev/llama_index
+python /home/danny/AI/LIBS-under-dev/llama_index/tests/storage/graph_stores/test_sparql.py
+
+```
+
+> urllib.error.HTTPError: HTTP Error 502: Proxy Error
+
+Oops. Too many results? Check server...
+
+That took me a long time, bit fiddly. But now :
+
+```
+
+results = graph_store.select_triplets('Peter Quill', 10)
+
+```
+is returning :
+```
+
+{'rel': {'type': 'literal', 'value': 'is leader of'}, 'obj': {'type': 'literal', 'value': 'Guardians of the Galaxy'}}
+{'rel': {'type': 'literal', 'value': 'is half-human'}, 'obj': {'type': 'literal', 'value': 'half-Celestial'}}
+{'rel': {'type': 'literal', 'value': 'was abducted from Earth'}, 'obj': {'type': 'literal', 'value': 'as a child'}}
+{'rel': {'type': 'literal', 'value': 'was raised by'}, 'obj': {'type': 'literal', 'value': 'a group of alien thieves and smugglers'}}
+
+```
+
+Ok, so now I reckon I need SPARQL UNION (and possibly BIND) to get some <-[backwards]- bits.
+
+Break time.
+
+---
+I've used this (and almost identical in Java etc) _so often_, but have managed to forget :
+
+> Logger.setLevel() specifies the lowest-severity log message a logger will handle, where debug is the lowest built-in severity level and critical is the highest built-in severity. For example, if the severity level is INFO, the logger will handle only INFO, WARNING, ERROR, and CRITICAL messages and will ignore DEBUG messages.
+
+`:cat AI`
+`:tag SPARQL`
+`:tag LlamaIndex`
+```

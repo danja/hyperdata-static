@@ -82,38 +82,16 @@ WARNING:llama_index.graph_stores.nebulagraph:s =Peter Quill
 WARNING:llama_index.graph_stores.nebulagraph:rel_map =
 </code></pre>
 <p>right, this looks where the triplets for a subj are got &amp; returned</p>
-<pre><code>{'Peter Quill': ['Peter Quill, -[would return to the MCU]-&gt;, May 2021, &lt;-[would return to the MCU]-, Peter Quill', 'Peter Quill, -[would return to the MCU]-&gt;, May 2021', 'Peter Quill, -[was raised by]-&gt;, a group of alien thieves and smugglers', 'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy', 'Peter Quill, -[would return to the MCU]-&gt;, May 2021, &lt;-[Gunn reaffirmed]-, Guardians of the Galaxy Vol. 3', 'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy, &lt;-[was fired from]-, James Gunn', 'Peter Quill, -[was raised by]-&gt;, a group of alien thieves and smugglers, &lt;-[was raised by]-, Peter Quill', 'Peter Quill, -[is half-human]-&gt;, half-Celestial', 'Peter Quill, -[was abducted from Earth]-&gt;, as a child', 'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy, &lt;-[is leader of]-, Peter Quill', 'Peter Quill, -[is half-human]-&gt;, half-Celestial, &lt;-[is half-human]-, Peter Quill', 'Peter Quill, -[was abducted from Earth]-&gt;, as a child, &lt;-[was abducted from Earth]-, Peter Quill', 'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy, &lt;-[is sequel to]-, Guardians of the Galaxy Vol. 3', 'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy, -[cannot heal]-&gt;, Rocket', 'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy, -[are attacked by]-&gt;, Adam']}
-DEBUG:llama_index.indices.knowledge_graph.retrievers:rel_map: {'Peter Quill': ['Peter Quill, -[would return to the MCU]-&gt;, May 2021, &lt;-[would return to the MCU]-, Peter Quill', 'Peter Quill, -[would return to the MCU]-&gt;, May 2021', 'Peter Quill, -[was raised by]-&gt;, a group of alien thieves and smugglers', 'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy', 'Peter Quill, -[would return to the MCU]-&gt;, May 2021, &lt;-[Gunn reaffirmed]-, Guardians of the Galaxy Vol. 3', 'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy, &lt;-[was fired from]-, James Gunn', 'Peter Quill, -[was raised by]-&gt;, a group of alien thieves and smugglers, &lt;-[was raised by]-, Peter Quill', 'Peter Quill, -[is half-human]-&gt;, half-Celestial', 'Peter Quill, -[was abducted from Earth]-&gt;, as a child', 'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy, &lt;-[is leader of]-, Peter Quill', 'Peter Quill, -[is half-human]-&gt;, half-Celestial, &lt;-[is half-human]-, Peter Quill', 'Peter Quill, -[was abducted from Earth]-&gt;, as a child, &lt;-[was abducted from Earth]-, Peter Quill', 'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy, &lt;-[is sequel to]-, Guardians of the Galaxy Vol. 3', 'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy, -[cannot heal]-&gt;, Rocket', 'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy, -[are attacked by]-&gt;, Adam']}
-</code></pre>
+<p><em>raw snipped</em></p>
 <p>I saved that chunks as rel_map.json and let VSCode try to format it - much clearer. Kinda...</p>
-<pre><code>{'Peter Quill': ['Peter Quill, -[would return to the MCU
-        ]-&gt;, May 2021, &lt;-[would return to the MCU
-        ]-, Peter Quill', 'Peter Quill, -[would return to the MCU
-        ]-&gt;, May 2021', 'Peter Quill, -[was raised by
-        ]-&gt;, a group of alien thieves and smugglers', 'Peter Quill, -[is leader of
-        ]-&gt;, Guardians of the Galaxy', 'Peter Quill, -[would return to the MCU
-        ]-&gt;, May 2021, &lt;-[Gunn reaffirmed
-        ]-, Guardians of the Galaxy Vol. 3', 'Peter Quill, -[is leader of
-        ]-&gt;, Guardians of the Galaxy, &lt;-[was fired from
-        ]-, James Gunn', 'Peter Quill, -[was raised by
-        ]-&gt;, a group of alien thieves and smugglers, &lt;-[was raised by
-        ]-, Peter Quill', 'Peter Quill, -[is half-human
-        ]-&gt;, half-Celestial', 'Peter Quill, -[was abducted from Earth
-        ]-&gt;, as a child', 'Peter Quill, -[is leader of
-        ]-&gt;, Guardians of the Galaxy, &lt;-[is leader of
-        ]-, Peter Quill', 'Peter Quill, -[is half-human
-        ]-&gt;, half-Celestial, &lt;-[is half-human
-        ]-, Peter Quill', 'Peter Quill, -[was abducted from Earth
-        ]-&gt;, as a child, &lt;-[was abducted from Earth
-        ]-, Peter Quill', 'Peter Quill, -[is leader of
-        ]-&gt;, Guardians of the Galaxy, &lt;-[is sequel to
-        ]-, Guardians of the Galaxy Vol. 3', 'Peter Quill, -[is leader of
-        ]-&gt;, Guardians of the Galaxy, -[cannot heal
-        ]-&gt;, Rocket', 'Peter Quill, -[is leader of
-        ]-&gt;, Guardians of the Galaxy, -[are attacked by
-        ]-&gt;, Adam'
-    ]
-}
+<p>PS. format a bit by hand</p>
+<pre><code>{'Peter Quill': [
+    'Peter Quill, -[would return to the MCU]-&gt;, May 2021, &lt;-[would return to the MCU]-, Peter Quill',
+    'Peter Quill, -[would return to the MCU]-&gt;, May 2021',
+    'Peter Quill, -[was raised by]-&gt;, a group of alien thieves and smugglers',
+    'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy',
+    'Peter Quill, -[would return to the MCU]-&gt;, May 2021, &lt;-[Gunn reaffirmed]-, Guardians of the Galaxy Vol. 3',
+    ...
 </code></pre>
 <p>Ok, a format in a format. I don't know why there are backwards arrows and apparently repetition, but the basic stuff will be straightforward from SPARQL results. I reckon I'll start with simple forward-arrow triples, see if that communicates enough.</p>
 <p>oh wait, line 1124 :</p>

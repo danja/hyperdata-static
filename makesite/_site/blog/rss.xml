@@ -7,6 +7,19 @@
 <description>Grow with Technology</description>
 
 <item>
+<title>llama_index SPARQL Notes 11</title>
+<link>https://hyperdata.it/blog/llama-sparql-11/</link>
+<description>
+<![CDATA[
+<p>
+WARNING:llama_index.graph_stores.nebulagraph:s =Peter Quill WARNING:llama_index.graph_stores.nebulagraph:rel_map = Ok, I want rel_map to take the subject, Peter Quill , call the SPARQL store and return something in this&nbsp;<a href="https://hyperdata.it/blog/llama-sparql-11/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/llama-sparql-11/">Read More</a></p>
+]]>
+</description>
+<pubDate>Wed, 06 Sep 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
 <title>llama_index SPARQL Notes 10</title>
 <link>https://hyperdata.it/blog/llama-sparql-10/</link>
 <description>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>llama_index SPARQL Notes 11 - Another Interim Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body id="llama-sparql-11">
+    <script id="replace_with_navbar" src="/share/nav.js"></script>
+    <br />
+    <br />
+    <br />
+    <em>Interim blog setup, rough notes being dumped here at the moment - I'll tidy once I get to a milestone. And sorry
+        about the layout, that'll probably take even longer to get around to... #TODO</em>
+    <br />
+    <br />
+    <main>
+        <article>
+<h1><a href="/blog/llama-sparql-11/">llama_index SPARQL Notes 11</a></h1>
+<p class="meta">Published on 2023-09-06 by <b>@danja</b></p>
+<p>WARNING:llama_index.graph_stores.nebulagraph:s =Peter Quill
+WARNING:llama_index.graph_stores.nebulagraph:rel_map =</p>
+<p>Ok, I want <code>rel_map</code> to take the subject, <code>Peter Quill</code>, call the SPARQL store and return something in this format :</p>
+<p>{'Peter Quill': [
+'Peter Quill, -[would return to the MCU]-&gt;, May 2021, &lt;-[would return to the MCU]-, Peter Quill',
+'Peter Quill, -[would return to the MCU]-&gt;, May 2021',
+'Peter Quill, -[was raised by]-&gt;, a group of alien thieves and smugglers',
+'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy',
+'Peter Quill, -[would return to the MCU]-&gt;, May 2021, &lt;-[Gunn reaffirmed]-, Guardians of the Galaxy Vol. 3',
+...</p>
+<pre><code>
+Hmm, it takes a list :
+
+</code></pre>
+<pre><code>def get_rel_map(
+    self, subjs: Optional[List[str]] = None, depth: int = 2
+) -&gt; Dict[str, List[List[str]]]:
+</code></pre>
+<pre><code>
+Looping through the list to build the query should work, but there might be a more elegant way. Whatever, start with a single subject.
+
+If I build this up in :
+</code></pre>
+<p>llama_index/tests/storage/graph_stores/test_sparql.py</p>
+<pre><code>It make a good start to the test.
+
+Probably unnecessary but I've added an `unescape_from_rdf` helper to `sparql.py` to revert the quote escaping that Turtle needed.
+
+</code></pre>
+<p>cd ~/AI/nlp/GraphRAG/src
+export PYTHONPATH=$PYTHONPATH:/home/danny/AI/LIBS-under-dev/llama_index
+python /home/danny/AI/LIBS-under-dev/llama_index/tests/storage/graph_stores/test_sparql.py</p>
+<pre><code>
+&gt; urllib.error.HTTPError: HTTP Error 502: Proxy Error
+
+Oops. Too many results? Check server...
+
+That took me a long time, bit fiddly. But now :
+
+</code></pre>
+<p>results = graph_store.select_triplets('Peter Quill', 10)</p>
+<pre><code>is returning :
+</code></pre>
+<p>{'rel': {'type': 'literal', 'value': 'is leader of'}, 'obj': {'type': 'literal', 'value': 'Guardians of the Galaxy'}}
+{'rel': {'type': 'literal', 'value': 'is half-human'}, 'obj': {'type': 'literal', 'value': 'half-Celestial'}}
+{'rel': {'type': 'literal', 'value': 'was abducted from Earth'}, 'obj': {'type': 'literal', 'value': 'as a child'}}
+{'rel': {'type': 'literal', 'value': 'was raised by'}, 'obj': {'type': 'literal', 'value': 'a group of alien thieves and smugglers'}}</p>
+<pre><code>
+Ok, so now I reckon I need SPARQL UNION (and possibly BIND) to get some &lt;-[backwards]- bits.
+
+Break time.
+
+---
+I've used this (and almost identical in Java etc) _so often_, but have managed to forget :
+
+&gt; Logger.setLevel() specifies the lowest-severity log message a logger will handle, where debug is the lowest built-in severity level and critical is the highest built-in severity. For example, if the severity level is INFO, the logger will handle only INFO, WARNING, ERROR, and CRITICAL messages and will ignore DEBUG messages.
+
+`:cat AI`
+`:tag SPARQL`
+`:tag LlamaIndex`
+</code></pre>
+
+</article>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2023 Danny Ayers, CC Attribution/MIT License</p>
+            <p>Made with <a href="https://github.com/sunainapai">makesite</a></p>
+        </section>
+    </footer>
+
+</body>
+
+</html>
