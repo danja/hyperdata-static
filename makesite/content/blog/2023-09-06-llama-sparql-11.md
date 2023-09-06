@@ -70,6 +70,61 @@ Ok, so now I reckon I need SPARQL UNION (and possibly BIND) to get some <-[backw
 
 Break time.
 
+Hmm, I was playing around with the SPARQL, looks like this dataset (populated from `sparql.py`) is missing a few triples.
+For now go with https://fuseki.hyperdata.it/#/dataset/llama_index-test/query which came from NebulaGraph.
+
+Ok, this returns some things of the right shape, will do for now :
+```
+
+PREFIX er: <http://purl.org/stuff/er#>
+
+BASE <http://purl.org/stuff/data>
+
+SELECT DISTINCT ?subj ?rel ?obj ?rel2 ?obj2 WHERE {
+
+    GRAPH <http://purl.org/stuff/guardians> {
+        ?triplet a er:Triplet ;
+            er:subject ?subject ;
+            er:property ?property ;
+            er:object ?object .
+
+        ?subject er:value "Peter Quill"  .
+        ?property er:value ?rel .
+        ?object er:value ?obj .
+    OPTIONAL {
+            ?triplet2 a er:Triplet ;
+            er:subject ?subject2 ;
+            er:property ?property2 ;
+            er:object ?object2 .
+
+        ?subject2 er:value ?obj .
+        ?property2 er:value ?rel2 .
+        ?object2 er:value ?obj2 .
+    }
+    }
+
+}
+
+```
+
+**Property paths!** D'oh! I'd forgotten about them. Probably useful here. https://www.w3.org/TR/sparql11-query/#propertypaths
+
+But for now, get suitable output of `rel_map` from results of the above.
+
+**ChatGPT**
+Given the following example :
+
+subj = 'Peter Quill'
+rels = {'rel': {'type': 'literal', 'value': 'is leader of'}, 'obj': {'type': 'literal', 'value': 'Guardians of the Galaxy'}, 'rel2': {'type': 'literal', 'value': 'cannot heal'}, 'obj2': {'type': 'literal', 'value': 'Rocket'}}
+arp = to_arrows(subj, rels)
+
+write the function to_arrows so this will be the value of string arp :
+
+'Peter Quill, -[would return to the MCU]->, May 2021, <-[Gunn reaffirmed]-, Guardians of the Galaxy Vol. 3'
+**didnt really help**
+
+Started doing it manually, now too tired. Night night.
+
 ---
 I've used this (and almost identical in Java etc) _so often_, but have managed to forget :
 
