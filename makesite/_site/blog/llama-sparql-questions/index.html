@@ -26,16 +26,17 @@
 <p>I've got data going to the store <em>something like it should</em> using <code>graph_store.upsert()</code>. Data coming back from calls to <code>graph_store.get_rel_map()</code> that appears to be <em>more or less</em> the right shape. But an issue with each I would appreciate advice on.</p>
 <ol>
 <li>
-<p>Batching data
-Right now I've set up the INSERT queries to add triplets one at a time to the store. It's <em>really</em> inefficient because each has to be wrapped in a query skeleton and POSTed over HTTP. I imagine some kind of batch handling is already implemented somewhere, but I couldn't find anything I understood. It isn't essential right now, but if there is something, pointers?</p>
+<p>Batching data</p>
+<p>Right now I've set up the INSERT queries to add triplets one at a time to the store. It's <em>really</em> inefficient because each has to be wrapped in a query skeleton and POSTed over HTTP. I imagine some kind of batch handling is already implemented somewhere, but I couldn't find anything I understood. It isn't essential right now, but if there is something, pointers?</p>
 </li>
 <li>
-<p>Loops in graph data
-This is a breaking issue for me right now. I'm sure I can sort it out, but a little more knowledge should make that quicker :)
+<p>Loops in graph data</p>
+<p>This is a breaking issue for me right now. I'm sure I can sort it out, but a little more knowledge should make that quicker :)
 So at some point the data is fed through <code>llama_index/llama_index/response_synthesizers/tree_summarize.py</code>.
 I get <code>RecursionError: maximum recursion depth exceeded in comparison</code>, so seems likely there's a loop somewhere. Short term, some kind of check+delete should fix that (algorithm hunt time). But more generally, what is the situation with graphs &amp; loops? Is this an underlying problem in the way Graph RAG operates, or is it just an implementation issue?</p>
 </li>
 </ol>
+<hr />
 
 </article>
 
