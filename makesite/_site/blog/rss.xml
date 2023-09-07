@@ -7,6 +7,32 @@
 <description>Grow with Technology</description>
 
 <item>
+<title>llama_index SPARQL Questions</title>
+<link>https://hyperdata.it/blog/llama-sparql-questions/</link>
+<description>
+<![CDATA[
+<p>
+Immediate goal is to recreate Wey's Graph RAG demo but using a SPARQL store rather than NebulaGraph. I'm running it as graph-rag-sparql-minimal.py . I've got&nbsp;<a href="https://hyperdata.it/blog/llama-sparql-questions/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/llama-sparql-questions/">Read More</a></p>
+]]>
+</description>
+<pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>llama_index SPARQL Notes 12</title>
+<link>https://hyperdata.it/blog/llama-sparql-12/</link>
+<description>
+<![CDATA[
+<p>
+cd ~/AI/nlp/GraphRAG/src export PYTHONPATH=$PYTHONPATH:/home/danny/AI/LIBS-under-dev/llama_index python /home/danny/AI/LIBS-under-dev/llama_index/tests/storage/graph_stores/test_sparql.py That took a while but I now have results like : {Peter Quill: [ 'Peter Quill, -[was abducted from&nbsp;<a href="https://hyperdata.it/blog/llama-sparql-12/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/llama-sparql-12/">Read More</a></p>
+]]>
+</description>
+<pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
 <title>llama_index SPARQL Notes 11</title>
 <link>https://hyperdata.it/blog/llama-sparql-11/</link>
 <description>

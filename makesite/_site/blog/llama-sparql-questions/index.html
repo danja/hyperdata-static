@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>llama_index SPARQL Questions - Another Interim Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body id="llama-sparql-questions">
+    <script id="replace_with_navbar" src="/share/nav.js"></script>
+    <br />
+    <br />
+    <br />
+    <em>Interim blog setup, rough notes being dumped here at the moment - I'll tidy once I get to a milestone. And sorry
+        about the layout, that'll probably take even longer to get around to... #TODO</em>
+    <br />
+    <br />
+    <main>
+        <article>
+<h1><a href="/blog/llama-sparql-questions/">llama_index SPARQL Questions</a></h1>
+<p class="meta">Published on 2023-09-07 by <b>@danja</b></p>
+<p>Immediate goal is to recreate Wey's Graph RAG demo but using a SPARQL store rather than NebulaGraph.</p>
+<p>I'm running it as <a href="https://github.com/danja/nlp/blob/main/GraphRAG/src/graph-rag-sparql-minimal.py">graph-rag-sparql-minimal.py</a>.</p>
+<p>I've got data going to the store <em>something like it should</em> using <code>graph_store.upsert()</code>. Data coming back from calls to <code>graph_store.get_rel_map()</code> that appears to be <em>more or less</em> the right shape. But an issue with each I would appreciate advice on.</p>
+<ol>
+<li>
+<p>Batching data
+Right now I've set up the INSERT queries to add triplets one at a time to the store. It's <em>really</em> inefficient because each has to be wrapped in a query skeleton and POSTed over HTTP. I imagine some kind of batch handling is already implemented somewhere, but I couldn't find anything I understood. It isn't essential right now, but if there is something, pointers?</p>
+</li>
+<li>
+<p>Loops in graph data
+This is a breaking issue for me right now. I'm sure I can sort it out, but a little more knowledge should make that quicker :)
+So at some point the data is fed through <code>llama_index/llama_index/response_synthesizers/tree_summarize.py</code>.
+I get <code>RecursionError: maximum recursion depth exceeded in comparison</code>, so seems likely there's a loop somewhere. Short term, some kind of check+delete should fix that (algorithm hunt time). But more generally, what is the situation with graphs &amp; loops? Is this an underlying problem in the way Graph RAG operates, or is it just an implementation issue?</p>
+</li>
+</ol>
+
+</article>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2023 Danny Ayers, CC Attribution/MIT License</p>
+            <p>Made with <a href="https://github.com/sunainapai">makesite</a></p>
+        </section>
+    </footer>
+
+</body>
+
+</html>

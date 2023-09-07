@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>llama_index SPARQL Notes 12 - Another Interim Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body id="llama-sparql-12">
+    <script id="replace_with_navbar" src="/share/nav.js"></script>
+    <br />
+    <br />
+    <br />
+    <em>Interim blog setup, rough notes being dumped here at the moment - I'll tidy once I get to a milestone. And sorry
+        about the layout, that'll probably take even longer to get around to... #TODO</em>
+    <br />
+    <br />
+    <main>
+        <article>
+<h1><a href="/blog/llama-sparql-12/">llama_index SPARQL Notes 12</a></h1>
+<p class="meta">Published on 2023-09-07 by <b>@danja</b></p>
+<pre><code>cd ~/AI/nlp/GraphRAG/src
+export PYTHONPATH=$PYTHONPATH:/home/danny/AI/LIBS-under-dev/llama_index
+python /home/danny/AI/LIBS-under-dev/llama_index/tests/storage/graph_stores/test_sparql.py
+</code></pre>
+<p>That took a while but I now have results like :</p>
+<pre><code>{Peter Quill: [
+                    'Peter Quill, -[was abducted from Earth]-&gt;, as a child',
+                    'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy',&lt;-[are attacked by]-, Adam',
+</code></pre>
+<p>Ah, but as a string. Need to add a loop on the subjs and tweak data accumulation to conform to:</p>
+<pre><code>    def get_rel_map(
+        self, subjs: Optional[List[str]] = None, depth: int = 2
+    ) -&gt; Dict[str, List[List[str]]]:
+</code></pre>
+<p>Hmm, I don't really understand that return shape. And I've overwritten the log that had it...</p>
+<pre><code>sudo /usr/local/nebula/scripts/nebula.service start all
+cd ~/AI/nlp/GraphRAG/src
+export PYTHONPATH=$PYTHONPATH:/home/danny/AI/LIBS-under-dev/llama_index
+python graph-rag-nebulagraph-minimal.py
+</code></pre>
+<p>if nebulagraph.py, get_rel_map() :</p>
+<pre><code>        # We put rels in a long list for depth&gt;= 1, this is different from
+        # SimpleGraphStore.get_rel_map() though.
+        # But this makes more sense for multi-hop relation path.
+</code></pre>
+<p>the results in the log look very like what's produced from SPARQL above. Ok, time to try it.</p>
+<p>First, at https://fuseki.hyperdata.it/#/dataset/llama_index_sparql-test/query</p>
+<pre><code>DROP GRAPH &lt;http://purl.org/stuff/guardians&gt;
+</code></pre>
+<ul>
+<li>python graph-rag-sparql-minimal.py</li>
+</ul>
+<p>little char problem, ChatGPT time</p>
+<p>Ah, SPARQL encoding different from Python on Spanish n with wibble</p>
+<p>It <em>might</em> now be putting what it should in the store (took a few minutes), but it crashes with :</p>
+<pre><code>  File &quot;/home/danny/AI/LIBS-under-dev/llama_index/llama_index/response_synthesizers/tree_summarize.py&quot;, line 142, in get_response
+    return self.get_response(
+           ^^^^^^^^^^^^^^^^^^
+  [Previous line repeated 980 more times]
+  File &quot;/home/danny/AI/LIBS-under-dev/llama_index/llama_index/response_synthesizers/tree_summarize.py&quot;, line 96, in get_response
+    summary_template = self._summary_template.partial_format(query_str=query_str)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/home/danny/AI/LIBS-under-dev/llama_index/llama_index/prompts/base.py&quot;, line 206, in partial_format
+    return SelectorPromptTemplate(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+...
+RecursionError: maximum recursion depth exceeded in comparison
+...
+ File &quot;pydantic/class_validators.py&quot;, line 337, in pydantic.class_validators._generic_validator_basic.lambda13
+ ...
+</code></pre>
+<p>Hmm. A loop or just to big?</p>
+<hr />
+<pre><code>      PREFIX er:  &lt;http://purl.org/stuff/er#&gt;
+        BASE &lt;http://purl.org/stuff/data&gt;
+
+SELECT DISTINCT ?rel1 ?obj1 ?rel2 ?obj2 WHERE {
+
+GRAPH &lt;http://purl.org/stuff/guardians&gt; {
+    ?triplet a er:Triplet ;
+        er:subject ?subject ;
+        er:property ?property ;
+        er:object ?object .
+
+    ?subject er:value &quot;Peter Quill&quot;  .
+    ?property er:value ?rel1 .
+    ?object er:value ?obj1 .
+
+OPTIONAL {
+    ?triplet2 a er:Triplet ;
+        er:subject ?object ;
+        er:property ?property2 ;
+        er:object ?object2 .
+
+    ?property2 er:value ?rel2 .
+    ?object2 er:value ?obj2 .
+}}}
+</code></pre>
+<p>LIMIT 10</p>
+
+</article>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2023 Danny Ayers, CC Attribution/MIT License</p>
+            <p>Made with <a href="https://github.com/sunainapai">makesite</a></p>
+        </section>
+    </footer>
+
+</body>
+
+</html>

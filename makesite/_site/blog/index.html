@@ -20,6 +20,142 @@
     <main>
         <h1>Blog</h1>
 <article>
+    <h2><a href="/blog/llama-sparql-questions/">llama_index SPARQL Questions</a></h2>
+    <p class="meta">Published on 2023-09-07 by <b>@danja</b></p>
+
+    <p class="content">
+        <p>Immediate goal is to recreate Wey's Graph RAG demo but using a SPARQL store rather than NebulaGraph.</p>
+<p>I'm running it as <a href="https://github.com/danja/nlp/blob/main/GraphRAG/src/graph-rag-sparql-minimal.py">graph-rag-sparql-minimal.py</a>.</p>
+<p>I've got data going to the store <em>something like it should</em> using <code>graph_store.upsert()</code>. Data coming back from calls to <code>graph_store.get_rel_map()</code> that appears to be <em>more or less</em> the right shape. But an issue with each I would appreciate advice on.</p>
+<ol>
+<li>
+<p>Batching data
+Right now I've set up the INSERT queries to add triplets one at a time to the store. It's <em>really</em> inefficient because each has to be wrapped in a query skeleton and POSTed over HTTP. I imagine some kind of batch handling is already implemented somewhere, but I couldn't find anything I understood. It isn't essential right now, but if there is something, pointers?</p>
+</li>
+<li>
+<p>Loops in graph data
+This is a breaking issue for me right now. I'm sure I can sort it out, but a little more knowledge should make that quicker :)
+So at some point the data is fed through <code>llama_index/llama_index/response_synthesizers/tree_summarize.py</code>.
+I get <code>RecursionError: maximum recursion depth exceeded in comparison</code>, so seems likely there's a loop somewhere. Short term, some kind of check+delete should fix that (algorithm hunt time). But more generally, what is the situation with graphs &amp; loops? Is this an underlying problem in the way Graph RAG operates, or is it just an implementation issue?</p>
+</li>
+</ol>
+&nbsp;
+        <!-- a class="more" href="/blog/llama-sparql-questions/">...</a -->
+    </p>
+    <!--
+<p class="summary">
+Immediate goal is to recreate Wey's Graph RAG demo but using a SPARQL store rather than NebulaGraph. I'm running it as graph-rag-sparql-minimal.py . I've got&nbsp;<a class="more" href="/blog/llama-sparql-questions/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/llama-sparql-questions/">Read More</a>
+</div>
+-->
+</article><article>
+    <h2><a href="/blog/llama-sparql-12/">llama_index SPARQL Notes 12</a></h2>
+    <p class="meta">Published on 2023-09-07 by <b>@danja</b></p>
+
+    <p class="content">
+        <pre><code>cd ~/AI/nlp/GraphRAG/src
+export PYTHONPATH=$PYTHONPATH:/home/danny/AI/LIBS-under-dev/llama_index
+python /home/danny/AI/LIBS-under-dev/llama_index/tests/storage/graph_stores/test_sparql.py
+</code></pre>
+<p>That took a while but I now have results like :</p>
+<pre><code>{Peter Quill: [
+                    'Peter Quill, -[was abducted from Earth]-&gt;, as a child',
+                    'Peter Quill, -[is leader of]-&gt;, Guardians of the Galaxy',&lt;-[are attacked by]-, Adam',
+</code></pre>
+<p>Ah, but as a string. Need to add a loop on the subjs and tweak data accumulation to conform to:</p>
+<pre><code>    def get_rel_map(
+        self, subjs: Optional[List[str]] = None, depth: int = 2
+    ) -&gt; Dict[str, List[List[str]]]:
+</code></pre>
+<p>Hmm, I don't really understand that return shape. And I've overwritten the log that had it...</p>
+<pre><code>sudo /usr/local/nebula/scripts/nebula.service start all
+cd ~/AI/nlp/GraphRAG/src
+export PYTHONPATH=$PYTHONPATH:/home/danny/AI/LIBS-under-dev/llama_index
+python graph-rag-nebulagraph-minimal.py
+</code></pre>
+<p>if nebulagraph.py, get_rel_map() :</p>
+<pre><code>        # We put rels in a long list for depth&gt;= 1, this is different from
+        # SimpleGraphStore.get_rel_map() though.
+        # But this makes more sense for multi-hop relation path.
+</code></pre>
+<p>the results in the log look very like what's produced from SPARQL above. Ok, time to try it.</p>
+<p>First, at https://fuseki.hyperdata.it/#/dataset/llama_index_sparql-test/query</p>
+<pre><code>DROP GRAPH &lt;http://purl.org/stuff/guardians&gt;
+</code></pre>
+<ul>
+<li>python graph-rag-sparql-minimal.py</li>
+</ul>
+<p>little char problem, ChatGPT time</p>
+<p>Ah, SPARQL encoding different from Python on Spanish n with wibble</p>
+<p>It <em>might</em> now be putting what it should in the store (took a few minutes), but it crashes with :</p>
+<pre><code>  File &quot;/home/danny/AI/LIBS-under-dev/llama_index/llama_index/response_synthesizers/tree_summarize.py&quot;, line 142, in get_response
+    return self.get_response(
+           ^^^^^^^^^^^^^^^^^^
+  [Previous line repeated 980 more times]
+  File &quot;/home/danny/AI/LIBS-under-dev/llama_index/llama_index/response_synthesizers/tree_summarize.py&quot;, line 96, in get_response
+    summary_template = self._summary_template.partial_format(query_str=query_str)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/home/danny/AI/LIBS-under-dev/llama_index/llama_index/prompts/base.py&quot;, line 206, in partial_format
+    return SelectorPromptTemplate(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+...
+RecursionError: maximum recursion depth exceeded in comparison
+...
+ File &quot;pydantic/class_validators.py&quot;, line 337, in pydantic.class_validators._generic_validator_basic.lambda13
+ ...
+</code></pre>
+<p>Hmm. A loop or just to big?</p>
+<hr />
+<pre><code>      PREFIX er:  &lt;http://purl.org/stuff/er#&gt;
+        BASE &lt;http://purl.org/stuff/data&gt;
+
+SELECT DISTINCT ?rel1 ?obj1 ?rel2 ?obj2 WHERE {
+
+GRAPH &lt;http://purl.org/stuff/guardians&gt; {
+    ?triplet a er:Triplet ;
+        er:subject ?subject ;
+        er:property ?property ;
+        er:object ?object .
+
+    ?subject er:value &quot;Peter Quill&quot;  .
+    ?property er:value ?rel1 .
+    ?object er:value ?obj1 .
+
+OPTIONAL {
+    ?triplet2 a er:Triplet ;
+        er:subject ?object ;
+        er:property ?property2 ;
+        er:object ?object2 .
+
+    ?property2 er:value ?rel2 .
+    ?object2 er:value ?obj2 .
+}}}
+</code></pre>
+<p>LIMIT 10</p>
+&nbsp;
+        <!-- a class="more" href="/blog/llama-sparql-12/">...</a -->
+    </p>
+    <!--
+<p class="summary">
+cd ~/AI/nlp/GraphRAG/src export PYTHONPATH=$PYTHONPATH:/home/danny/AI/LIBS-under-dev/llama_index python /home/danny/AI/LIBS-under-dev/llama_index/tests/storage/graph_stores/test_sparql.py That took a while but I now have results like : {Peter Quill: [ 'Peter Quill, -[was abducted from&nbsp;<a class="more" href="/blog/llama-sparql-12/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/llama-sparql-12/">Read More</a>
+</div>
+-->
+</article><article>
     <h2><a href="/blog/llama-sparql-11/">llama_index SPARQL Notes 11</a></h2>
     <p class="meta">Published on 2023-09-06 by <b>@danja</b></p>
 
