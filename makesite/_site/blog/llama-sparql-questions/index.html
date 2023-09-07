@@ -22,7 +22,7 @@
 <h1><a href="/blog/llama-sparql-questions/">llama_index SPARQL Questions</a></h1>
 <p class="meta">Published on 2023-09-07 by <b>@danja</b></p>
 <p>Immediate goal is to recreate Wey's Graph RAG demo but using a SPARQL store rather than NebulaGraph.</p>
-<p>I'm running it as <a href="https://github.com/danja/nlp/blob/main/GraphRAG/src/graph-rag-sparql-minimal.py">graph-rag-sparql-minimal.py</a>.</p>
+<p>I'm running it as <a href="https://github.com/danja/nlp/blob/main/GraphRAG/src/graph-rag-sparql-minimal.py">graph-rag-sparql-minimal.py</a>. The in-progress <a href="https://github.com/danja/llama_index/blob/add-sparql/llama_index/graph_stores/sparql.py">sparql.py</a> (<code>rels()</code> will be called from <code>get_rel_map()</code>).</p>
 <p>I've got data going to the store <em>something like it should</em> using <code>graph_store.upsert()</code>. Data coming back from calls to <code>graph_store.get_rel_map()</code> that appears to be <em>more or less</em> the right shape. But an issue with each I would appreciate advice on.</p>
 <ol>
 <li>

@@ -2,7 +2,7 @@
 
 Immediate goal is to recreate Wey's Graph RAG demo but using a SPARQL store rather than NebulaGraph.
 
-I'm running it as [graph-rag-sparql-minimal.py](https://github.com/danja/nlp/blob/main/GraphRAG/src/graph-rag-sparql-minimal.py).
+I'm running it as [graph-rag-sparql-minimal.py](https://github.com/danja/nlp/blob/main/GraphRAG/src/graph-rag-sparql-minimal.py). The in-progress [sparql.py](https://github.com/danja/llama_index/blob/add-sparql/llama_index/graph_stores/sparql.py) (`rels()` will be called from `get_rel_map()`).
 
 I've got data going to the store _something like it should_ using `graph_store.upsert()`. Data coming back from calls to `graph_store.get_rel_map()` that appears to be _more or less_ the right shape. But an issue with each I would appreciate advice on.
 

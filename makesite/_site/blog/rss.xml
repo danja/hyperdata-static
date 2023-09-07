@@ -12,7 +12,7 @@
 <description>
 <![CDATA[
 <p>
-Immediate goal is to recreate Wey's Graph RAG demo but using a SPARQL store rather than NebulaGraph. I'm running it as graph-rag-sparql-minimal.py . I've got&nbsp;<a href="https://hyperdata.it/blog/llama-sparql-questions/">...</a>
+Immediate goal is to recreate Wey's Graph RAG demo but using a SPARQL store rather than NebulaGraph. I'm running it as graph-rag-sparql-minimal.py . The in-progress&nbsp;<a href="https://hyperdata.it/blog/llama-sparql-questions/">...</a>
 </p>
 <p><a href="https://hyperdata.it/blog/llama-sparql-questions/">Read More</a></p>
 ]]>
