@@ -14,6 +14,6 @@ I've got data going to the store _something like it should_ using `graph_store.u
 
    This is a breaking issue for me right now. I'm sure I can sort it out, but a little more knowledge should make that quicker :)
    So at some point the data is fed through `llama_index/llama_index/response_synthesizers/tree_summarize.py`.
-   I get `RecursionError: maximum recursion depth exceeded in comparison`, so seems likely there's a loop somewhere. Short term, some kind of check+delete should fix that (algorithm hunt time). But more generally, what is the situation with graphs & loops? Is this an underlying problem in the way Graph RAG operates, or is it just an implementation issue?
+   I get `RecursionError: maximum recursion depth exceeded in comparison`, so seems likely there's a loop somewhere. Short term, some kind of check+delete should fix that (algorithm hunt time). But more generally, what is the situation with graphs & loops? Is this an underlying feature of the way Graph RAG operates, or is it just an implementation issue?
 
 ---
