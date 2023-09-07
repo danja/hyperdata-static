@@ -8,7 +8,7 @@ I've got data going to the store _something like it should_ using `graph_store.u
 
 1. Batching data
 
-   Right now I've set up the INSERT queries to add triplets one at a time to the store. It's _really_ inefficient because each has to be wrapped in a query skeleton and POSTed over HTTP. I imagine some kind of batch handling is already implemented somewhere, but I couldn't find anything I understood. It isn't essential right now, but if there is something, pointers?
+   Right now I've set up INSERT queries to add triplets (as RDF triples) one at a time to the store. It's _really_ inefficient because each has to be wrapped in a query skeleton and POSTed over HTTP. I imagine some kind of batch handling is already implemented somewhere, but I couldn't find anything I understood. It isn't essential right now, but if there is something, pointers?
 
 2. Loops in graph data
 
