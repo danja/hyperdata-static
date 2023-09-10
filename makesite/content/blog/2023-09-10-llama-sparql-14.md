@@ -36,7 +36,7 @@ The first the LLM should be able to answer but the RAG data would be no use, and
 
 When I removed the cat query, no recursion error. So I guess maybe the LLM was returning TMI.
 
-So I'll leave it out for now.
+So I'll leave cats out for now.
 
 Back to setting up a demo.
 
