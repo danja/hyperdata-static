@@ -7,6 +7,32 @@
 <description>Grow with Technology</description>
 
 <item>
+<title>llama_index SPARQL Notes 14</title>
+<link>https://hyperdata.it/blog/llama-sparql-14/</link>
+<description>
+<![CDATA[
+<p>
+Add OpenAPI keys. Endpoint : https://fuseki.hyperdata.it/#/dataset/llama_index_sparql-test/ DROP GRAPH &lt;http://purl.org/stuff/guardians&gt; sudo /usr/local/nebula/scripts/nebula.service start all cd ~/AI/nlp/GraphRAG/src export PYTHONPATH=$PYTHONPATH:/home/danny/AI/LIBS-under-dev/llama_index python graph-rag-sparql-minimal.py Fool Danny! I'd made rels() as&nbsp;<a href="https://hyperdata.it/blog/llama-sparql-14/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/llama-sparql-14/">Read More</a></p>
+]]>
+</description>
+<pubDate>Sun, 10 Sep 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>llama_index SPARQL Notes 13</title>
+<link>https://hyperdata.it/blog/llama-sparql-13/</link>
+<description>
+<![CDATA[
+<p>
+So, eliminating loops... For now at least I reckon it'd be best to prevent loops before triplets go to the store. The simplest thing that&nbsp;<a href="https://hyperdata.it/blog/llama-sparql-13/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/llama-sparql-13/">Read More</a></p>
+]]>
+</description>
+<pubDate>Fri, 08 Sep 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
 <title>llama_index SPARQL Questions</title>
 <link>https://hyperdata.it/blog/llama-sparql-questions/</link>
 <description>
@@ -301,6 +327,19 @@ far in the future I feel very stupid. I've written several blog engines in vario
 A bit of forward-planning for blog engine stuff. This went on my todo list the other day, since then I've had a think, thought I'd&nbsp;<a href="https://hyperdata.it/blog/2023-09-05_turtle-markdown/">...</a>
 </p>
 <p><a href="https://hyperdata.it/blog/2023-09-05_turtle-markdown/">Read More</a></p>
+]]>
+</description>
+<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Blog</title>
+<link>https://hyperdata.it/blog/raw-blog-data-clean/</link>
+<description>
+<![CDATA[
+<p>
+using standard linux tools, how do I modify a text file to remove the spaces from any strings in it of the following form :&nbsp;<a href="https://hyperdata.it/blog/raw-blog-data-clean/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/raw-blog-data-clean/">Read More</a></p>
 ]]>
 </description>
 <pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>llama_index SPARQL Notes 14 - Another Interim Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body id="llama-sparql-14">
+    <script id="replace_with_navbar" src="/share/nav.js"></script>
+    <br />
+    <br />
+    <br />
+    <em>Interim blog setup, rough notes being dumped here at the moment - I'll tidy once I get to a milestone. And sorry
+        about the layout, that'll probably take even longer to get around to... #TODO</em>
+    <br />
+    <br />
+    <main>
+        <article>
+<h1><a href="/blog/llama-sparql-14/">llama_index SPARQL Notes 14</a></h1>
+<p class="meta">Published on 2023-09-10 by <b>@danja</b></p>
+<pre><code>Add OpenAPI keys.
+
+Endpoint : https://fuseki.hyperdata.it/#/dataset/llama_index_sparql-test/
+
+DROP GRAPH &lt;http://purl.org/stuff/guardians&gt;
+
+sudo /usr/local/nebula/scripts/nebula.service start all
+cd ~/AI/nlp/GraphRAG/src
+export PYTHONPATH=$PYTHONPATH:/home/danny/AI/LIBS-under-dev/llama_index
+python graph-rag-sparql-minimal.py
+</code></pre>
+<p>Fool Danny!</p>
+<p>I'd made <code>rels()</code> as a placeholder for <code>get_rel_map()</code> while testing. Forget to wire it in when running end-to-end.</p>
+<p>Connecting that up (and a few little tweaks) got rid of the recursion issue.</p>
+<p><strong>Yay!! I might be missing something obvious but it now appears to work!</strong></p>
+<p>Now to tidy up, then set up a demo Notebook.</p>
+<p>Ew, I got the recursion/depth error again.</p>
+<p>Ah, interesting!</p>
+<p>I was giving it 2 questions :</p>
+<ul>
+<li>What do cats eat?</li>
+<li>Who is Quill?</li>
+</ul>
+<p>The first the LLM should be able to answer but the RAG data would be no use, and vice versa.</p>
+<p>When I removed the cat query, no recursion error. So I guess maybe the LLM was returning TMI.</p>
+<p>So I'll leave it out for now.</p>
+<p>Back to setting up a demo.</p>
+<hr />
+<p>Grrr. Accidentally stuck a big file in a repo, got in a tangle with github. While sorting that out (backup, cleaning, updates) I'll start demo notes here.</p>
+<p>SPARQL Graph RAG Demo</p>
+<p>This is only a minimal, special case, proof-of-concept.</p>
+<p><a href="https://www.siwei.io/en/demos/graph-rag/">Notebook</a>, in which <a href="https://siwei.io/en/">Wey Gu</a></p>
+<p><a href="https://www.siwei.io/en/demos/graph-rag/">Notebook</a>, in which <a href="https://siwei.io/en/">Wey Gu</a></p>
+
+</article>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2023 Danny Ayers, CC Attribution/MIT License</p>
+            <p>Made with <a href="https://github.com/sunainapai">makesite</a></p>
+        </section>
+    </footer>
+
+</body>
+
+</html>

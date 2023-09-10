@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ title }} - Another Interim Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body id="raw-blog-data-clean">
+    <script id="replace_with_navbar" src="/share/nav.js"></script>
+    <br />
+    <br />
+    <br />
+    <em>Interim blog setup, rough notes being dumped here at the moment - I'll tidy once I get to a milestone. And sorry
+        about the layout, that'll probably take even longer to get around to... #TODO</em>
+    <br />
+    <br />
+    <main>
+        <article>
+<h1><a href="/blog/raw-blog-data-clean/">{{ title }}</a></h1>
+<p class="meta">Published on 1970-01-01 by <b>@danja</b></p>
+<p>using standard linux tools, how do I modify a text file to remove the spaces from any strings in it of the following form : '&lt;mbox:dylan_beadle -at- yahoo.com&gt;'. Match the &lt; &gt; characters, I'd like the result '<a href="mbox:dylan_beadle-at-yahoo.com">mbox:dylan_beadle-at-yahoo.com</a>'</p>
+<p>(some fails with sed)</p>
+<p>perl -pe 's/<a href="mbox:(%5B%5E">mbox:([^</a>]+)&gt;/my $x = $&amp;; $x =~ s| -at- |-at-|g; $x =~ s| ||g; $x/ge' main_backup.n3  &gt;  main_backup-cleaner.n3</p>
+<p>Could you now extend the previous Perl so that :
+&lt;mbox:dylan_beadle -at- yahoo.com&gt; becomes <a href="mbox:dylan_beadle@yahoo.com">mbox:dylan_beadle@yahoo.com</a>
+<a href="mbox:thaynes%7Bat%7Dopenlinksw.com">mbox:thaynes{at}openlinksw.com</a> becomes <a href="mbox:thaynes@openlinksw.com">mbox:thaynes@openlinksw.com</a></p>
+<p>perl -pe 's|<a href="mbox:(%5B%5E">mbox:([^</a>]+)&gt;|my $x = $&amp;; $x =~ s|\s*-at-\s*|@|g; $x =~ s|{at}|@|g; $x =~ s|\s||g; $x|ge' main_backup.n3 &gt; main_backup-cleaner.n3</p>
+<p>perl -pe 's|<a href="mbox:(%5B%5E">mbox:([^</a>]+)&gt;|my $x = $1; $x =~ s|\s*-at-\s*|@|g; $x =~ s|{at}|@|g; $x =~ s|\s||g; &quot;<a href="mbox:%24x">mbox:$x</a>&quot;|ge' main_backup.n3 &gt; main_backup-cleaner.n3</p>
+
+</article>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2023 Danny Ayers, CC Attribution/MIT License</p>
+            <p>Made with <a href="https://github.com/sunainapai">makesite</a></p>
+        </section>
+    </footer>
+
+</body>
+
+</html>

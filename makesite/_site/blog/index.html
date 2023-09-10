@@ -20,6 +20,83 @@
     <main>
         <h1>Blog</h1>
 <article>
+    <h2><a href="/blog/llama-sparql-14/">llama_index SPARQL Notes 14</a></h2>
+    <p class="meta">Published on 2023-09-10 by <b>@danja</b></p>
+
+    <p class="content">
+        <pre><code>Add OpenAPI keys.
+
+Endpoint : https://fuseki.hyperdata.it/#/dataset/llama_index_sparql-test/
+
+DROP GRAPH &lt;http://purl.org/stuff/guardians&gt;
+
+sudo /usr/local/nebula/scripts/nebula.service start all
+cd ~/AI/nlp/GraphRAG/src
+export PYTHONPATH=$PYTHONPATH:/home/danny/AI/LIBS-under-dev/llama_index
+python graph-rag-sparql-minimal.py
+</code></pre>
+<p>Fool Danny!</p>
+<p>I'd made <code>rels()</code> as a placeholder for <code>get_rel_map()</code> while testing. Forget to wire it in when running end-to-end.</p>
+<p>Connecting that up (and a few little tweaks) got rid of the recursion issue.</p>
+<p><strong>Yay!! I might be missing something obvious but it now appears to work!</strong></p>
+<p>Now to tidy up, then set up a demo Notebook.</p>
+<p>Ew, I got the recursion/depth error again.</p>
+<p>Ah, interesting!</p>
+<p>I was giving it 2 questions :</p>
+<ul>
+<li>What do cats eat?</li>
+<li>Who is Quill?</li>
+</ul>
+<p>The first the LLM should be able to answer but the RAG data would be no use, and vice versa.</p>
+<p>When I removed the cat query, no recursion error. So I guess maybe the LLM was returning TMI.</p>
+<p>So I'll leave it out for now.</p>
+<p>Back to setting up a demo.</p>
+<hr />
+<p>Grrr. Accidentally stuck a big file in a repo, got in a tangle with github. While sorting that out (backup, cleaning, updates) I'll start demo notes here.</p>
+<p>SPARQL Graph RAG Demo</p>
+<p>This is only a minimal, special case, proof-of-concept.</p>
+<p><a href="https://www.siwei.io/en/demos/graph-rag/">Notebook</a>, in which <a href="https://siwei.io/en/">Wey Gu</a></p>
+<p><a href="https://www.siwei.io/en/demos/graph-rag/">Notebook</a>, in which <a href="https://siwei.io/en/">Wey Gu</a></p>
+&nbsp;
+        <!-- a class="more" href="/blog/llama-sparql-14/">...</a -->
+    </p>
+    <!--
+<p class="summary">
+Add OpenAPI keys. Endpoint : https://fuseki.hyperdata.it/#/dataset/llama_index_sparql-test/ DROP GRAPH &lt;http://purl.org/stuff/guardians&gt; sudo /usr/local/nebula/scripts/nebula.service start all cd ~/AI/nlp/GraphRAG/src export PYTHONPATH=$PYTHONPATH:/home/danny/AI/LIBS-under-dev/llama_index python graph-rag-sparql-minimal.py Fool Danny! I'd made rels() as&nbsp;<a class="more" href="/blog/llama-sparql-14/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/llama-sparql-14/">Read More</a>
+</div>
+-->
+</article><article>
+    <h2><a href="/blog/llama-sparql-13/">llama_index SPARQL Notes 13</a></h2>
+    <p class="meta">Published on 2023-09-08 by <b>@danja</b></p>
+
+    <p class="content">
+        <p>So, eliminating loops...</p>
+<p>For now at least I reckon it'd be best to prevent loops before triplets go to the store. The simplest thing that should work is when presented with a triplet <code>(subj, rel, obj)</code>, check that <code>obj</code> hasn't already been used as a <code>subj</code>.</p>
+&nbsp;
+        <!-- a class="more" href="/blog/llama-sparql-13/">...</a -->
+    </p>
+    <!--
+<p class="summary">
+So, eliminating loops... For now at least I reckon it'd be best to prevent loops before triplets go to the store. The simplest thing that&nbsp;<a class="more" href="/blog/llama-sparql-13/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/llama-sparql-13/">Read More</a>
+</div>
+-->
+</article><article>
     <h2><a href="/blog/llama-sparql-questions/">llama_index SPARQL Questions</a></h2>
     <p class="meta">Published on 2023-09-07 by <b>@danja</b></p>
 
@@ -2039,6 +2116,35 @@ A bit of forward-planning for blog engine stuff. This went on my todo list the o
     <!--
 <div>
 <a class="more" href="/blog/2023-09-05_turtle-markdown/">Read More</a>
+</div>
+-->
+</article><article>
+    <h2><a href="/blog/raw-blog-data-clean/">Blog</a></h2>
+    <p class="meta">Published on 1970-01-01 by <b>@danja</b></p>
+
+    <p class="content">
+        <p>using standard linux tools, how do I modify a text file to remove the spaces from any strings in it of the following form : '&lt;mbox:dylan_beadle -at- yahoo.com&gt;'. Match the &lt; &gt; characters, I'd like the result '<a href="mbox:dylan_beadle-at-yahoo.com">mbox:dylan_beadle-at-yahoo.com</a>'</p>
+<p>(some fails with sed)</p>
+<p>perl -pe 's/<a href="mbox:(%5B%5E">mbox:([^</a>]+)&gt;/my $x = $&amp;; $x =~ s| -at- |-at-|g; $x =~ s| ||g; $x/ge' main_backup.n3  &gt;  main_backup-cleaner.n3</p>
+<p>Could you now extend the previous Perl so that :
+&lt;mbox:dylan_beadle -at- yahoo.com&gt; becomes <a href="mbox:dylan_beadle@yahoo.com">mbox:dylan_beadle@yahoo.com</a>
+<a href="mbox:thaynes%7Bat%7Dopenlinksw.com">mbox:thaynes{at}openlinksw.com</a> becomes <a href="mbox:thaynes@openlinksw.com">mbox:thaynes@openlinksw.com</a></p>
+<p>perl -pe 's|<a href="mbox:(%5B%5E">mbox:([^</a>]+)&gt;|my $x = $&amp;; $x =~ s|\s*-at-\s*|@|g; $x =~ s|{at}|@|g; $x =~ s|\s||g; $x|ge' main_backup.n3 &gt; main_backup-cleaner.n3</p>
+<p>perl -pe 's|<a href="mbox:(%5B%5E">mbox:([^</a>]+)&gt;|my $x = $1; $x =~ s|\s*-at-\s*|@|g; $x =~ s|{at}|@|g; $x =~ s|\s||g; &quot;<a href="mbox:%24x">mbox:$x</a>&quot;|ge' main_backup.n3 &gt; main_backup-cleaner.n3</p>
+&nbsp;
+        <!-- a class="more" href="/blog/raw-blog-data-clean/">...</a -->
+    </p>
+    <!--
+<p class="summary">
+using standard linux tools, how do I modify a text file to remove the spaces from any strings in it of the following form :&nbsp;<a class="more" href="/blog/raw-blog-data-clean/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/raw-blog-data-clean/">Read More</a>
 </div>
 -->
 </article>
