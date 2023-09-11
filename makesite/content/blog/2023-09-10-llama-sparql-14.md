@@ -42,12 +42,4 @@ Back to setting up a demo.
 
 ---
 
-Grrr. Accidentally stuck a big file in a repo, got in a tangle with github. While sorting that out (backup, cleaning, updates) I'll start demo notes here.
-
-SPARQL Graph RAG Demo
-
-This is only a minimal, special case, proof-of-concept.
-
-[Notebook](https://www.siwei.io/en/demos/graph-rag/), in which [Wey Gu](https://siwei.io/en/)
-
-[Notebook](https://www.siwei.io/en/demos/graph-rag/), in which [Wey Gu](https://siwei.io/en/)
+Grrr. Accidentally stuck a big file in a repo, got in a tangle with github. Headache, time to stop.

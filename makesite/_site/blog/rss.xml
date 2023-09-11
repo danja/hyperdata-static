@@ -7,6 +7,19 @@
 <description>Grow with Technology</description>
 
 <item>
+<title>llama_index SPARQL Notes 15</title>
+<link>https://hyperdata.it/blog/llama-index-15/</link>
+<description>
+<![CDATA[
+<p>
+Add OpenAPI keys. Endpoint : https://fuseki.hyperdata.it/#/dataset/llama_index_sparql-test/ DROP GRAPH &lt;http://purl.org/stuff/guardians&gt; sudo /usr/local/nebula/scripts/nebula.service start all cd ~/AI/nlp/GraphRAG/src export PYTHONPATH=$PYTHONPATH:/home/danny/AI/LIBS-under-dev/llama_index python graph-rag-sparql-minimal.py On server for demo. /home/hkms-apps# git&nbsp;<a href="https://hyperdata.it/blog/llama-index-15/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/llama-index-15/">Read More</a></p>
+]]>
+</description>
+<pubDate>Mon, 11 Sep 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
 <title>llama_index SPARQL Notes 14</title>
 <link>https://hyperdata.it/blog/llama-sparql-14/</link>
 <description>

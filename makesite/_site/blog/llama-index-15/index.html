@@ -2,13 +2,13 @@
 <html>
 
 <head>
-    <title>llama_index SPARQL Notes 14 - Another Interim Blog</title>
+    <title>llama_index SPARQL Notes 15 - Another Interim Blog</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 
-<body id="llama-sparql-14">
+<body id="llama-index-15">
     <script id="replace_with_navbar" src="/share/nav.js"></script>
     <br />
     <br />
@@ -19,8 +19,8 @@
     <br />
     <main>
         <article>
-<h1><a href="/blog/llama-sparql-14/">llama_index SPARQL Notes 14</a></h1>
-<p class="meta">Published on 2023-09-10 by <b>@danja</b></p>
+<h1><a href="/blog/llama-index-15/">llama_index SPARQL Notes 15</a></h1>
+<p class="meta">Published on 2023-09-11 by <b>@danja</b></p>
 <pre><code>Add OpenAPI keys.
 
 Endpoint : https://fuseki.hyperdata.it/#/dataset/llama_index_sparql-test/
@@ -32,24 +32,12 @@ cd ~/AI/nlp/GraphRAG/src
 export PYTHONPATH=$PYTHONPATH:/home/danny/AI/LIBS-under-dev/llama_index
 python graph-rag-sparql-minimal.py
 </code></pre>
-<p>Fool Danny!</p>
-<p>I'd made <code>rels()</code> as a placeholder for <code>get_rel_map()</code> while testing. Forget to wire it in when running end-to-end.</p>
-<p>Connecting that up (and a few little tweaks) got rid of the recursion issue.</p>
-<p><strong>Yay!! I might be missing something obvious but it now appears to work!</strong></p>
-<p>Now to tidy up, then set up a demo Notebook.</p>
-<p>Ew, I got the recursion/depth error again.</p>
-<p>Ah, interesting!</p>
-<p>I was giving it 2 questions :</p>
+<p>On server for demo.</p>
 <ul>
-<li>What do cats eat?</li>
-<li>Who is Quill?</li>
+<li>/home/hkms-apps# git clone https://github.com/danja/llama_index.git</li>
 </ul>
-<p>The first the LLM should be able to answer but the RAG data would be no use, and vice versa.</p>
-<p>When I removed the cat query, no recursion error. So I guess maybe the LLM was returning TMI.</p>
-<p>So I'll leave cats out for now.</p>
-<p>Back to setting up a demo.</p>
-<hr />
-<p>Grrr. Accidentally stuck a big file in a repo, got in a tangle with github. Headache, time to stop.</p>
+<p>export PYTHONPATH=$PYTHONPATH:/home/hkms-apps/llama_index</p>
+<p>add to nano /etc/profile</p>
 
 </article>
 
