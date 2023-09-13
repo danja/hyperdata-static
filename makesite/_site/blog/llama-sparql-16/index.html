@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>llama_index SPARQL Notes 16 - Another Interim Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body id="llama-sparql-16">
+    <script id="replace_with_navbar" src="/share/nav.js"></script>
+    <br />
+    <br />
+    <br />
+    <em>Interim blog setup, rough notes being dumped here at the moment - I'll tidy once I get to a milestone. And sorry
+        about the layout, that'll probably take even longer to get around to... #TODO</em>
+    <br />
+    <br />
+    <main>
+        <article>
+<h1><a href="/blog/llama-sparql-16/">llama_index SPARQL Notes 16</a></h1>
+<p class="meta">Published on 2023-09-12 by <b>@danja</b></p>
+<p>/opt/tljh/hub/lib/python3.10/site-packages/tljh/jupyterhub_config.py</p>
+<p>is called from</p>
+<p>jupyterhub.service</p>
+<pre><code># Template file for JupyterHub systemd service
+# Uses simple string.format() for 'templating'
+[Unit]
+# Traefik must have successfully started *before* we launch JupyterHub
+Requires=traefik.service
+After=traefik.service
+
+[Service]
+User=root
+Restart=always
+WorkingDirectory=/opt/tljh/state
+# Protect bits that are normally shared across the system
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+Environment=TLJH_INSTALL_PREFIX=/opt/tljh
+Environment=PATH=/opt/tljh/hub/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+# Run upgrade-db before starting, in case Hub version has changed
+# This is a no-op when no db exists or no upgrades are needed
+ExecStart=/opt/tljh/hub/bin/python3 -m jupyterhub.app -f /opt/tljh/hub/lib/python3.10/site-packages/tljh/jupyterhub_config.py
+
+[Install]
+# Start service when system boots
+WantedBy=multi-user.target
+</code></pre>
+
+</article>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2023 Danny Ayers, CC Attribution/MIT License</p>
+            <p>Made with <a href="https://github.com/sunainapai">makesite</a></p>
+        </section>
+    </footer>
+
+</body>
+
+</html>

@@ -7,6 +7,32 @@
 <description>Grow with Technology</description>
 
 <item>
+<title>llama_index SPARQL Notes 17</title>
+<link>https://hyperdata.it/blog/llama-sparql-17/</link>
+<description>
+<![CDATA[
+<p>
+I've got a bit distracted trying to set up good Jupyter Notebook hosting on my server. After going round in circles a lot have settled&nbsp;<a href="https://hyperdata.it/blog/llama-sparql-17/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/llama-sparql-17/">Read More</a></p>
+]]>
+</description>
+<pubDate>Wed, 13 Sep 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>llama_index SPARQL Notes 16</title>
+<link>https://hyperdata.it/blog/llama-sparql-16/</link>
+<description>
+<![CDATA[
+<p>
+/opt/tljh/hub/lib/python3.10/site-packages/tljh/jupyterhub_config.py is called from jupyterhub.service # Template file for JupyterHub systemd service # Uses simple string.format() for 'templating' [Unit] # Traefik must have successfully started&nbsp;<a href="https://hyperdata.it/blog/llama-sparql-16/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/llama-sparql-16/">Read More</a></p>
+]]>
+</description>
+<pubDate>Tue, 12 Sep 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
 <title>llama_index SPARQL Notes 15</title>
 <link>https://hyperdata.it/blog/llama-index-15/</link>
 <description>
