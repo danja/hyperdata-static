@@ -64,6 +64,7 @@ so...
 nano /opt/tljh/config/jupyterhub_config.d/extra-path.py
 
 ```
+# temp until I've figured out how JupyterHub does sys.path
 import sys
 sys.path.append("/home/hkms-apps/llama_index")
 ```
@@ -77,3 +78,21 @@ Oh, rights. chmod on that ^, no change.
 Runs at another point?
 
 I don't need to check everything starts ok on reboot on this server, so reboot time.
+
+14066 triple in Guradians graph
+
+All started ok, no change to sys.pth.
+
+Hmm. It doesn't appear to be running in a venv, so better retry
+
+root@localhost:~# export PYTHONPATH=/home/hkms-apps/llama_index
+root@localhost:~# echo $PYTHONPATH
+/home/hkms-apps/llama_index
+
+systemctl restart jupyterhub
+
+---
+
+WARNING: The script openai is installed in '/home/jupyter-admin/.local/bin' which is not on PATH.
+
+Just remembered the actual code is under /home/hkms-apps/llama_index/llama_index

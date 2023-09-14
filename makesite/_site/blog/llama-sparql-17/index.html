@@ -65,7 +65,8 @@ for ec in extra_configs:
 </code></pre>
 <p>so...</p>
 <p>nano /opt/tljh/config/jupyterhub_config.d/extra-path.py</p>
-<pre><code>import sys
+<pre><code># temp until I've figured out how JupyterHub does sys.path
+import sys
 sys.path.append(&quot;/home/hkms-apps/llama_index&quot;)
 </code></pre>
 <p>systemctl restart jupyterhub</p>
@@ -73,6 +74,16 @@ sys.path.append(&quot;/home/hkms-apps/llama_index&quot;)
 <p>Oh, rights. chmod on that ^, no change.</p>
 <p>Runs at another point?</p>
 <p>I don't need to check everything starts ok on reboot on this server, so reboot time.</p>
+<p>14066 triple in Guradians graph</p>
+<p>All started ok, no change to sys.pth.</p>
+<p>Hmm. It doesn't appear to be running in a venv, so better retry</p>
+<p>root@localhost:~# export PYTHONPATH=/home/hkms-apps/llama_index
+root@localhost:~# echo $PYTHONPATH
+/home/hkms-apps/llama_index</p>
+<p>systemctl restart jupyterhub</p>
+<hr />
+<p>WARNING: The script openai is installed in '/home/jupyter-admin/.local/bin' which is not on PATH.</p>
+<p>Just remembered the actual code is under /home/hkms-apps/llama_index/llama_index</p>
 
 </article>
 
