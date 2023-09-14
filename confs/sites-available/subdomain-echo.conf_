@@ -1,6 +1,6 @@
 <VirtualHost  *:80>
   ServerName echo.hyperdata.it
-  DocumentRoot "/opt/lampp/htdocs"
+  DocumentRoot "/var/www/html"
 
   Redirect permanent / https://echo.hyperdata.it
   RewriteEngine on
