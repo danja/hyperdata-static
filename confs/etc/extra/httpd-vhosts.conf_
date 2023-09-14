@@ -57,6 +57,17 @@
 
     RewriteCond %{SERVER_NAME} =hyperdata.it
     RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
+
+DavLockDB /usr/local/apache/DavLock
+Alias /webdav /var/www/html/webdav
+<Directory /var/www/html/webdav>
+    DAV On
+    DirectoryIndex enabled
+    AuthType Basic
+    AuthName danja
+    AuthUserFile /etc/htpassword/.htpasswd
+    Require valid-user
+</Directory>
 </VirtualHost>
 
 
@@ -103,10 +114,6 @@
     Options +FollowSymLinks  +Indexes   
     AllowOverride None
     Require all granted
-  </Directory>
-
-  <Directory /var/www/html/webdav>
-    Dav On
   </Directory>
 
   SSLEngine on
