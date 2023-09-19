@@ -7,6 +7,19 @@
 <description>Grow with Technology</description>
 
 <item>
+<title>llama_index SPARQL Notes 19</title>
+<link>https://hyperdata.it/blog/llama-sparql-19/</link>
+<description>
+<![CDATA[
+<p>
+git checkout main git merge sparql-01 https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging path issues. pip install -U llama-index that worked. original llama_index has changes... git checkout main git merge sparql-01&nbsp;<a href="https://hyperdata.it/blog/llama-sparql-19/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/llama-sparql-19/">Read More</a></p>
+]]>
+</description>
+<pubDate>Mon, 18 Sep 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
 <title>llama_index SPARQL Notes 18</title>
 <link>https://hyperdata.it/blog/llama-sparql-18/</link>
 <description>
@@ -369,6 +382,19 @@ far in the future I feel very stupid. I've written several blog engines in vario
 ]]>
 </description>
 <pubDate>Sat, 01 Jan 2000 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>HKMS Desktop</title>
+<link>https://hyperdata.it/blog/2023-09-18_hkms-desktop/</link>
+<description>
+<![CDATA[
+<p>
+An immediate irritation I have is that I'm coding in VSCode and also writing notes in it. Navigating between the two activities is a pain.&nbsp;<a href="https://hyperdata.it/blog/2023-09-18_hkms-desktop/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/2023-09-18_hkms-desktop/">Read More</a></p>
+]]>
+</description>
+<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
 </item>
 <item>
 <title>Turtle Markdown Extensions</title>

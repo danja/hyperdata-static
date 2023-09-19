@@ -25,10 +25,10 @@ I think the only necessary core files are :
 
 and docs/demos :
 
-- [ ] notes on future in my nlp repo
 - llama_index/docs/examples/graph_stores/graph-rag-sparql-mini.py
-- [ ] working locally
-- [ ] working on server
+- [x] working locally
+- [x] working on server
 - llama_index/docs/examples/graph_stores/graph-rag-sparql-mini.ipynb
 - [ ] working locally
 - [ ] working on server
+- [ ] notes on future in my nlp repo
