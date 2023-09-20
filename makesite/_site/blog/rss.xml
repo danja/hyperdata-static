@@ -7,6 +7,32 @@
 <description>Grow with Technology</description>
 
 <item>
+<title>llama_index SPARQL Notes 20</title>
+<link>https://hyperdata.it/blog/llama-index-21/</link>
+<description>
+<![CDATA[
+<p>
+I've been fixing some of the things GitHub complained about when I did a pull request. Luckily things that ChatGPT can help with. I've added&nbsp;<a href="https://hyperdata.it/blog/llama-index-21/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/llama-index-21/">Read More</a></p>
+]]>
+</description>
+<pubDate>Wed, 20 Sep 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>llama_index SPARQL Notes 20</title>
+<link>https://hyperdata.it/blog/llama-index-20/</link>
+<description>
+<![CDATA[
+<p>
+I did a pull request on sparql.py etc. last night. GitHub gave me a message that there weren't any type annotations. I'll probably do those&nbsp;<a href="https://hyperdata.it/blog/llama-index-20/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/llama-index-20/">Read More</a></p>
+]]>
+</description>
+<pubDate>Tue, 19 Sep 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
 <title>llama_index SPARQL Notes 19</title>
 <link>https://hyperdata.it/blog/llama-sparql-19/</link>
 <description>

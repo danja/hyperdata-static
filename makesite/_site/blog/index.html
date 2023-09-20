@@ -20,6 +20,82 @@
     <main>
         <h1>Blog</h1>
 <article>
+    <h2><a href="/blog/llama-index-21/">llama_index SPARQL Notes 20</a></h2>
+    <p class="meta">Published on 2023-09-20 by <b>@danja</b></p>
+
+    <p class="content">
+        <p>I've been fixing some of the things GitHub complained about when I did a pull request. Luckily things that ChatGPT can help with.</p>
+<p>I've added type annotations to <code>sparql.py</code>, started writing some tests.</p>
+<p>added sparqlwrapper to setup.py</p>
+<ul>
+<li>
+<p>export PYTHONPATH=/home/danny/AI/LIBS-under-dev/llama_index</p>
+</li>
+<li>
+<p>danny@danny-desktop:~/AI/LIBS-under-dev/llama_index$ pip install -e .</p>
+</li>
+<li>
+<p>danny@danny-desktop:~/AI/LIBS-under-dev/llama_index$ pytest tests/graph_stores/test_simple.py</p>
+</li>
+<li>
+<p>danny@danny-desktop:~/AI/LIBS-under-dev/llama_index$ pytest tests/graph_stores/test_simple.py &gt; ../testy.md</p>
+</li>
+</ul>
+<p>ok, ChatGPT got the shape of the returned values wrong (so much for type annotations!) but was easy to fix.</p>
+<p>Next is the more challenging one, <code>test_sparql.py</code>.</p>
+<p>Give ChatGPT a zip. Include <code>paths.txt</code> so it gets the imports right.</p>
+<p>&quot;I wish to create a pytest test. I will now upload a zip of files. Look at the functions in test_simple.py and their relation to functions in simple.py, remember these. I will then give you further instructions&quot;</p>
+<p>&quot;I would like a test file, <code>test_sparql.py</code> that will test all the functions in <code>sparql.py</code>. Much of this will be very similar to <code>test_simple.py</code> as they both follow the same interface, <code>types.py</code>. I would like you to go through every function in <code>sparql.py</code> one at a time and create at test for it. Don't show me any results until this is done. Combine them into <code>test_sparqly.py</code> and give me that. Keep explanation to a minimum. Do not ask me for confirmation, just continue until you have a full response.&quot;</p>
+<p>much time, many prompts later...</p>
+<ul>
+<li>pytest tests/graph_stores/test_sparql.py &gt; ../testy.md</li>
+</ul>
+<p>9 errors. I noticed &quot;EndPointNotFound&quot;</p>
+&nbsp;
+        <!-- a class="more" href="/blog/llama-index-21/">...</a -->
+    </p>
+    <!--
+<p class="summary">
+I've been fixing some of the things GitHub complained about when I did a pull request. Luckily things that ChatGPT can help with. I've added&nbsp;<a class="more" href="/blog/llama-index-21/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/llama-index-21/">Read More</a>
+</div>
+-->
+</article><article>
+    <h2><a href="/blog/llama-index-20/">llama_index SPARQL Notes 20</a></h2>
+    <p class="meta">Published on 2023-09-19 by <b>@danja</b></p>
+
+    <p class="content">
+        <p>I did a pull request on <code>sparql.py</code> etc. last night.</p>
+<p>GitHub gave me a message that there weren't any type annotations.</p>
+<p>I'll probably do those tomorrow.</p>
+<p>I started making up some diagrams to use in docs/slides.</p>
+<p>Occurred to me, I should have use / not # in the URIs, so they'll be directly retrievable.</p>
+<p>HTML links</p>
+<p>https://www.w3.org/TR/rdfa-syntax/</p>
+&nbsp;
+        <!-- a class="more" href="/blog/llama-index-20/">...</a -->
+    </p>
+    <!--
+<p class="summary">
+I did a pull request on sparql.py etc. last night. GitHub gave me a message that there weren't any type annotations. I'll probably do those&nbsp;<a class="more" href="/blog/llama-index-20/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/llama-index-20/">Read More</a>
+</div>
+-->
+</article><article>
     <h2><a href="/blog/llama-sparql-19/">llama_index SPARQL Notes 19</a></h2>
     <p class="meta">Published on 2023-09-18 by <b>@danja</b></p>
 
@@ -38,6 +114,7 @@ git merge sparql-01</p>
 <p>bit of fiddling, pushed</p>
 <p>export PYTHONPATH=/home/danny/AI/LIBS-under-dev/llama_index</p>
 <p>export PYTHONPATH=/home/hkms-apps/llama_index</p>
+<p>pip install -e .</p>
 <p>python docs/examples/graph_stores/graph-rag-sparql-mini.py</p>
 &nbsp;
         <!-- a class="more" href="/blog/llama-sparql-19/">...</a -->

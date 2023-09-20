@@ -22,4 +22,6 @@ export PYTHONPATH=/home/danny/AI/LIBS-under-dev/llama_index
 
 export PYTHONPATH=/home/hkms-apps/llama_index
 
+pip install -e .
+
  python docs/examples/graph_stores/graph-rag-sparql-mini.py

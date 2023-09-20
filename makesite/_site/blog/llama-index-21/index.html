@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>llama_index SPARQL Notes 20 - Another Interim Blog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body id="llama-index-21">
+    <script id="replace_with_navbar" src="/share/nav.js"></script>
+    <br />
+    <br />
+    <br />
+    <em>Interim blog setup, rough notes being dumped here at the moment - I'll tidy once I get to a milestone. And sorry
+        about the layout, that'll probably take even longer to get around to... #TODO</em>
+    <br />
+    <br />
+    <main>
+        <article>
+<h1><a href="/blog/llama-index-21/">llama_index SPARQL Notes 20</a></h1>
+<p class="meta">Published on 2023-09-20 by <b>@danja</b></p>
+<p>I've been fixing some of the things GitHub complained about when I did a pull request. Luckily things that ChatGPT can help with.</p>
+<p>I've added type annotations to <code>sparql.py</code>, started writing some tests.</p>
+<p>added sparqlwrapper to setup.py</p>
+<ul>
+<li>
+<p>export PYTHONPATH=/home/danny/AI/LIBS-under-dev/llama_index</p>
+</li>
+<li>
+<p>danny@danny-desktop:~/AI/LIBS-under-dev/llama_index$ pip install -e .</p>
+</li>
+<li>
+<p>danny@danny-desktop:~/AI/LIBS-under-dev/llama_index$ pytest tests/graph_stores/test_simple.py</p>
+</li>
+<li>
+<p>danny@danny-desktop:~/AI/LIBS-under-dev/llama_index$ pytest tests/graph_stores/test_simple.py &gt; ../testy.md</p>
+</li>
+</ul>
+<p>ok, ChatGPT got the shape of the returned values wrong (so much for type annotations!) but was easy to fix.</p>
+<p>Next is the more challenging one, <code>test_sparql.py</code>.</p>
+<p>Give ChatGPT a zip. Include <code>paths.txt</code> so it gets the imports right.</p>
+<p>&quot;I wish to create a pytest test. I will now upload a zip of files. Look at the functions in test_simple.py and their relation to functions in simple.py, remember these. I will then give you further instructions&quot;</p>
+<p>&quot;I would like a test file, <code>test_sparql.py</code> that will test all the functions in <code>sparql.py</code>. Much of this will be very similar to <code>test_simple.py</code> as they both follow the same interface, <code>types.py</code>. I would like you to go through every function in <code>sparql.py</code> one at a time and create at test for it. Don't show me any results until this is done. Combine them into <code>test_sparqly.py</code> and give me that. Keep explanation to a minimum. Do not ask me for confirmation, just continue until you have a full response.&quot;</p>
+<p>much time, many prompts later...</p>
+<ul>
+<li>pytest tests/graph_stores/test_sparql.py &gt; ../testy.md</li>
+</ul>
+<p>9 errors. I noticed &quot;EndPointNotFound&quot;</p>
+
+</article>
+
+    </main>
+
+    <footer>
+        <section>
+            <p>&copy; 2023 Danny Ayers, CC Attribution/MIT License</p>
+            <p>Made with <a href="https://github.com/sunainapai">makesite</a></p>
+        </section>
+    </footer>
+
+</body>
+
+</html>
