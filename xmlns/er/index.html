@@ -1,0 +1,287 @@
+<!-- saved from url=(0108)http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&owlapi=true&lang=en -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Entity-Relationship Schema</title>
+	<title>Entity-Relationship Schema</title>
+	<link href="./index_files/owl.css" rel="stylesheet" type="text/css">
+	<link href="./index_files/Primer.css" rel="stylesheet" type="text/css">
+	<link href="./index_files/rec.css" rel="stylesheet" type="text/css">
+	<link href="./index_files/extra.css" rel="stylesheet" type="text/css">
+	<link rel="shortcut icon" href="http://150.146.207.114/lode/favicon.ico">
+	<script src="./index_files/jquery.js"></script>
+	<script src="./index_files/jquery.scrollTo.js"></script>
+	<script src="./index_files/marked.min.js"></script>
+	<script>
+		$(document).ready(
+			function () {
+				jQuery(".markdown").each(function (el) {
+					jQuery(this).after(marked(jQuery(this).text())).remove()
+				});
+				var list =
+					$('a[name="
+			https://hyperdata.it/xmlns/er/er.rdf
+						"]');
+			if (list.size() != 0) {
+					var element = list.first();
+					$.scrollTo(element);
+				}
+			});
+	</script>
+</head>
+
+<body>
+	<div class="head">
+		<h1>Entity-Relationship Schema</h1>
+		<dl>
+			<dt>IRI:</dt>
+			<dd>http://purl.org/stuff/er/</dd>
+		</dl>
+		<dl>
+			<dt>Other Representations
+				:
+			</dt>
+			<dd><a href="https://hyperdata.it/xmlns/er/er-schema.ttl">Turtle (canonical)</a>
+				-
+				<a href="https://hyperdata.it/xmlns/er/er.rdf">RDF/XML</a>
+			</dd>
+		</dl>
+	</div>
+	<hr>
+	<div id="toc">
+		<h2>Table of Content</h2>
+		<ol>
+			<li><a
+					href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#classes">Classes</a>
+			</li>
+			<li><a
+					href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#objectproperties">Object
+					Properties</a></li>
+			<li><a
+					href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#annotationproperties">Annotation
+					Properties</a></li>
+			<li><a
+					href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#namespacedeclarations">Namespace
+					Declarations</a></li>
+		</ol>
+	</div>
+	<div id="classes">
+		<h2>Classes</h2>
+		<ul class="hlist">
+			<li><a href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#d4e105"
+					title="http://purl.org/stuff/er/Entity">Entity</a></li>
+			<li><a href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#d4e124"
+					title="http://purl.org/stuff/er/Relationship">Relationship</a></li>
+			<li><a href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#d4e144"
+					title="http://purl.org/stuff/er/Triplet">Triplet</a></li>
+		</ul>
+		<div id="d4e105" class="entity"><a name="http://purl.org/stuff/er/Entity"></a>
+			<h3>Entity<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a
+						href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#toc">ToC</a>
+					or <a
+						href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#classes">Class
+						ToC</a></span></h3>
+			<p><strong>IRI:</strong> http://purl.org/stuff/er/Entity</p>
+			<dl class="definedBy">
+				<dt>is defined by</dt>
+				<dd><a href="http://purl.org/stuff/er/">http://purl.org/stuff/er/</a></dd>
+			</dl>
+			<div class="comment"><span class="markdown">The subject or object node of a Triplet. </span></div>
+			<dl class="description">
+				<dt>is in range of</dt>
+				<dd><a href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#d4e30"
+						title="http://purl.org/stuff/er/object">object</a><sup title="object property"
+						class="type-op">op</sup>, <a
+						href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#d4e79"
+						title="http://purl.org/stuff/er/subject">subject</a><sup title="object property"
+						class="type-op">op</sup></dd>
+			</dl>
+		</div>
+		<div id="d4e124" class="entity"><a name="http://purl.org/stuff/er/Relationship"></a>
+			<h3>Relationship<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a
+						href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#toc">ToC</a>
+					or <a
+						href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#classes">Class
+						ToC</a></span></h3>
+			<p><strong>IRI:</strong> http://purl.org/stuff/er/Relationship</p>
+			<dl class="definedBy">
+				<dt>is defined by</dt>
+				<dd><a href="http://purl.org/stuff/er/">http://purl.org/stuff/er/</a></dd>
+			</dl>
+			<div class="comment"><span class="markdown">The predicate of a Triplet.</span></div>
+			<dl class="description">
+				<dt>is in range of</dt>
+				<dd><a href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#d4e54"
+						title="http://purl.org/stuff/er/property">property</a><sup title="object property"
+						class="type-op">op</sup></dd>
+			</dl>
+		</div>
+		<div id="d4e144" class="entity"><a name="http://purl.org/stuff/er/Triplet"></a>
+			<h3>Triplet<sup title="class" class="type-c">c</sup><span class="backlink"> back to <a
+						href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#toc">ToC</a>
+					or <a
+						href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#classes">Class
+						ToC</a></span></h3>
+			<p><strong>IRI:</strong> http://purl.org/stuff/er/Triplet</p>
+			<dl class="definedBy">
+				<dt>is defined by</dt>
+				<dd><a href="http://purl.org/stuff/er/">http://purl.org/stuff/er/</a></dd>
+			</dl>
+			<div class="comment"><span class="markdown">A set of three resources which may express a statement of the
+					form subject-predicate-object. </span></div>
+			<dl class="description">
+				<dt>is in domain of</dt>
+				<dd><a href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#d4e30"
+						title="http://purl.org/stuff/er/object">object</a><sup title="object property"
+						class="type-op">op</sup>, <a
+						href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#d4e54"
+						title="http://purl.org/stuff/er/property">property</a><sup title="object property"
+						class="type-op">op</sup>, <a
+						href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#d4e79"
+						title="http://purl.org/stuff/er/subject">subject</a><sup title="object property"
+						class="type-op">op</sup></dd>
+			</dl>
+		</div>
+	</div>
+	<div id="objectproperties">
+		<h2>Object Properties</h2>
+		<ul class="hlist">
+			<li><a href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#d4e30"
+					title="http://purl.org/stuff/er/object">object</a></li>
+			<li><a href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#d4e54"
+					title="http://purl.org/stuff/er/property">property</a></li>
+			<li><a href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#d4e79"
+					title="http://purl.org/stuff/er/subject">subject</a></li>
+		</ul>
+		<div id="d4e30" class="entity"><a name="http://purl.org/stuff/er/object"></a>
+			<h3>object<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
+						href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#toc">ToC</a>
+					or <a
+						href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#objectproperties">Object
+						Property ToC</a></span></h3>
+			<p><strong>IRI:</strong> http://purl.org/stuff/er/object</p>
+			<dl class="definedBy">
+				<dt>is defined by</dt>
+				<dd><a href="http://purl.org/stuff/er/">http://purl.org/stuff/er/</a></dd>
+			</dl>
+			<div class="comment"><span class="markdown">Indicates the object of a Triplet.</span></div>
+			<div class="description">
+				<dl>
+					<dt>has domain</dt>
+					<dd><a href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#d4e144"
+							title="http://purl.org/stuff/er/Triplet">Triplet</a><sup title="class"
+							class="type-c">c</sup></dd>
+					<dt>has range</dt>
+					<dd><a href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#d4e105"
+							title="http://purl.org/stuff/er/Entity">Entity</a><sup title="class" class="type-c">c</sup>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		<div id="d4e54" class="entity"><a name="http://purl.org/stuff/er/property"></a>
+			<h3>property<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
+						href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#toc">ToC</a>
+					or <a
+						href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#objectproperties">Object
+						Property ToC</a></span></h3>
+			<p><strong>IRI:</strong> http://purl.org/stuff/er/property</p>
+			<dl class="definedBy">
+				<dt>is defined by</dt>
+				<dd><a href="http://purl.org/stuff/er/">http://purl.org/stuff/er/</a></dd>
+			</dl>
+			<div class="comment"><span class="markdown">Indicates the predicate of a Triplet.</span></div>
+			<div class="description">
+				<dl>
+					<dt>has domain</dt>
+					<dd><a href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#d4e144"
+							title="http://purl.org/stuff/er/Triplet">Triplet</a><sup title="class"
+							class="type-c">c</sup></dd>
+					<dt>has range</dt>
+					<dd><a href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#d4e124"
+							title="http://purl.org/stuff/er/Relationship">Relationship</a><sup title="class"
+							class="type-c">c</sup></dd>
+				</dl>
+			</div>
+		</div>
+		<div id="d4e79" class="entity"><a name="http://purl.org/stuff/er/subject"></a>
+			<h3>subject<sup title="object property" class="type-op">op</sup><span class="backlink"> back to <a
+						href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#toc">ToC</a>
+					or <a
+						href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#objectproperties">Object
+						Property ToC</a></span></h3>
+			<p><strong>IRI:</strong> http://purl.org/stuff/er/subject</p>
+			<dl class="definedBy">
+				<dt>is defined by</dt>
+				<dd><a href="http://purl.org/stuff/er/">http://purl.org/stuff/er/</a></dd>
+			</dl>
+			<div class="comment"><span class="markdown">Indicates the subject of a Triplet.</span></div>
+			<div class="description">
+				<dl>
+					<dt>has domain</dt>
+					<dd><a href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#d4e144"
+							title="http://purl.org/stuff/er/Triplet">Triplet</a><sup title="class"
+							class="type-c">c</sup></dd>
+					<dt>has range</dt>
+					<dd><a href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#d4e105"
+							title="http://purl.org/stuff/er/Entity">Entity</a><sup title="class" class="type-c">c</sup>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+	<div id="annotationproperties">
+		<h2>Annotation Properties</h2>
+		<ul class="hlist">
+			<li><a href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#d4e19"
+					title="http://www.w3.org/2004/02/skos/core#definition"><span>definition</span></a></li>
+			<li><a href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#d4e24"
+					title="http://www.w3.org/2004/02/skos/core#prefLabel"><span>pref label</span></a></li>
+		</ul>
+		<div id="d4e19" class="entity"><a name="http://www.w3.org/2004/02/skos/core#definition"></a>
+			<h3>definition<sup title="annotation property" class="type-ap">ap</sup><span class="backlink"> back to <a
+						href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#toc">ToC</a>
+					or <a
+						href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#annotationproperties">Annotation
+						Property ToC</a></span></h3>
+			<p><strong>IRI:</strong> http://www.w3.org/2004/02/skos/core#definition</p>
+		</div>
+		<div id="d4e24" class="entity"><a name="http://www.w3.org/2004/02/skos/core#prefLabel"></a>
+			<h3>pref label<sup title="annotation property" class="type-ap">ap</sup><span class="backlink"> back to <a
+						href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#toc">ToC</a>
+					or <a
+						href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#annotationproperties">Annotation
+						Property ToC</a></span></h3>
+			<p><strong>IRI:</strong> http://www.w3.org/2004/02/skos/core#prefLabel</p>
+		</div>
+	</div>
+	<div id="namespacedeclarations">
+		<h2>Namespace Declarations <span class="backlink"> back to <a
+					href="http://150.146.207.114/lode/extract?url=https%3A%2F%2Fhyperdata.it%2Fxmlns%2Fer%2Fer.rdf&amp;owlapi=true&amp;lang=en#toc">ToC</a></span>
+		</h2>
+		<dl>
+			<dt><em>default namespace</em></dt>
+			<dd>http://purl.org/stuff/er/</dd>
+			<dt>owl</dt>
+			<dd>http://www.w3.org/2002/07/owl#</dd>
+			<dt>rdf</dt>
+			<dd>http://www.w3.org/1999/02/22-rdf-syntax-ns#</dd>
+			<dt>rdfs</dt>
+			<dd>http://www.w3.org/2000/01/rdf-schema#</dd>
+			<dt>skos</dt>
+			<dd>http://www.w3.org/2004/02/skos/core#</dd>
+			<dt>stuff</dt>
+			<dd>http://purl.org/stuff#</dd>
+			<dt>xsd</dt>
+			<dd>http://www.w3.org/2001/XMLSchema#</dd>
+		</dl>
+	</div>
+	<p class="endnote">This HTML document was obtained by processing the OWL ontology source code through <a
+			href="http://www.essepuntato.it/lode">LODE</a>, <em>Live OWL Documentation Environment</em>, developed by <a
+			href="http://www.essepuntato.it/">Silvio Peroni</a>
+		.
+	</p>
+</body>
+
+</html>
