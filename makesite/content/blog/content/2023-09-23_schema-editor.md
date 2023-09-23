@@ -7,6 +7,8 @@ Just links for now.
 
 http://purl.org/stuff/er
 
+Oops! [LODE](https://essepuntato.it/lode/) docs are meant to be generated live, so that's missing bits. TODO fix
+
 https://hyperdata.it/xmlns/er/er-schema.ttl
 
 https://hyperdata.it/xmlns/
@@ -18,6 +20,11 @@ https://hyperdata.it/schema-editor/
 https://github.com/danja/schema-editor
 
 https://essepuntato.it/lode/
+
+https://fuseki.hyperdata.it/#/dataset/schema-test/query
+
+https://fuseki.hyperdata.it/#/dataset/vocabs/query
+
 
 - needs RDF/XML? rapper
 
