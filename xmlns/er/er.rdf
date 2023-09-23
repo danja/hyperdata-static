@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:dc="http://purl.org/dc/terms/" xmlns:dcat="http://www.w3.org/ns/dcat#" xmlns:dctype="http://purl.org/dc/dcmitype/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:schema="http://schema.org/" xmlns:sem="http://semanticweb.cs.vu.nl/2009/11/sem/" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:stuff="http://purl.org/stuff#" xmlns:vann="http://purl.org/vocab/vann/" xmlns:void="http://rdfs.org/ns/void#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <rdf:Description rdf:about="http://purl.org/stuff/er/value">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/value">
+    <rdfs:comment xml:lang="en">The value of a component of a Triplet</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/value">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/stuff/er/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/value">
+    <rdfs:label xml:lang="en">value</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/value">
+    <skos:definition xml:lang="en">The value of a component of a Triplet</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/value">
+    <skos:prefLabel xml:lang="en">value</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/object">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/object">
+    <rdfs:comment xml:lang="en">Indicates the object of a Triplet.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/object">
+    <rdfs:domain rdf:resource="http://purl.org/stuff/er/Triplet"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/object">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/stuff/er/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/object">
+    <rdfs:label xml:lang="en">object</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/object">
+    <rdfs:range rdf:resource="http://purl.org/stuff/er/Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/object">
+    <skos:definition xml:lang="en">Indicates the object of a Triplet.</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/object">
+    <skos:prefLabel xml:lang="en">object</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/Relationship">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/Relationship">
+    <rdfs:comment xml:lang="en">The predicate of a Triplet.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/Relationship">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/stuff/er/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/Relationship">
+    <rdfs:label xml:lang="en">Relationship</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/Relationship">
+    <skos:definition xml:lang="en">The predicate of a Triplet.</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/Relationship">
+    <skos:prefLabel xml:lang="en">Relationship</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/Triplet">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/Triplet">
+    <rdfs:comment xml:lang="en">A set of three resources which may express a statement of the form subject-predicate-object.   </rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/Triplet">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/stuff/er/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/Triplet">
+    <rdfs:label xml:lang="en">Triplet</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/Triplet">
+    <skos:definition xml:lang="en">A set of three resources which may express a statement of the form subject-predicate-object.   </skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/Triplet">
+    <skos:prefLabel xml:lang="en">Triplet</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/">
+    <rdfs:label>Entity-Relationship Schema</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/">
+    <stuff:prefPrefix>er</stuff:prefPrefix>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/">
+    <skos:prefLabel>Entity-Relationship Schema</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/Entity">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/Entity">
+    <rdfs:comment xml:lang="en">The subject or object node of a Triplet. </rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/Entity">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/stuff/er/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/Entity">
+    <rdfs:label xml:lang="en">Entity</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/Entity">
+    <skos:definition xml:lang="en">The subject or object node of a Triplet. </skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/Entity">
+    <skos:prefLabel xml:lang="en">Entity</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/subject">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/subject">
+    <rdfs:comment xml:lang="en">Indicates the subject of a Triplet.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/subject">
+    <rdfs:domain rdf:resource="http://purl.org/stuff/er/Triplet"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/subject">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/stuff/er/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/subject">
+    <rdfs:label xml:lang="en">subject</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/subject">
+    <rdfs:range rdf:resource="http://purl.org/stuff/er/Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/subject">
+    <skos:definition xml:lang="en">Indicates the subject of a Triplet.</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/subject">
+    <skos:prefLabel xml:lang="en">subject</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/property">
+    <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/property">
+    <rdfs:comment xml:lang="en">Indicates the predicate of a Triplet.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/property">
+    <rdfs:domain rdf:resource="http://purl.org/stuff/er/Triplet"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/property">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/stuff/er/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/property">
+    <rdfs:label xml:lang="en">property</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/property">
+    <rdfs:range rdf:resource="http://purl.org/stuff/er/Relationship"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/property">
+    <skos:definition xml:lang="en">Indicates the predicate of a Triplet.</skos:definition>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/stuff/er/property">
+    <skos:prefLabel xml:lang="en">property</skos:prefLabel>
+  </rdf:Description>
+</rdf:RDF>
