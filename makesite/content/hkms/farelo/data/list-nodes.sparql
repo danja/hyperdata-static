@@ -1,0 +1,8 @@
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX ts: <http://hyperdata.it/trellis/>
+SELECT ?title WHERE {
+	GRAPH <https://hyperdata.it/graphs/danny/> {
+		?node a ts:Node;
+   			dc:title ?title  .
+	}
+}

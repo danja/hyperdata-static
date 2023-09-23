@@ -1,0 +1,9 @@
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix ts: <http://hyperdata.it/trellis/> .
+
+<http://hyperdata.it/trellis/workflowy/root-nid-2023-09-16-21> a ts:RootNode .
+<http://hyperdata.it/trellis/workflowy/nid-2023-09-16-21-N> a ts:Node;
+   dc:title "Farelo" ;
+   dc:created "2021-06-16T12:48:57Z" ;
+   ts:index "0" ;
+   ts:parent <http://hyperdata.it/trellis/workflowy/root-nid-2023-09-16-21> .

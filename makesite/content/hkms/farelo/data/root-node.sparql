@@ -1,0 +1,12 @@
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX ts: <http://hyperdata.it/trellis/>
+INSERT DATA {
+	GRAPH <https://hyperdata.it/graphs/danny/> {
+		<http://hyperdata.it/trellis/workflowy/root-nid-2023-09-16-21> a ts:RootNode .
+		<http://hyperdata.it/trellis/workflowy/nid-2023-09-16-21-N> a ts:Node;
+   			dc:title "Farelo" ;
+   			dc:created "2023-09-16-21T15:00:00Z" ;
+   			ts:index "0" ;
+   			ts:parent <http://hyperdata.it/trellis/workflowy/root-nid-2023-09-16-21> .
+	}
+}
