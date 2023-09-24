@@ -44,3 +44,5 @@ https://www.reddit.com/r/semanticweb/comments/tr1v5o/tools_to_generate_documenta
 https://www.w3.org/2011/prov/wiki/Generating_HTML_documentation_of_OWL
 
 https://protege.stanford.edu/software.php
+
+https://www.w3.org/DesignIssues/TopTen.html

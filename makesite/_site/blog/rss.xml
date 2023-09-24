@@ -7,6 +7,45 @@
 <description>Grow with Technology</description>
 
 <item>
+<title>llama_index SPARQL Notes 24</title>
+<link>https://hyperdata.it/blog/llama-index-23/</link>
+<description>
+<![CDATA[
+<p>
+&nbsp;<a href="https://hyperdata.it/blog/llama-index-23/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/llama-index-23/">Read More</a></p>
+]]>
+</description>
+<pubDate>Sun, 24 Sep 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>llama_index SPARQL Notes 22</title>
+<link>https://hyperdata.it/blog/llama-index-22/</link>
+<description>
+<![CDATA[
+<p>
+cd ~/AI/LIBS-under-dev/llama_index pytest tests/graph_stores/test_sparql.py &gt; ../testy.md&nbsp;<a href="https://hyperdata.it/blog/llama-index-22/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/llama-index-22/">Read More</a></p>
+]]>
+</description>
+<pubDate>Sat, 23 Sep 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>llama_index SPARQL Notes 23</title>
+<link>https://hyperdata.it/blog/llama-sparql-22/</link>
+<description>
+<![CDATA[
+<p>
+&nbsp;<a href="https://hyperdata.it/blog/llama-sparql-22/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/llama-sparql-22/">Read More</a></p>
+]]>
+</description>
+<pubDate>Sat, 23 Sep 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
 <title>llama_index SPARQL Notes 21</title>
 <link>https://hyperdata.it/blog/llama-index-21/</link>
 <description>
@@ -418,6 +457,19 @@ far in the future I feel very stupid. I've written several blog engines in vario
 An immediate irritation I have is that I'm coding in VSCode and also writing notes in it. Navigating between the two activities is a pain.&nbsp;<a href="https://hyperdata.it/blog/2023-09-18_hkms-desktop/">...</a>
 </p>
 <p><a href="https://hyperdata.it/blog/2023-09-18_hkms-desktop/">Read More</a></p>
+]]>
+</description>
+<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Schema Editor Notes</title>
+<link>https://hyperdata.it/blog/2023-09-23_schema-editor/</link>
+<description>
+<![CDATA[
+<p>
+I wanted an RDF Schema for the LlamaIndex sparql.py . It isn't necessary at this point in time, but nice to have for documentation &amp;&nbsp;<a href="https://hyperdata.it/blog/2023-09-23_schema-editor/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/2023-09-23_schema-editor/">Read More</a></p>
 ]]>
 </description>
 <pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>

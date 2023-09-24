@@ -33,3 +33,17 @@ An unhandled rejection has occurred inside Forge:
 Error: ELOOP: too many symbolic links encountered, stat '/tmp/electron-packager/linux-x64/Pulsar-linux-x64-EvXmZe/resources/app/node_modules/document-register-element/dre'
 
 yarn start now ok
+
+removed:
+
+    "autocomplete-atom-api": "file:packages/autocomplete-atom-api",
+    "autocomplete-css": "file:packages/autocomplete-css",
+    "autocomplete-html": "file:packages/autocomplete-html",
+    "autocomplete-plus": "file:./packages/autocomplete-plus",
+    "autocomplete-snippets": "file:packages/autocomplete-snippets",
+
+        "autocomplete-atom-api": "file:packages/autocomplete-atom-api",
+    "autocomplete-css": "file:./packages/autocomplete-css",
+    "autocomplete-html": "file:./packages/autocomplete-html",
+    "autocomplete-plus": "file:./packages/autocomplete-plus",
+    "autocomplete-snippets": "file:./packages/autocomplete-snippets",
