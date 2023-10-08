@@ -1,0 +1,1 @@
+The description here will only cover the SPARQL-specific details, for how the system as a whole works see the original [Notebook](https://www.siwei.io/en/demos/graph-rag/) and the [LlamaIndex Documentation](https://gpt-index.readthedocs.io/en/latest/).
