@@ -2426,6 +2426,36 @@ far in the future I feel very stupid. I've written several blog engines in vario
 </div>
 -->
 </article><article>
+    <h2><a href="/blog/2023-10-14_rdf-ext/">RDF-Ext : Tutorial</a></h2>
+    <p class="meta">Published on 1970-01-01 by <b>@danja</b></p>
+
+    <p class="content">
+        <h4>Step One : GitPod</h4>
+<p>I don't remember using it before, but I may well have done. First thing that happened when I followed the link (using GitHub credentials) it said I was upgraded to an organisation. Appears free 50 hours, then pay-as-you-go.</p>
+<p>I got to an in-browser (I've running Brave on Ubuntu) VS Code.</p>
+<p>At the terminal it appears to have run :</p>
+<pre><code class="language-npm">...
+  vite build --outDir=../../dist examples/browser
+</code></pre>
+<p>Dependencies installed ok, dist built ok.
+Somewhere I briefly saw the option to launch it in a local VS Code. Try that later...</p>
+&nbsp;
+        <!-- a class="more" href="/blog/2023-10-14_rdf-ext/">...</a -->
+    </p>
+    <!--
+<p class="summary">
+Step One : GitPod I don't remember using it before, but I may well have done. First thing that happened when I followed the link&nbsp;<a class="more" href="/blog/2023-10-14_rdf-ext/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/2023-10-14_rdf-ext/">Read More</a>
+</div>
+-->
+</article><article>
     <h2><a href="/blog/2023-09-18_hkms-desktop/">HKMS Desktop</a></h2>
     <p class="meta">Published on 1970-01-01 by <b>@danja</b></p>
 
@@ -2605,6 +2635,166 @@ A bit of forward-planning for blog engine stuff. This went on my todo list the o
 </div>
 -->
 </article><article>
+    <h2><a href="/blog/2023-10-18_impedance/">Impedance Matching LLMs and Linked Data</a></h2>
+    <p class="meta">Published on 1970-01-01 by <b>@danja</b></p>
+
+    <p class="content">
+        <p><strong>If you see this message, this post is only half-done. I know what's needed so it should be done in a couple of hours. I've published prematurely to check image linking</strong></p>
+<p><a href="">Unifying Large Language Models and Knowledge Graphs: A Roadmap</a></p>
+<h3>An Observation</h3>
+<p>Large Language Models are sizeable knowledgebases which, at least in part, encapsulate sentence-oriented data structures derived from human language. The Web is a massive knowledgebase which at a <em>structural</em> level, has embedded sentence-like data (clearly apparent when viewed from a <a href="https://en.wikipedia.org/wiki/Linked_data">Linked Data</a> perspective). There isn't an obvious direct mapping between these systems, but they both feature shapes that look very similar from 1,000ft. However you look at it, the future potential of a combined system is...<em>TBD</em>. We are in a position to take (long-legged) baby steps in that direction.</p>
+<h3>A Problem</h3>
+<p>For the purposes here, have a loose, back-of-envelope working definition of 'knowledge' :</p>
+<pre><code>A collection of structured data that represents information, together with a means of navigating that information.
+</code></pre>
+<p><em>Navigation</em> isn't usually something highlighted in these parts. But applied in a very broad sense, I reckon is useful, as I hope to show here. Leave notions of <em>agency</em> to one side to avoid the bigger tarpit around intelligence, biological or artificial.</p>
+<h4>A Particular Characterization of LLMs</h4>
+<p>Deep Learning systems <em>somehow</em> embody knowledge <em>somehow</em> derived from their training data. Forget their internals for now, consider them as black boxes with external interfaces, communication protocols.</p>
+<h4>A Particular Characterization of the Web</h4>
+<p>I believe '<a href="https://en.wikipedia.org/wiki/Semantic_Web">Semantic Web</a>' hit the Peak <em>(of Inflated Expectations)</em> in the <a href="https://www.gartner.com/en/research/methodologies/gartner-hype-cycle">Gartner Hype Cycle</a> around 2001, the time of a certain <a href="https://www-sop.inria.fr/acacia/cours/essi2006/Scientific%20American_%20Feature%20Article_%20The%20Semantic%20Web_%20May%202001.pdf">Scientific American article</a> (PDF). But lot has happened since then. Masses of work has been done by people working directly in the field. There's been significant deployment by people from every imaginable field using the associated technologies for practical applications. Most web developers will have seen something related in their peripheral vision, quite possibly used such things in their day job without realising it. But for various historical reasons the big picture isn't that widely known.</p>
+<p>First, a wormhole-speed trip from the</p>
+<p>LLM</p>
+<p>The cat sat on the mat. A lot of mats are blue.</p>
+<p>Q &amp; A</p>
+<p>That there's some common topology between these systems shouldn't be a surprise. Both are representations of knowledge with humans as the immediate source.</p>
+<p>But there are low-level hacks that might offer approaches <em>good enough</em> for many practical applications.</p>
+<h3>A Potential Path to a Partial Solution</h3>
+<p>relevance Similarity overlays on the web</p>
+&nbsp;
+        <!-- a class="more" href="/blog/2023-10-18_impedance/">...</a -->
+    </p>
+    <!--
+<p class="summary">
+If you see this message, this post is only half-done. I know what's needed so it should be done in a couple of hours. I've&nbsp;<a class="more" href="/blog/2023-10-18_impedance/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/2023-10-18_impedance/">Read More</a>
+</div>
+-->
+</article><article>
+    <h2><a href="/blog/2023-10-04_rdf-ext/">RDF-Ext : Starting</a></h2>
+    <p class="meta">Published on 1970-01-01 by <b>@danja</b></p>
+
+    <p class="content">
+        <p>I reached a first little milestone with SPARQL GraphRAG, <code>sparql.py</code> for LlamaIndex in being able to get <a href="https://colab.research.google.com/drive/1cRAflpG2v1rS9Nz6xpILpPouuvILpYlL">a demo running on a Colab notebook</a>.</p>
+<p>But I need to switch focus for a bit.</p>
+<p>I'm about to start kicking the tyres/writing up <a href="https://rdf-ext.org/">RDF-Ext</a>. It's a dev-friendly toolkit for using RDF in browser/node JS, bridging to the fairly opaque/formal RDFJS specs.</p>
+<p>The <a href="https://rdf-ext.org/tutorial/">Tutorial</a> seems as good a place as any to start.</p>
+<hr />
+<h3>Links</h3>
+<p>] <a href="https://rdf-ext.org/">RDF-Ext Home</a></p>
+&nbsp;
+        <!-- a class="more" href="/blog/2023-10-04_rdf-ext/">...</a -->
+    </p>
+    <!--
+<p class="summary">
+I reached a first little milestone with SPARQL GraphRAG, sparql.py for LlamaIndex in being able to get a demo running on a Colab notebook .&nbsp;<a class="more" href="/blog/2023-10-04_rdf-ext/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/2023-10-04_rdf-ext/">Read More</a>
+</div>
+-->
+</article><article>
+    <h2><a href="/blog/2023-10-15_a-blog-post/">This is a Blog Post</a></h2>
+    <p class="meta">Published on 1970-01-01 by <b>@danja</b></p>
+
+    <p class="content">
+        <p><em>work in progress</em></p>
+<h2>Why Blog?</h2>
+<h3>Retro Perspective</h3>
+<p>The Web's original purpose was to simplify information access and exchange [quote/link timbl proposal]. A subsystem started emerging in the early 2000s that demonstrated one way in which this potential could be fulfilled : the <strong>blogosphere</strong>. This didn't require any novel technologies, all components were simple evolutions of those needed for the first generation Web <em>Home Page</em>.</p>
+<p>Underneath, there's a relatively simple protocol and document format (HTTP and HTML), which supports the Web's defining feature, the affordance of the hyperlink. The development of content management systems greatly simplified the process of content creation. This enabled a significant democratization of the facilities, giving access to people without the specific technical skills. It's also worth noting this reduced the friction of authoring for those in the development community. Less time fiddling with markup, more time expressing</p>
+<p>Previously, content/site structure was typically hierarchical and static. At a first approximation, this corresponded to the textbook in traditional media. But this was a poor match for the requirements of news sites. [Slashdot]</p>
+<p>reverse-chrono maps intuitively to diary/journal, elements of the episodic style of TV series etc.</p>
+<ul>
+<li>simple authoring : whether quick thoughts or academia-level essays</li>
+<li>a compelling style/format : immediate, but with narratives at every time scale, no predetermined subject matter, scope from tight focus to big picture</li>
+<li>links : supporting references/provenance, discovery of related material</li>
+<li>comments : generally open, short-form feedback, discovery links</li>
+</ul>
+<h3>Dogfood</h3>
+<p>It's no coincidence that many of the early adopters of the blog format were exactly the people pioneering tech developments, eg. Shelley, Winer, Tim Bray. As an aside, this also demonstrated how robust the blogosphere was as an open forum. I didn't choose those three blogger-developers at random. Each had great ideas to offer this realm. But each was approaching from a different direction, often with strongly-held views on particular issues. Such opinions were sometimes diametrically opposed to each other. Boiling-blood slips from civil discourse weren't exactly rare, but a first real take-away is that there was useful exchange of information. A second, probably more important, these arguments weren't taking place in a void. <em>Anyone</em> could chip in and offer their views, either in short-form as a comment on the relevant blog post, or long-form on their own blog.</p>
+<p>This elegantly showed how the philosophy of <strong>design for serendipity</strong> [timbl], while nebulous at design time can lead to concrete utility later.</p>
+<h3>What went Wrong?</h3>
+<h4>rise of big social media</h4>
+<p>voluntary tolerance of theft of marketable content
+backdoor theft of identity</p>
+<h4>smartphone impact</h4>
+<p>unwebby local apps attached to silos</p>
+<h4>low-level tech factors</h4>
+<p>eg. 'danny', google &amp; no-follow;</p>
+<p>but blogosphere not dead!</p>
+<p><em>A little gem of history is that on top of everything else, Tim Berners-Lee was prescient in creating the first proto-blog back in the early 1990s : his real-ish time documentation of the development of the Web.</em></p>
+<h3>Recommendations</h3>
+<ul>
+<li>create content in your own space on the Web first, only then post links &amp; excerpts in other spaces</li>
+<li>favour <em>open</em> social media systems,</li>
+</ul>
+<hr />
+<p>Thinking aloud.</p>
+<h2>A Little</h2>
+<pre><code>A little learning is a dangerous thing;
+drink deep, or taste not the Pierian spring:
+there shallow draughts intoxicate the brain,
+and drinking largely sobers us again.
+</code></pre>
+<ul>
+<li>Alexander Pope, 1709</li>
+</ul>
+<p>https://en.wikipedia.org/wiki/Pierian_Spring</p>
+<p>The first line is commonly used with 'knowledge' in place of 'learning', but with the same intent.</p>
+<p>It sometimes works.</p>
+<p>corollary.</p>
+<pre><code>Moderate ignorance is a powerful thing.
+</code></pre>
+&nbsp;
+        <!-- a class="more" href="/blog/2023-10-15_a-blog-post/">...</a -->
+    </p>
+    <!--
+<p class="summary">
+work in progress Why Blog? Retro Perspective The Web's original purpose was to simplify information access and exchange [quote/link timbl proposal]. A subsystem started emerging&nbsp;<a class="more" href="/blog/2023-10-15_a-blog-post/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/2023-10-15_a-blog-post/">Read More</a>
+</div>
+-->
+</article><article>
+    <h2><a href="/blog/2023-09-26_semweb-ai/">Blog</a></h2>
+    <p class="meta">Published on 1970-01-01 by <b>@danja</b></p>
+
+    <p class="content">
+        &nbsp;
+        <!-- a class="more" href="/blog/2023-09-26_semweb-ai/">...</a -->
+    </p>
+    <!--
+<p class="summary">
+&nbsp;<a class="more" href="/blog/2023-09-26_semweb-ai/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/2023-09-26_semweb-ai/">Read More</a>
+</div>
+-->
+</article><article>
     <h2><a href="/blog/raw-blog-data-clean/">Blog</a></h2>
     <p class="meta">Published on 1970-01-01 by <b>@danja</b></p>
 
@@ -2631,6 +2821,28 @@ using standard linux tools, how do I modify a text file to remove the spaces fro
     <!--
 <div>
 <a class="more" href="/blog/raw-blog-data-clean/">Read More</a>
+</div>
+-->
+</article><article>
+    <h2><a href="/blog/llama-index-old-bits/">Blog</a></h2>
+    <p class="meta">Published on 1970-01-01 by <b>@danja</b></p>
+
+    <p class="content">
+        <p>The description here will only cover the SPARQL-specific details, for how the system as a whole works see the original <a href="https://www.siwei.io/en/demos/graph-rag/">Notebook</a> and the <a href="https://gpt-index.readthedocs.io/en/latest/">LlamaIndex Documentation</a>.</p>
+&nbsp;
+        <!-- a class="more" href="/blog/llama-index-old-bits/">...</a -->
+    </p>
+    <!--
+<p class="summary">
+The description here will only cover the SPARQL-specific details, for how the system as a whole works see the original Notebook and the LlamaIndex Documentation&nbsp;<a class="more" href="/blog/llama-index-old-bits/">...</a>
+</p> mmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+-->
+
+    <hr />
+
+    <!--
+<div>
+<a class="more" href="/blog/llama-index-old-bits/">Read More</a>
 </div>
 -->
 </article>

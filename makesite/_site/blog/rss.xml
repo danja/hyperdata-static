@@ -449,6 +449,19 @@ far in the future I feel very stupid. I've written several blog engines in vario
 <pubDate>Sat, 01 Jan 2000 00:00:00 +0000</pubDate>
 </item>
 <item>
+<title>RDF-Ext : Tutorial</title>
+<link>https://hyperdata.it/blog/2023-10-14_rdf-ext/</link>
+<description>
+<![CDATA[
+<p>
+Step One : GitPod I don't remember using it before, but I may well have done. First thing that happened when I followed the link&nbsp;<a href="https://hyperdata.it/blog/2023-10-14_rdf-ext/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/2023-10-14_rdf-ext/">Read More</a></p>
+]]>
+</description>
+<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+</item>
+<item>
 <title>HKMS Desktop</title>
 <link>https://hyperdata.it/blog/2023-09-18_hkms-desktop/</link>
 <description>
@@ -488,6 +501,58 @@ A bit of forward-planning for blog engine stuff. This went on my todo list the o
 <pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
 </item>
 <item>
+<title>Impedance Matching LLMs and Linked Data</title>
+<link>https://hyperdata.it/blog/2023-10-18_impedance/</link>
+<description>
+<![CDATA[
+<p>
+If you see this message, this post is only half-done. I know what's needed so it should be done in a couple of hours. I've&nbsp;<a href="https://hyperdata.it/blog/2023-10-18_impedance/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/2023-10-18_impedance/">Read More</a></p>
+]]>
+</description>
+<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>RDF-Ext : Starting</title>
+<link>https://hyperdata.it/blog/2023-10-04_rdf-ext/</link>
+<description>
+<![CDATA[
+<p>
+I reached a first little milestone with SPARQL GraphRAG, sparql.py for LlamaIndex in being able to get a demo running on a Colab notebook .&nbsp;<a href="https://hyperdata.it/blog/2023-10-04_rdf-ext/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/2023-10-04_rdf-ext/">Read More</a></p>
+]]>
+</description>
+<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>This is a Blog Post</title>
+<link>https://hyperdata.it/blog/2023-10-15_a-blog-post/</link>
+<description>
+<![CDATA[
+<p>
+work in progress Why Blog? Retro Perspective The Web's original purpose was to simplify information access and exchange [quote/link timbl proposal]. A subsystem started emerging&nbsp;<a href="https://hyperdata.it/blog/2023-10-15_a-blog-post/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/2023-10-15_a-blog-post/">Read More</a></p>
+]]>
+</description>
+<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Blog</title>
+<link>https://hyperdata.it/blog/2023-09-26_semweb-ai/</link>
+<description>
+<![CDATA[
+<p>
+&nbsp;<a href="https://hyperdata.it/blog/2023-09-26_semweb-ai/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/2023-09-26_semweb-ai/">Read More</a></p>
+]]>
+</description>
+<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+</item>
+<item>
 <title>Blog</title>
 <link>https://hyperdata.it/blog/raw-blog-data-clean/</link>
 <description>
@@ -496,6 +561,19 @@ A bit of forward-planning for blog engine stuff. This went on my todo list the o
 using standard linux tools, how do I modify a text file to remove the spaces from any strings in it of the following form :&nbsp;<a href="https://hyperdata.it/blog/raw-blog-data-clean/">...</a>
 </p>
 <p><a href="https://hyperdata.it/blog/raw-blog-data-clean/">Read More</a></p>
+]]>
+</description>
+<pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
+</item>
+<item>
+<title>Blog</title>
+<link>https://hyperdata.it/blog/llama-index-old-bits/</link>
+<description>
+<![CDATA[
+<p>
+The description here will only cover the SPARQL-specific details, for how the system as a whole works see the original Notebook and the LlamaIndex Documentation&nbsp;<a href="https://hyperdata.it/blog/llama-index-old-bits/">...</a>
+</p>
+<p><a href="https://hyperdata.it/blog/llama-index-old-bits/">Read More</a></p>
 ]]>
 </description>
 <pubDate>Thu, 01 Jan 1970 00:00:00 +0000</pubDate>
