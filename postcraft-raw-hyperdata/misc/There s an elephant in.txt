@@ -1,0 +1,2 @@
+There's an elephant in the room with most LLM dev. The main source of knowledge is language, evolved for local communication. Training on that is like trying to derive the shape of the Web from the noises a modem makes. It's there in the buzz, you could no doubt capture it given Deep enough Learning. But,
+->

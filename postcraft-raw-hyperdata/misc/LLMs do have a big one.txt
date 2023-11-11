@@ -1,0 +1,3 @@
+LLMs do have a big one in common with our intelligence, it's all about given this pattern, predict what follows. But we make a lot of use of structural knowledge. Conceptual entities, their attributes, how they behave themselves, how they interact. Unless postie arrives at midnight, Claudio dog will stay on his blanket a while. 
+->
+

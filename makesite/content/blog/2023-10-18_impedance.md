@@ -40,5 +40,22 @@ But there are low-level hacks that might offer approaches *good enough* for many
 
 ### A Potential Path to a Partial Solution  
 
+English text like "The cat sat on the mat." can make sense *(in some sense of 'sense')* to an LLM as the triple :
+```
+[The cat] -[sat on]-> [the mat] .
+```  
+
+The RDF model, at it's core, expresses triples like :
+```
+[URI of subject], [URI of predicate], [URI of object]
+```
+
+Best practice on the Web is that, in isolation, URIs should be considered [opaque](https://www.w3.org/TR/webarch/#uri-opacity), independent of the resource they identify. So at first sight, something like :  
+```
+http://xmlns.com/foaf/0.1/homepage> <https://crschmidt.net/> .
+```
+isn't much use to LLMs.
+
+
 
 relevance Similarity overlays on the web
