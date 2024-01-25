@@ -1,0 +1,15 @@
+
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+dcat:Catalog a rdfs:Class ;
+    rdfs:label "Catalog" ;
+    rdfs:comment "A curated collection of metadata about datasets." .
+
+dcat:Dataset a rdfs:Class ;
+    rdfs:label "Dataset" ;
+    rdfs:comment "A collection of data, published or curated by a single agent, and available for access or download in one or more formats." .
+
+dcat:Distribution a rdfs:Class ;
+    rdfs:label "Distribution" ;
+    rdfs:comment "Represents an accessible form of a dataset." .

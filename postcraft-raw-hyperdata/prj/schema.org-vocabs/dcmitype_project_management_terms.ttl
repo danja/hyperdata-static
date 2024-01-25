@@ -1,0 +1,11 @@
+
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+dcmitype:Collection a rdfs:Class ;
+    rdfs:label "Collection" ;
+    rdfs:comment "An aggregation of items. The term collection means that the resource is described as a group; its parts may be separately described and navigated." .
+
+dcmitype:Dataset a rdfs:Class ;
+    rdfs:label "Dataset" ;
+    rdfs:comment "Data encoded in a defined structure." .

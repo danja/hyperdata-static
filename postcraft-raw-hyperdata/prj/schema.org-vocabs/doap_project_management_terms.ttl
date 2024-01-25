@@ -1,0 +1,19 @@
+
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+doap:Project a rdfs:Class ;
+    rdfs:label "Project" ;
+    rdfs:comment "A project or a piece of software." .
+
+doap:Version a rdfs:Class ;
+    rdfs:label "Version" ;
+    rdfs:comment "Version information of a particular project or software." .
+
+doap:Repository a rdfs:Class ;
+    rdfs:label "Repository" ;
+    rdfs:comment "Source code repository of a particular project." .
+
+doap:License a rdfs:Class ;
+    rdfs:label "License" ;
+    rdfs:comment "The license under which a project is distributed or software is used." .

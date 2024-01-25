@@ -1,0 +1,25 @@
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ex: <https://hyperdata.it/xmlns/project/> .
+
+ex:urgencyLevel a owl:DatatypeProperty ;
+    rdfs:label "Urgency Level" ;
+    dc:description "A numeric value expressing the level of urgency of a task, where 1 is most urgent and 5 is least urgent." ;
+    rdfs:range xsd:integer ;
+    owl:withRestrictions (
+        [ xsd:minInclusive 1 ]
+        [ xsd:maxInclusive 5 ]
+    ) .
+
+
+ex:importanceLevel a owl:DatatypeProperty ;
+    rdfs:label "Importance Level" ;
+    dc:description "A numeric value expressing the level of importance of a task, where 1 is most important and 5 is least important." ;
+    rdfs:range xsd:integer ;
+    owl:withRestrictions (
+        [ xsd:minInclusive 1 ]
+        [ xsd:maxInclusive 5 ]
+    ) .

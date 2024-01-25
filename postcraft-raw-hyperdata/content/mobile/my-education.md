@@ -1,0 +1,1 @@
+I'm amused by my failings yet again. I was about to grumble-tweet about a gender-critical person who was on Woman's Hour  this morning, just won a tribubal against the OU. A memory returned! I did most of the modules towards an MSc with them, is another qualification I don't have! 

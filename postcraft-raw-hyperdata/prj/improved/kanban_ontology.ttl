@@ -1,0 +1,95 @@
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix ex: <https://hyperdata.it/xmlns/project/> .
+
+
+ex:KanbanBoard a owl:Class ;
+    rdfs:label "Kanban Board" ;
+    dc:description "Represents the kanban board itself." ;
+    rdfs:subClassOf ex:ProjectManagementTool .
+
+
+ex:KanbanCard a owl:Class ;
+    rdfs:label "Kanban Card" ;
+    dc:description "Represents individual tasks or items on the kanban board." ;
+    rdfs:subClassOf ex:ProjectManagementTool .
+
+
+ex:KanbanColumn a owl:Class ;
+    rdfs:label "Kanban Column" ;
+    dc:description "Represents the columns or stages in the kanban workflow." ;
+    rdfs:subClassOf ex:ProjectManagementTool .
+
+
+ex:WorkInProgressLimit a owl:Class ;
+    rdfs:label "Work In Progress Limit" ;
+    dc:description "A constraint on the number of tasks or cards in a particular stage." ;
+    rdfs:subClassOf ex:ProjectManagementTool .
+
+
+ex:KanbanWorkflow a owl:Class ;
+    rdfs:label "Kanban Workflow" ;
+    dc:description "Represents the overall workflow or process defined by the kanban board." ;
+    rdfs:subClassOf ex:ProjectManagementTool .
+
+
+ex:TeamMember a owl:Class ;
+    rdfs:label "Team Member" ;
+    dc:description "Individuals or members of the team using the kanban board." ;
+    rdfs:subClassOf ex:ProjectManagementTool .
+
+
+ex:TaskPriority a owl:Class ;
+    rdfs:label "Task Priority" ;
+    dc:description "Represents the priority level of a task or card." ;
+    rdfs:subClassOf ex:ProjectManagementTool .
+
+
+ex:TaskDeadline a owl:Class ;
+    rdfs:label "Task Deadline" ;
+    dc:description "Represents the deadline associated with a task or card." ;
+    rdfs:subClassOf ex:ProjectManagementTool .
+
+
+ex:TaskStatus a owl:Class ;
+    rdfs:label "Task Status" ;
+    dc:description "The current status of a task, aligning with the columns of the kanban board." ;
+    rdfs:subClassOf ex:ProjectManagementTool .
+
+ex:UrgentTask a owl:Class ;
+    rdfs:label "Urgent Task" ;
+    dc:description "A task that is deemed urgent in the context of project management." ;
+    rdfs:subClassOf ex:Task .
+
+ex:ImportantTask a owl:Class ;
+    rdfs:label "Important Task" ;
+    dc:description "A task that is important but not necessarily urgent." ;
+    rdfs:subClassOf ex:Task .
+
+ex:EisenhowerQuadrant a owl:Class ;
+    rdfs:label "EisenhowerQuadrant " ;
+    dc:description "Represents the four quadrants of the Eisenhower matrix." ;
+    rdfs:subClassOf ex:Task .
+
+ex:QuadrantI a owl:Class ;
+    rdfs:label "Quadrant I" ;
+    dc:description "Tasks that are both urgent and important." ;
+    rdfs:subClassOf ex:Task .
+
+ex:QuadrantII a owl:Class ;
+    rdfs:label "Quadrant II" ;
+    dc:description "Tasks that are important but not urgent." ;
+    rdfs:subClassOf ex:Task .
+
+ex:QuadrantIII a owl:Class ;
+    rdfs:label "Quadrant III" ;
+    dc:description "Tasks that are urgent but not important." ;
+    rdfs:subClassOf ex:Task .
+
+ex:QuadrantIV a owl:Class ;
+    rdfs:label "Quadrant IV" ;
+    dc:description "Tasks that are neither urgent nor important." ;
+    rdfs:subClassOf ex:Task .

@@ -1,0 +1,15 @@
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+dcterms:Identifier a rdfs:Class ;
+    rdfs:label "Identifier" ;
+    rdfs:comment "An unambiguous reference to the resource within a given context." .
+
+dcterms:Audience a rdfs:Class ;
+    rdfs:label "Audience" ;
+    rdfs:comment "A class of entity for whom the resource is intended or useful." .
+
+dcterms:License a rdfs:Class ;
+    rdfs:label "License" ;
+    rdfs:comment "A legal document giving official permission to do something with the resource." .

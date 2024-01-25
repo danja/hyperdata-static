@@ -1,0 +1,23 @@
+
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+dc:Title a rdfs:Class ;
+    rdfs:label "Title" ;
+    rdfs:comment "The title of a project or project-related document." .
+
+dc:Creator a rdfs:Class ;
+    rdfs:label "Creator" ;
+    rdfs:comment "The entity primarily responsible for creating the project or content." .
+
+dc:Subject a rdfs:Class ;
+    rdfs:label "Subject" ;
+    rdfs:comment "The topic of the project or content, such as a task, goal, or theme." .
+
+dc:Description a rdfs:Class ;
+    rdfs:label "Description" ;
+    rdfs:comment "A textual description of the project or its aspects." .
+
+dc:Date a rdfs:Class ;
+    rdfs:label "Date" ;
+    rdfs:comment "A date associated with the project, such as start date, end date, or milestones." .
