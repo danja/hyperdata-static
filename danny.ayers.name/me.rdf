@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:admin="http://webns.net/mvcb/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <rdf:Description rdf:about="https://danny.ayers.name/me.ttl">
+    <admin:errorReportsTo rdf:resource="mailto:leigh@ldodds.com"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://danny.ayers.name/me.ttl">
+    <admin:generatorAgent rdf:resource="http://www.ldodds.com/foaf/foaf-a-matic"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://danny.ayers.name/me.ttl">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/PersonalProfileDocument"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://danny.ayers.name/me.ttl">
+    <foaf:maker rdf:resource="https://danny.ayers.name/me.rdf#me"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://danny.ayers.name/me.ttl">
+    <foaf:primaryTopic rdf:resource="https://danny.ayers.name/me.rdf#me"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://danny.ayers.name/me.rdf#me">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://danny.ayers.name/me.rdf#me">
+    <foaf:depiction rdf:resource="https://danny.ayers.name/danny.ayers.name/images/me.jpeg"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://danny.ayers.name/me.rdf#me">
+    <foaf:family_name>Ayers</foaf:family_name>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://danny.ayers.name/me.rdf#me">
+    <foaf:givenname>Danny</foaf:givenname>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://danny.ayers.name/me.rdf#me">
+    <foaf:homepage rdf:resource="https://danny.ayers.name"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://danny.ayers.name/me.rdf#me">
+    <foaf:mbox_sha1sum>669fe353dbef63d12ba11f69ace8acbec1ac8b17</foaf:mbox_sha1sum>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://danny.ayers.name/me.rdf#me">
+    <foaf:name>Danny Ayers</foaf:name>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://danny.ayers.name/me.rdf#me">
+    <foaf:nick>danja</foaf:nick>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://danny.ayers.name/me.rdf#me">
+    <foaf:phone rdf:resource="tel:+39-328-152-7077"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://danny.ayers.name/me.rdf#me">
+    <foaf:schoolHomepage rdf:resource="https://www.ladymanners.derbyshire.sch.uk/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://danny.ayers.name/me.rdf#me">
+    <foaf:title>Mr</foaf:title>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://danny.ayers.name/me.rdf#me">
+    <foaf:workInfoHomepage rdf:resource="https://hyperdata.it"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://danny.ayers.name/me.rdf#me">
+    <foaf:workplaceHomepage rdf:resource="https://hyperdata.it"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://danny.ayers.name/me.ttl">
+    <ns0:oidcIssuer xmlns:ns0="http://www.w3.org/ns/solid/terms#" rdf:resource="https://solid.hyperdata.it/"/>
+  </rdf:Description>
+</rdf:RDF>

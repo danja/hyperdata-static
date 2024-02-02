@@ -1,7 +1,28 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix admin: <http://webns.net/mvcb/> .
 
-<https://danny.ayers.name/me.ttl> a foaf:PersonalProfileDocument;
-      foaf:primaryTopic <https://danny.ayers.name#me> .
+<https://danny.ayers.name/me.ttl>
+    admin:errorReportsTo <mailto:leigh@ldodds.com> ;
+    admin:generatorAgent <http://www.ldodds.com/foaf/foaf-a-matic> ;
+    a foaf:PersonalProfileDocument ;
+    foaf:maker <https://danny.ayers.name/me.rdf#me> ;
+    foaf:primaryTopic <https://danny.ayers.name/me.rdf#me> .
 
-<https://danny.ayers.name#me> a foaf:Person;
-      foaf:nick "danja" .
+<https://danny.ayers.name/me.rdf#me>
+    a foaf:Person ;
+    foaf:depiction <https://danny.ayers.name/danny.ayers.name/images/me.jpeg> ;
+    foaf:family_name "Ayers" ;
+    foaf:givenname "Danny" ;
+    foaf:homepage <https://danny.ayers.name> ;
+    foaf:mbox_sha1sum "669fe353dbef63d12ba11f69ace8acbec1ac8b17" ;
+    foaf:name "Danny Ayers" ;
+    foaf:nick "danja" ;
+    foaf:phone <tel:+39-328-152-7077> ;
+    foaf:schoolHomepage <https://www.ladymanners.derbyshire.sch.uk/> ;
+    foaf:title "Mr" ;
+    foaf:workInfoHomepage <https://hyperdata.it> ;
+    foaf:workplaceHomepage <https://hyperdata.it> .
+
+<https://danny.ayers.name/me.ttl> <http://www.w3.org/ns/solid/terms#oidcIssuer> <https://solid.hyperdata.it/>.

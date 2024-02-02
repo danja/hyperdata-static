@@ -1,0 +1,36 @@
+set -x 
+# bin
+
+# echo scanning boot > /var/log/clamav/clamscan.log
+# clamscan /boot -v --log=/var/log/clamav/clamscan.log
+# was killed
+
+# dev
+echo scanning etc  > /var/log/clamav/clamscan.log
+clamscan /etc -v --log=/var/log/clamav/clamscan.log
+echo scanning home 
+clamscan /home -v --log=/var/log/clamav/clamscan.log
+# lib
+# lib32
+# lib64
+# libx32
+# lost+found
+# media
+# mnt
+echo scanning opt  > /var/log/clamav/clamscan.log
+clamscan /opt -v --log=/var/log/clamav/clamscan.log
+# proc
+echo scanning root  > /var/log/clamav/clamscan.log
+clamscan /root -v --log=/var/log/clamav/clamscan.log
+#run
+# sbin
+echo scanning snap  > /var/log/clamav/clamscan.log
+clamscan /snap -v --log=/var/log/clamav/clamscan.log
+#srv
+#sys
+echo scanning tmp  > /var/log/clamav/clamscan.log
+clamscan /tmp -v --log=/var/log/clamav/clamscan.log
+echo scanning usr > /var/log/clamav/clamscan.log
+clamscan /usr -v --log=/var/log/clamav/clamscan.log
+echo scanning var > /var/log/clamav/clamscan.log
+clamscan /var -v --log=/var/log/clamav/clamscan.log
