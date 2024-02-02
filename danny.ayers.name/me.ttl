@@ -1,0 +1,7 @@
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+<https://danny.ayers.name/me.ttl> a foaf:PersonalProfileDocument;
+      foaf:primaryTopic <https://danny.ayers.name#me> .
+
+<https://danny.ayers.name#me> a foaf:Person;
+      foaf:nick "danja" .

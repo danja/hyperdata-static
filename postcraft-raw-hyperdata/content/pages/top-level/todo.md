@@ -1,10 +1,21 @@
-wget -c https://huggingface.co/TheBloke/Mixtral-8x7B-Instruct-v0.1-GGUF/resolve/main/mixtral-8x7b-instruct-v0.1.Q4_K_M.gguf
+# Top Level
+
+## Server
+
+- update fuseki
+
+---
+
+danbri strandz.it
+
+HKMS/demo-progressive-web-app
+https://github.com/gokulkrishh/awesome-meta-and-manifest
+
+https://romannurik.github.io/AndroidAssetStudio/index.html
+
+---
 
 https://huggingface.co/blog/dpo-trl#dpo-vs-ppo
-
-https://huggingface.co/blog/dpo-trl#dpo-vs-ppo
-
-danbri gnam
 
 project graph view!!!
 
