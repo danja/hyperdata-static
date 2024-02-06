@@ -111,7 +111,7 @@ _My money's on Jeremie._
 
 I run the code. Code says **G**.
 
-Just totally fuck off, still not resolved. an hour I won't get back.
+Just totally fuck off, still not resolved. That's an hour I won't get back.
 
 I do also have a residence card ('permanent residence' - but only valid until 2032, likely screwed by Brexit, I should apply for citizenship soon).
 
