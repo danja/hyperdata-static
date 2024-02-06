@@ -1,10 +1,11 @@
-# Check my Codice Fiscale
+# Checking my Codice Fiscale
 
 I tried to register a .it domain at gandi.net. Computer says no.
 
 I query. Jeremie at Gandi says my ID is wrong.
 
-Thing is, .it domain registration is restricted to Italian citizens/residents. I'm a resident.
+.it domain registration is restricted to Italian citizens/residents. I'm a resident.
+
 An acceptable ID, which I have, is a Codice Fiscale.
 
 Ok, from my medical card :
@@ -21,7 +22,7 @@ Says the final, checksum-ish, character is wrong. He reckons W not E.
 
 I try the algorithm manually. I get M. (I think now I was using the odd table for the even characters).
 
-Bloody hell, sort this out. Ok, check the easier bits manually, code up the rest.
+Grr. Ok, check the easier bits manually, script the rest.
 
 ## Easier Bits
 
@@ -110,6 +111,8 @@ _My money's on Jeremie._
 
 I run the code. Code says **G**.
 
-Just totally fuck off.
+Just totally fuck off, still not resolved. an hour I won't get back.
 
-I do also have a residence card ('permanent residence' - but only valid until 2023, likely screwed by Brexit then). I'll send Jeremie a photo.
+I do also have a residence card ('permanent residence' - but only valid until 2032, likely screwed by Brexit, I should apply for citizenship soon).
+
+I'll send Jeremie a photo.
