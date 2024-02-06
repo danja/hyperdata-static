@@ -26,8 +26,6 @@ for i in range(len(base)):
 
 print(sum)
 
-print(sum % 26)
-
 # check char selection is a direct mapping 0-25 => A-Z
 # where's that?
 # print(ord('A'))  # 65
