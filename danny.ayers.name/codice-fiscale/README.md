@@ -32,7 +32,9 @@ Relevant details :
 - Surname : Ayers
 - Birthdate : 1964-01-14
 - Sex : Male
-- Place of birth : Chesterfield, UK
+- Place of birth : Chesterfield\*, UK
+
+_ \* puzzled me for a long time now: my parents lived in Tideswell, I believe there's a cottage hospital in Bakewell & plenty of facilities in Buxton, Chesterfield's a bit of a trek. I'll have to remember to ask my mother..._
 
 ### Cognome
 
