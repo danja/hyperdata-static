@@ -18,9 +18,9 @@ I check my card. Yup, correct. I blame Gandi's validator.
 
 Jeremie double-checks. Points out the algorithm on Wikipedia : [Italian fiscal code](https://en.wikipedia.org/wiki/Italian_fiscal_code)
 
-Says the final, checksum-ish, character is wrong. He reckons W not E.
+Says the final, checksum-ish, character is wrong. He reckons **W** not **E**.
 
-I try the algorithm manually. I get M. (I think now I was using the odd table for the even characters).
+I try the algorithm manually. I get **M**. _(I do suspect I was using the odd lookup table for the even characters)_.
 
 Grr. Ok, check the easier bits manually, script the rest.
 
