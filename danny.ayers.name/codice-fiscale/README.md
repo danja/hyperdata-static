@@ -26,11 +26,13 @@ Grr. Ok, check the easier bits manually, script the rest.
 
 ## Easier Bits
 
-Forenames : Daniel John
-Surname : Ayers
-Birthdate : 1964-01-14
-Sex : Male
-Place of birth : Chesterfield, UK
+Relevant details :
+
+- Forenames : Daniel John
+- Surname : Ayers
+- Birthdate : 1964-01-14
+- Sex : Male
+- Place of birth : Chesterfield, UK
 
 ### Cognome
 
