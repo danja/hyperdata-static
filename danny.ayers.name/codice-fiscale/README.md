@@ -120,3 +120,5 @@ Just totally fuck off, still not resolved. That's an hour I won't get back.
 I do also have a residence card ('permanent residence' - but only valid until 2032, likely screwed by Brexit, I should apply for citizenship soon).
 
 I'll send Jeremie a photo.
+
+PS. ChatGPT4 gets **E**, same as is on my medical card (had to tell it the birthplace bit).
