@@ -1,3 +1,7 @@
+## Pretty much _everyone_ has a Codice Fiscale whether they like it or not. They're algorithmically generated from basic personal details.
+
+But...
+
 # Checking my Codice Fiscale
 
 I tried to register a .it domain at gandi.net. Computer says no.
@@ -11,8 +15,6 @@ An acceptable ID, which I have, is a Codice Fiscale.
 Ok, from my medical card :
 
 **YRSDLJ64A14Z114E**
-
-Pretty much _everyone_ has a Codice Fiscale whether they like it or not. They're algorithmically generated from basic personal details.
 
 I check my card. Yup, correct. I blame Gandi's validator.
 
