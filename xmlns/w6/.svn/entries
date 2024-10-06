@@ -1,0 +1,103 @@
+9
+
+dir
+1458
+http://n2.talis.com/svn/playground/danja/xmlns/ibis/w6
+http://n2.talis.com/svn
+
+
+
+2007-11-09T09:35:05.917779Z
+333
+danja
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+d1085b19-cd17-4a5b-982f-209e43f8a28f
+
+w6.parc
+dir
+
+images
+dir
+
+wyg
+dir
+
+w6.pprj
+file
+
+
+
+
+2008-11-25T13:52:02.000000Z
+f787083387a093f538e4ef87c98479fd
+2007-11-09T09:35:05.917779Z
+333
+danja
+
+protege-html
+dir
+
+w6-dl.owl
+file
+
+
+
+
+2008-11-25T13:52:02.000000Z
+fe712e8ab705a300f2c5464b3a184692
+2007-11-09T09:35:05.917779Z
+333
+danja
+
+index.html
+file
+
+
+
+
+2008-11-25T13:52:02.000000Z
+d1537d4ca6fbee3a94408895079ea122
+2007-11-09T09:35:05.917779Z
+333
+danja
+
+w6.owl
+file
+
+
+
+
+2008-11-25T13:52:02.000000Z
+d3149d290fb31103ef468786a08f7429
+2007-11-09T09:35:05.917779Z
+333
+danja
+
+xow
+dir
+
+w6_2004-01-01.owl
+file
+
+
+
+
+2008-11-25T13:52:02.000000Z
+afc7e090469b5db0516f7d25e79a45ca
+2007-11-09T09:35:05.917779Z
+333
+danja
+
