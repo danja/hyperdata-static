@@ -1,0 +1,74 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rpp: <http://www.citnames.com/2001/04/rpp#> .
+
+rpp:Algorithm
+    a rdfs:Class ;
+    rdfs:comment "Abstract algorithm" ;
+    rdfs:subClassOf rpp:Component .
+
+rpp:Availability
+    a rdfs:Class ;
+    rdfs:comment "machine-readability" ;
+    rdfs:subClassOf rpp:Component .
+
+rpp:Component
+    a rdfs:Class ;
+    rdfs:comment """
+   Base class for groups of profile attribute values.
+  """ ;
+    rdfs:label """
+   RPP profile component
+  """ ;
+    rdfs:subClassOf rpp:Resource .
+
+rpp:DataFormat
+    a rdfs:Class ;
+    rdfs:comment "Data format" ;
+    rdfs:subClassOf rpp:Interface .
+
+rpp:Dependency
+    a rdfs:Class ;
+    rdfs:comment "needed to run" ;
+    rdfs:subClassOf rpp:Component .
+
+rpp:Encoding
+    a rdfs:Class ;
+    rdfs:comment "low-level data encoding" ;
+    rdfs:subClassOf rpp:Interface .
+
+rpp:Environment
+    a rdfs:Class ;
+    rdfs:comment "needed to run" ;
+    rdfs:subClassOf rpp:Dependency .
+
+rpp:Interface
+    a rdfs:Class ;
+    rdfs:comment "I/O of processor" ;
+    rdfs:subClassOf rpp:Component .
+
+rpp:Library
+    a rdfs:Class ;
+    rdfs:comment "needed to run" ;
+    rdfs:subClassOf rpp:Dependency .
+
+rpp:Profile
+    a rdfs:Class ;
+    rdfs:comment """
+   The Profile itself.
+  """ ;
+    rdfs:label """
+   RPP Resource
+  """ ;
+    rdfs:subClassOf rpp:Resource .
+
+rpp:Resource
+    a rdfs:Class ;
+    rdfs:comment """
+   This is a common base class for all resources whose properties may be asserted in a RDF Process Profile.
+  """ ;
+    rdfs:label """
+   RPP Resource
+  """ ;
+    rdfs:subClassOf rdfs:Resource .
+
