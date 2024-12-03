@@ -1,0 +1,34 @@
+{
+  "output": {
+    "filePath": "ns-old-repomix.md",
+    "style": "plain",
+    "removeComments": false,
+    "removeEmptyLines": false,
+    "topFilesLength": 5,
+    "showLineNumbers": false,
+    "copyToClipboard": false
+  },
+  "include": [
+    "**/*.md",
+    "**/*.mdx",
+    "**/*.ttl",
+    "**/*.json",
+    "**/*.ts",
+    "project/2024/*",
+    "rpp/2024/*"
+  ],
+  "ignore": {
+    "useGitignore": true,
+    "useDefaultPatterns": true,
+    "customPatterns": [
+      ".git",
+      "all-the-triples",
+      "includes",
+      "project",
+      "rpp"
+    ]
+  },
+  "security": {
+    "enableSecurityCheck": true
+  }
+}
